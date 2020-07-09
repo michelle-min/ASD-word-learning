@@ -34,18 +34,17 @@
 
   <script>
 
-  /* Introduction to experiment with welcome page and set up */
-  // timeline array
+  /* Introduction to experiment */
   var timeline = [];
 
-  // launch fullscreen mode
-  // note: this plugin will NOT work for Safari
+  /* Launch fullscreen mode
+  note: this plugin will NOT work for Safari */
   timeline.push({
     type: 'fullscreen',
     fullscreen_mode: true
   });
 
-  // welcome page
+  /* Welcome page */
   var welcome = {
     type: 'html-keyboard-response',
     stimulus: 'Welcome to this experiment! Press the space bar to continue.'
@@ -53,57 +52,77 @@
   timeline.push(welcome);
 
 
-  /* Pretest */
-  // pretest stimuli (4 stimuli)
-  var trial1 = ['stimuli/hornA.jpg', 'stimuli/distractor4.HEICcopy.jpg', 'stimuli/distractor14.jpg', 'stimuli/distractor51.jpg'];
-  var trial2 = ['stimuli/capB.HEICcopy.jpg', 'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg', 'stimuli/distractor30.jpg'];
-  var trial3 = ['stimuli/hornC.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg', 'stimuli/distractor39.jpg'];
-  var trial4 = ['stimuli/sheetC.HEICcopy.jpg', 'stimuli/distractor43.jpg', 'stimuli/distractor47.jpg', 'stimuli/distractor24.jpg'];
-  var trial5 = ['stimuli/hornB.HEICcopy.jpg', 'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg', 'stimuli/distractor33.jpg'];
-  var trial6 = ['stimuli/collarCcopy.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg', 'stimuli/distractor18.jpg'];
-  var trial7 = ['stimuli/glassesB.jpg', 'stimuli/distractor34.jpg', 'stimuli/distractor17.jpg', 'stimuli/distractor27.jpg'];
-  var trial8 = ['stimuli/capA.jpg', 'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg', 'stimuli/distractor15-1.jpg'];
-  var trial9 = ['stimuli/balloonA.HEICcopy.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg', 'stimuli/distractor36.jpg'];
-  var trial10 = ['stimuli/balloonB.HEICcopy.jpg', 'stimuli/distractor16.jpg', 'stimuli/distractor26.jpg', 'stimuli/distractor21.jpg'];
-  var trial11 = ['stimuli/sheetA.HEICcopy.jpg', 'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg', 'stimuli/distractor6.HEICcopy.jpg'];
-  var trial12 = ['stimuli/collarB.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg', 'stimuli/distractor3.HEICcopy.jpg'];
-  var trial13 = ['stimuli/sheetB.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg', 'stimuli/distractor48.jpg'];
-  var trial14 = ['stimuli/collarA.HEICcopy.jpg', 'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg', 'stimuli/distractor42.jpg'];
-  var trial15 = ['stimuli/glassesC.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg', 'stimuli/distractor9.HEICcopy.jpg'];
-  var trial16 = ['stimuli/glassesA.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg', 'stimuli/distractor54.jpg'];
-  var trial17 = ['stimuli/capC.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg', 'stimuli/distractor45.jpg'];
-  var trial18 = ['stimuli/balloonC.jpg', 'stimuli/distractor1.jpg', 'stimuli/distractor5.jpg', 'stimuli/distractor12.HEICcopy.jpg'];
-
-  // timeline variable of 18 pretest trial stimuli
+  /* Timeline variable of stimuli, with the target stimulus and
+  audio file for 18 trials */
   var pretest_stimuli = [
-    {choices: trial1, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial2, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial3, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial4, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial5, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial6, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial7, stimulus: 'stimuli/glassesrecording-whichis.mp3'},
-    {choices: trial8, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial9, stimulus: 'stimuli/balloonrecording.mp3'},
-    {choices: trial10, stimulus: 'stimuli/balloonrecording.mp3'},
-    {choices: trial11, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial12, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial13, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial14, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial15, stimulus: 'stimuli/glassesrecording-whichis.mp3'},
-    {choices: trial16, stimulus: 'stimuli/lassesrecording-whichis.mp3'},
-    {choices: trial17, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial18, stimulus: 'stimuli/balloonrecording.mp3'}
+    { choices: 'stimuli/hornA.jpg', stimulus: 'stimuli/hornrecording.mp3'} ,
+    { choices: 'stimuli/capB.HEICcopy.jpg', stimulus: 'stimuli/caprecording.mp3'} ,
+    { choices: 'stimuli/hornC.jpg', stimulus: 'stimuli/hornrecording.mp3'} ,
+    { choices: 'stimuli/sheetC.HEICcopy.jpg', stimulus: 'stimuli/sheetrecording.mp3'} ,
+    { choices: 'stimuli/hornB.HEICcopy.jpg', stimulus: 'stimuli/hornrecording.mp3'} ,
+    { choices: 'stimuli/collarCcopy.jpg', stimulus: 'stimuli/collarrecording.mp3'} ,
+    { choices: 'stimuli/glassesB.jpg', stimulus: 'stimuli/glassesrecording-whichis.mp3'} ,
+    { choices: 'stimuli/capA.jpg', stimulus: 'stimuli/caprecording.mp3'} ,
+    { choices: 'stimuli/balloonA.HEICcopy.jpg', stimulus: 'stimuli/balloonrecording.mp3'} ,
+    { choices: 'stimuli/balloonB.HEICcopy.jpg', stimulus: 'stimuli/balloonrecording.mp3'} ,
+    { choices: 'stimuli/sheetA.HEICcopy.jpg', stimulus: 'stimuli/sheetrecording.mp3'} ,
+    { choices: 'stimuli/collarB.jpg', stimulus: 'stimuli/collarrecording.mp3'} ,
+    { choices: 'stimuli/sheetB.HEICcopy.jpg', stimulus: 'stimuli/sheetrecording.mp3'} ,
+    { choices: 'stimuli/collarA.HEICcopy.jpg', stimulus: 'stimuli/collarrecording.mp3'} ,
+    { choices: 'stimuli/glassesC.jpg', stimulus: 'stimuli/glassesrecording-whichis.mp3'} ,
+    { choices: 'stimuli/glassesA.jpg', stimulus: 'stimuli/lassesrecording-whichis.mp3'} ,
+    { choices: 'stimuli/capC.jpg', stimulus: 'stimuli/caprecording.mp3'} ,
+    { choices: 'stimuli/balloonC.jpg', stimulus: 'stimuli/balloonrecording.mp3'}
   ]
 
-  // html for image button
+  /* Arry of all 50+ distractors and shuffle */
+  var allDistractors = ['stimuli/distractor4.HEICcopy.jpg', 'stimuli/distractor14.jpg',
+  'stimuli/distractor51.jpg', 'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg',
+  'stimuli/distractor30.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg',
+  'stimuli/distractor39.jpg', 'stimuli/distractor43.jpg', 'stimuli/distractor47.jpg',
+  'stimuli/distractor24.jpg', 'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg',
+  'stimuli/distractor33.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg',
+  'stimuli/distractor18.jpg', 'stimuli/distractor34.jpg', 'stimuli/distractor17.jpg',
+  'stimuli/distractor27.jpg', 'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg',
+  'stimuli/distractor15-1.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg',
+  'stimuli/distractor36.jpg', 'stimuli/distractor16.jpg', 'stimuli/distractor26.jpg',
+  'stimuli/distractor21.jpg', 'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg',
+  'stimuli/distractor6.HEICcopy.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg',
+  'stimuli/distractor3.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg',
+  'stimuli/distractor48.jpg', 'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg',
+  'stimuli/distractor42.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg',
+  'stimuli/distractor9.HEICcopy.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg',
+  'stimuli/distractor54.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg',
+  'stimuli/distractor45.jpg', 'stimuli/distractor1.jpg', 'stimuli/distractor5.jpg',
+  'stimuli/distractor12.HEICcopy.jpg']
+  var shuffledDistractors = jsPsych.randomization.shuffle(allDistractors);
+
+  /* HTML for image button */
   var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>'
 
-  // pretest audio button trial
+  /* Pretest audio-button trial */
   var pretest_audiotrial = {
       type: 'audio-button-response',
       stimulus: jsPsych.timelineVariable('stimulus'),
-      choices: jsPsych.timelineVariable('choices'),
+      choices: function(){
+        // function to select target stimuli and matching audio
+        var target = jsPsych.timelineVariable('choices', true); // output is string
+        // sample three (or one) distractors without replacement
+        var sampledDistractors = jsPsych.randomization.sampleWithoutReplacement(shuffledDistractors, 3);
+        // and store distractors as variables distractors
+        var dist1 = sampledDistractors[0]; // output is string
+        var dist2 = sampledDistractors[1];
+        var dist3 = sampledDistractors[2];
+
+        // combine all four in an array and put in quotes for choices formatting
+        var combinedStimuli = [target, dist1, dist2, dist3];
+        for (var item in combinedStimuli) {
+            item = "'" + item + "'"
+        }
+
+        // randomly shuffle order of selected stimuli and return list of strings
+        return jsPsych.randomization.shuffle(combinedStimuli);
+      },
       button_html: stimButton
   };
 
@@ -114,24 +133,6 @@
     randomize_order: true
   };
   timeline.push(pretest_procedure);
-
-  /*
-  // code for pre-test trials (sample without replacement or randomize)
-  var pretest = {
-      timeline: [
-          {stimulus: 'image1.png'},
-          {stimulus: 'image2.png'},
-          {stimulus: 'image3.png'}
-      ]
-  };
-
-  // prototype image trial
-  var imagetrial = {
-      type: 'image-keyboard-response',
-      stimulus: 'stimuli/glassesA.jpg'
-  };
-  timeline.push(imagetrial);
-  */
 
 
   // array of paths to stimuli that need to be loaded
@@ -150,14 +151,15 @@
     'stimuli/distractor36.jpg', 'stimuli/balloonB.HEICcopy.jpg', 'stimuli/distractor16.jpg',
     'stimuli/distractor26.jpg', 'stimuli/distractor21.jpg', 'stimuli/sheetA.HEICcopy.jpg',
     'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg', 'stimuli/distractor6.HEICcopy.jpg',
-    'stimuli/collarB.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg', 'stimuli/distractor3.HEICcopy.jpg',
-    'stimuli/sheetB.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg',
-    'stimuli/distractor48.jpg', 'stimuli/collarA.HEICcopy.jpg', 'stimuli/distractor13.jpg',
-    'stimuli/distractor29.jpg', 'stimuli/distractor42.jpg', 'stimuli/glassesC.jpg',
-    'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg', 'stimuli/distractor9.HEICcopy.jpg',
-    'stimuli/glassesA.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg', 'stimuli/distractor54.jpg',
-    'stimuli/capC.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg',
-    'stimuli/distractor45.jpg', 'stimuli/balloonC.jpg', 'stimuli/distractor1.jpg',
+    'stimuli/collarB.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg',
+    'stimuli/distractor3.HEICcopy.jpg', 'stimuli/sheetB.HEICcopy.jpg', 'stimuli/distractor37.jpg',
+    'stimuli/distractor53.jpg', 'stimuli/distractor48.jpg', 'stimuli/collarA.HEICcopy.jpg',
+    'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg', 'stimuli/distractor42.jpg',
+    'stimuli/glassesC.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg',
+    'stimuli/distractor9.HEICcopy.jpg', 'stimuli/glassesA.jpg', 'stimuli/distractor46.jpg',
+    'stimuli/distractor23.jpg', 'stimuli/distractor54.jpg', 'stimuli/capC.jpg',
+    'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg', 'stimuli/distractor45.jpg',
+    'stimuli/balloonC.jpg', 'stimuli/distractor1.jpg',
     'stimuli/distractor5.jpg', 'stimuli/distractor12.HEICcopy.jpg'];
 
   var audio = ['stimuli/hornrecording.mp3', 'stimuli/caprecording.mp3', 'stimuli/hornrecording.mp3',
