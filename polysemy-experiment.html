@@ -34,80 +34,83 @@
 
   <script>
 
-  /* Introduction to experiment with welcome page and set up */
-  // timeline array
   var timeline = [];
 
-  // launch fullscreen mode
-  // note: this plugin will NOT work for Safari
+  /* Launch fullscreen mode
+  note: this plugin will NOT work for Safari */
   timeline.push({
     type: 'fullscreen',
     fullscreen_mode: true
   });
 
-  // welcome page
+  /* Welcome page */
   var welcome = {
     type: 'html-keyboard-response',
     stimulus: 'Welcome to this experiment! Press the space bar to continue.'
   };
   timeline.push(welcome);
 
+  /* Arry of all 50+  distractors and shuffle */
+  var allDistractors = ['stimuli/distractor4.HEICcopy.jpg', 'stimuli/distractor14.jpg',
+  'stimuli/distractor51.jpg', 'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg',
+  'stimuli/distractor30.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg',
+  'stimuli/distractor39.jpg', 'stimuli/distractor43.jpg', 'stimuli/distractor47.jpg',
+  'stimuli/distractor24.jpg', 'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg',
+  'stimuli/distractor33.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg',
+  'stimuli/distractor18.jpg', 'stimuli/distractor34.jpg', 'stimuli/distractor17.jpg',
+  'stimuli/distractor27.jpg', 'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg',
+  'stimuli/distractor15-1.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg',
+  'stimuli/distractor36.jpg', 'stimuli/distractor16.jpg', 'stimuli/distractor26.jpg',
+  'stimuli/distractor21.jpg', 'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg',
+  'stimuli/distractor6.HEICcopy.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg',
+  'stimuli/distractor3.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg',
+  'stimuli/distractor48.jpg', 'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg',
+  'stimuli/distractor42.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg',
+  'stimuli/distractor9.HEICcopy.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg',
+  'stimuli/distractor54.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg',
+  'stimuli/distractor45.jpg', 'stimuli/distractor1.jpg', 'stimuli/distractor5.jpg',
+  'stimuli/distractor12.HEICcopy.jpg']
+  var allDistractors = jsPsych.randomization.shuffle(allDistractors);
 
-  /* Pretest */
-  // pretest stimuli (4 stimuli)
-  var trial1 = ['stimuli/hornA.jpg', 'stimuli/distractor4.HEICcopy.jpg', 'stimuli/distractor14.jpg', 'stimuli/distractor51.jpg'];
-  var trial2 = ['stimuli/capB.HEICcopy.jpg', 'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg', 'stimuli/distractor30.jpg'];
-  var trial3 = ['stimuli/hornC.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg', 'stimuli/distractor39.jpg'];
-  var trial4 = ['stimuli/sheetC.HEICcopy.jpg', 'stimuli/distractor43.jpg', 'stimuli/distractor47.jpg', 'stimuli/distractor24.jpg'];
-  var trial5 = ['stimuli/hornB.HEICcopy.jpg', 'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg', 'stimuli/distractor33.jpg'];
-  var trial6 = ['stimuli/collarCcopy.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg', 'stimuli/distractor18.jpg'];
-  var trial7 = ['stimuli/glassesB.jpg', 'stimuli/distractor34.jpg', 'stimuli/distractor17.jpg', 'stimuli/distractor27.jpg'];
-  var trial8 = ['stimuli/capA.jpg', 'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg', 'stimuli/distractor15-1.jpg'];
-  var trial9 = ['stimuli/balloonA.HEICcopy.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg', 'stimuli/distractor36.jpg'];
-  var trial10 = ['stimuli/balloonB.HEICcopy.jpg', 'stimuli/distractor16.jpg', 'stimuli/distractor26.jpg', 'stimuli/distractor21.jpg'];
-  var trial11 = ['stimuli/sheetA.HEICcopy.jpg', 'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg', 'stimuli/distractor6.HEICcopy.jpg'];
-  var trial12 = ['stimuli/collarB.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg', 'stimuli/distractor3.HEICcopy.jpg'];
-  var trial13 = ['stimuli/sheetB.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg', 'stimuli/distractor48.jpg'];
-  var trial14 = ['stimuli/collarA.HEICcopy.jpg', 'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg', 'stimuli/distractor42.jpg'];
-  var trial15 = ['stimuli/glassesC.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg', 'stimuli/distractor9.HEICcopy.jpg'];
-  var trial16 = ['stimuli/glassesA.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg', 'stimuli/distractor54.jpg'];
-  var trial17 = ['stimuli/capC.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg', 'stimuli/distractor45.jpg'];
-  var trial18 = ['stimuli/balloonC.jpg', 'stimuli/distractor1.jpg', 'stimuli/distractor5.jpg', 'stimuli/distractor12.HEICcopy.jpg'];
+  /* Arry of all 18 targets */
+  var allTargets = ['stimuli/hornA.jpg', 'stimuli/capB.HEICcopy.jpg', 'stimuli/hornC.jpg',
+  'stimuli/sheetC.HEICcopy.jpg', 'stimuli/hornB.HEICcopy.jpg', 'stimuli/collarCcopy.jpg',
+  'stimuli/glassesB.jpg', 'stimuli/capA.jpg', 'stimuli/balloonA.HEICcopy.jpg',
+  'stimuli/balloonB.HEICcopy.jpg', 'stimuli/sheetA.HEICcopy.jpg', 'stimuli/collarB.jpg',
+  'stimuli/sheetB.HEICcopy.jpg', 'stimuli/collarA.HEICcopy.jpg', 'stimuli/glassesC.jpg',
+  'stimuli/glassesA.jpg', 'stimuli/capC.jpg', 'stimuli/balloonC.jpg']
 
-  // timeline variable of 18 pretest trial stimuli
-  var pretest_stimuli = [
-    {choices: trial1, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial2, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial3, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial4, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial5, stimulus: 'stimuli/hornrecording.mp3'},
-    {choices: trial6, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial7, stimulus: 'stimuli/glassesrecording-whichis.mp3'},
-    {choices: trial8, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial9, stimulus: 'stimuli/balloonrecording.mp3'},
-    {choices: trial10, stimulus: 'stimuli/balloonrecording.mp3'},
-    {choices: trial11, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial12, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial13, stimulus: 'stimuli/sheetrecording.mp3'},
-    {choices: trial14, stimulus: 'stimuli/collarrecording.mp3'},
-    {choices: trial15, stimulus: 'stimuli/glassesrecording-whichis.mp3'},
-    {choices: trial16, stimulus: 'stimuli/lassesrecording-whichis.mp3'},
-    {choices: trial17, stimulus: 'stimuli/caprecording.mp3'},
-    {choices: trial18, stimulus: 'stimuli/balloonrecording.mp3'}
-  ]
+  /* Arry of all 18 audio recordings  */
+  var allAudio = ['stimuli/hornrecording.mp3', 'stimuli/caprecording.mp3',
+  'stimuli/hornrecording.mp3', 'stimuli/sheetrecording.mp3', 'stimuli/hornrecording.mp3',
+  'stimuli/collarrecording.mp3', 'stimuli/glassesrecording-whichis.mp3',
+  'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3', 'stimuli/balloonrecording.mp3',
+  'stimuli/sheetrecording.mp3', 'stimuli/collarrecording.mp3', 'stimuli/sheetrecording.mp3',
+  'stimuli/collarrecording.mp3', 'stimuli/glassesrecording-whichis.mp3',
+  'stimuli/glassesrecording-whichis.mp3', 'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3']
 
-  // html for image button
-  var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>'
+  /* Timeline variable of stimuli with the target stimulus, three distractors,
+   and audio file for 18 trials; Shuffle the order of choices within each trial
+   note: delete two distractors from for loop for a 2-choice experiment  */
+  var pretest_stimuli = [];
+  for (i = 0; i < allTargets.length; i++) {
+    trialChoices = [allTargets[i], allDistractors[3*i], allDistractors[3*i+1], allDistractors[3*i+2]];
+    trialChoices = jsPsych.randomization.shuffle(trialChoices);
+    pretest_stimuli[i] = {choices: trialChoices, audio: allAudio[i]}, + "\n";
+  }
 
-  // pretest audio button trial
+  /* HTML for image button */
+  var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
+
+  /* Pretest audio-button trial */
   var pretest_audiotrial = {
       type: 'audio-button-response',
-      stimulus: jsPsych.timelineVariable('stimulus'),
+      stimulus: jsPsych.timelineVariable('audio'),
       choices: jsPsych.timelineVariable('choices'),
       button_html: stimButton
   };
 
-  //pretest procedure
+  /* Pretest procedure */
   var pretest_procedure = {
     timeline: [pretest_audiotrial],
     timeline_variables: pretest_stimuli,
@@ -115,71 +118,17 @@
   };
   timeline.push(pretest_procedure);
 
-  /*
-  // code for pre-test trials (sample without replacement or randomize)
-  var pretest = {
-      timeline: [
-          {stimulus: 'image1.png'},
-          {stimulus: 'image2.png'},
-          {stimulus: 'image3.png'}
-      ]
-  };
+  /* Array of paths to all images for preloading */
+  var allImages = allDistractors.concat(allTargets);
 
-  // prototype image trial
-  var imagetrial = {
-      type: 'image-keyboard-response',
-      stimulus: 'stimuli/glassesA.jpg'
-  };
-  timeline.push(imagetrial);
-  */
-
-
-  // array of paths to stimuli that need to be loaded
-  var images = ['stimuli/hornA.jpg', 'stimuli/distractor4.HEICcopy.jpg',
-    'stimuli/distractor14.jpg', 'stimuli/distractor51.jpg', 'stimuli/capB.HEICcopy.jpg',
-    'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg', 'stimuli/distractor30.jpg',
-    'stimuli/hornC.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg',
-    'stimuli/distractor39.jpg', 'stimuli/sheetC.HEICcopy.jpg', 'stimuli/distractor43.jpg',
-    'stimuli/distractor47.jpg', 'stimuli/distractor24.jpg', 'stimuli/hornB.HEICcopy.jpg',
-    'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg', 'stimuli/distractor33.jpg',
-    'stimuli/collarCcopy.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg',
-    'stimuli/distractor18.jpg', 'stimuli/glassesB.jpg', 'stimuli/distractor34.jpg',
-    'stimuli/distractor17.jpg', 'stimuli/distractor27.jpg', 'stimuli/capA.jpg',
-    'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg', 'stimuli/distractor15-1.jpg',
-    'stimuli/balloonA.HEICcopy.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg',
-    'stimuli/distractor36.jpg', 'stimuli/balloonB.HEICcopy.jpg', 'stimuli/distractor16.jpg',
-    'stimuli/distractor26.jpg', 'stimuli/distractor21.jpg', 'stimuli/sheetA.HEICcopy.jpg',
-    'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg', 'stimuli/distractor6.HEICcopy.jpg',
-    'stimuli/collarB.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg', 'stimuli/distractor3.HEICcopy.jpg',
-    'stimuli/sheetB.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg',
-    'stimuli/distractor48.jpg', 'stimuli/collarA.HEICcopy.jpg', 'stimuli/distractor13.jpg',
-    'stimuli/distractor29.jpg', 'stimuli/distractor42.jpg', 'stimuli/glassesC.jpg',
-    'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg', 'stimuli/distractor9.HEICcopy.jpg',
-    'stimuli/glassesA.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg', 'stimuli/distractor54.jpg',
-    'stimuli/capC.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg',
-    'stimuli/distractor45.jpg', 'stimuli/balloonC.jpg', 'stimuli/distractor1.jpg',
-    'stimuli/distractor5.jpg', 'stimuli/distractor12.HEICcopy.jpg'];
-
-  var audio = ['stimuli/hornrecording.mp3', 'stimuli/caprecording.mp3', 'stimuli/hornrecording.mp3',
-  'stimuli/sheetrecording.mp3', 'stimuli/hornrecording.mp3', 'stimuli/collarrecording.mp3',
-  'stimuli/glassesrecording-whichis.mp3', 'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3',
-  'stimuli/balloonrecording.mp3', 'stimuli/sheetrecording.mp3', 'stimuli/collarrecording.mp3',
-  'stimuli/sheetrecording.mp3', 'stimuli/collarrecording.mp3', 'stimuli/glassesrecording-whichis.mp3',
-  'stimuli/glassesrecording-whichis.mp3', 'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3'];
-
-
-  // initialize
+  /* Initialize */
   jsPsych.init({
     timeline: timeline,
-    // preload because using timeline variable
-    preload_images: images,
-    preload_audio: audio,
-    // default intertrial interval (ms)
-    default_iti: 100,
-    // maximum experiment width
-    experiment_width: 750,
-    // for loading audio through HTML5 when running experiment locally
-    use_webaudio: false
+    preload_images: allImages, // preload because timeline variable
+    preload_audio: allAudio,
+    default_iti: 100, // intertrial interval (ms)
+    experiment_width: 750, // max experiment width
+    use_webaudio: false // for loading audio through HTML5 when running locally
     /* excludes browsers that do not have access to WebAudio API
     exclusions: {
       audio: true
