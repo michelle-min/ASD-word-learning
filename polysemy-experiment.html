@@ -2,36 +2,25 @@
 <html>
   <head>
     <title> Polysemy Experiment </title>
-
     <script src="jspsych-6.1.0/jspsych.js"></script>
-    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js">
-      </script>
-    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js">
-      </script>
-    <script src="jspsych-6.1.0/plugins/jspsych-audio-button-response.js">
-      </script>
-    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js">
-      </script>
-    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css">
-      </link>
-
+    <script src="jspsych-6.1.0/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-audio-button-response.js"></script>
+    <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
+    <script src ="trial_info.js"></script>
+    <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <style>
       .grid-container {
         display: grid;
         grid-template-columns: 1;
         grid-template-rows: 1;
       }
-
       .grid-container > div {
         margin: 40px;
       }
-
     </style>
   </head>
-
-  <body>
-  </body>
-
+  <body></body>
   <script>
 
   var timeline = [];
@@ -50,73 +39,57 @@
   };
   timeline.push(welcome);
 
-  /* Arry of all 50+  distractors and shuffle */
-  var allDistractors = ['stimuli/distractor4.HEICcopy.jpg', 'stimuli/distractor14.jpg',
-  'stimuli/distractor51.jpg', 'stimuli/distractor31.jpg', 'stimuli/distractor20.jpg',
-  'stimuli/distractor30.jpg', 'stimuli/distractor7.HEICcopy.jpg', 'stimuli/distractor38.jpg',
-  'stimuli/distractor39.jpg', 'stimuli/distractor43.jpg', 'stimuli/distractor47.jpg',
-  'stimuli/distractor24.jpg', 'stimuli/distractor49.jpg', 'stimuli/distractor32.jpg',
-  'stimuli/distractor33.jpg', 'stimuli/distractor25.jpg', 'stimuli/distractor35.jpg',
-  'stimuli/distractor18.jpg', 'stimuli/distractor34.jpg', 'stimuli/distractor17.jpg',
-  'stimuli/distractor27.jpg', 'stimuli/distractor52.jpg', 'stimuli/distractor8.HEICcopy.jpg',
-  'stimuli/distractor15-1.jpg', 'stimuli/distractor22.jpg', 'stimuli/distractor41.jpg',
-  'stimuli/distractor36.jpg', 'stimuli/distractor16.jpg', 'stimuli/distractor26.jpg',
-  'stimuli/distractor21.jpg', 'stimuli/distractor40.jpg', 'stimuli/distractor44.jpg',
-  'stimuli/distractor6.HEICcopy.jpg', 'stimuli/distractor28.jpg', 'stimuli/distractor11.HEICcopy.jpg',
-  'stimuli/distractor3.HEICcopy.jpg', 'stimuli/distractor37.jpg', 'stimuli/distractor53.jpg',
-  'stimuli/distractor48.jpg', 'stimuli/distractor13.jpg', 'stimuli/distractor29.jpg',
-  'stimuli/distractor42.jpg', 'stimuli/distractor19.jpg', 'stimuli/distractor2.HEICcopy.jpg',
-  'stimuli/distractor9.HEICcopy.jpg', 'stimuli/distractor46.jpg', 'stimuli/distractor23.jpg',
-  'stimuli/distractor54.jpg', 'stimuli/distractor10.HEICcopy.jpg', 'stimuli/distractor50.jpg',
-  'stimuli/distractor45.jpg', 'stimuli/distractor1.jpg', 'stimuli/distractor5.jpg',
-  'stimuli/distractor12.HEICcopy.jpg']
+  /* Intro block: */
+
+
+  /* Trial block: timeline variable of stimuli with the target stimulus, 3 distractors,
+   and audio file for 18 trials; shuffle the order of choices within each trial;
+   record all info in timeline variable for data purposes later.
+   note: delete two distractors from for loop for a 2-choice experiment */
   var allDistractors = jsPsych.randomization.shuffle(allDistractors);
-
-  /* Arry of all 18 targets */
-  var allTargets = ['stimuli/hornA.jpg', 'stimuli/capB.HEICcopy.jpg', 'stimuli/hornC.jpg',
-  'stimuli/sheetC.HEICcopy.jpg', 'stimuli/hornB.HEICcopy.jpg', 'stimuli/collarCcopy.jpg',
-  'stimuli/glassesB.jpg', 'stimuli/capA.jpg', 'stimuli/balloonA.HEICcopy.jpg',
-  'stimuli/balloonB.HEICcopy.jpg', 'stimuli/sheetA.HEICcopy.jpg', 'stimuli/collarB.jpg',
-  'stimuli/sheetB.HEICcopy.jpg', 'stimuli/collarA.HEICcopy.jpg', 'stimuli/glassesC.jpg',
-  'stimuli/glassesA.jpg', 'stimuli/capC.jpg', 'stimuli/balloonC.jpg']
-
-  /* Arry of all 18 audio recordings  */
-  var allAudio = ['stimuli/hornrecording.mp3', 'stimuli/caprecording.mp3',
-  'stimuli/hornrecording.mp3', 'stimuli/sheetrecording.mp3', 'stimuli/hornrecording.mp3',
-  'stimuli/collarrecording.mp3', 'stimuli/glassesrecording-whichis.mp3',
-  'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3', 'stimuli/balloonrecording.mp3',
-  'stimuli/sheetrecording.mp3', 'stimuli/collarrecording.mp3', 'stimuli/sheetrecording.mp3',
-  'stimuli/collarrecording.mp3', 'stimuli/glassesrecording-whichis.mp3',
-  'stimuli/glassesrecording-whichis.mp3', 'stimuli/caprecording.mp3', 'stimuli/balloonrecording.mp3']
-
-  /* Timeline variable of stimuli with the target stimulus, three distractors,
-   and audio file for 18 trials; Shuffle the order of choices within each trial
-   note: delete two distractors from for loop for a 2-choice experiment  */
   var pretest_stimuli = [];
   for (i = 0; i < allTargets.length; i++) {
     trialChoices = [allTargets[i], allDistractors[3*i], allDistractors[3*i+1], allDistractors[3*i+2]];
     trialChoices = jsPsych.randomization.shuffle(trialChoices);
-    pretest_stimuli[i] = {choices: trialChoices, audio: allAudio[i]}, + "\n";
+    pretest_stimuli[i] = {choices: trialChoices, audio: allAudio[i], target: allTargets[i]}, + "\n";
   }
 
-  /* HTML for image button */
+  /* Trial block: HTML for image button */
   var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
-  /* Pretest audio-button trial */
+  /* Trial block: audio-button trial for target */
   var pretest_audiotrial = {
       type: 'audio-button-response',
       stimulus: jsPsych.timelineVariable('audio'),
       choices: jsPsych.timelineVariable('choices'),
-      button_html: stimButton
+      button_html: stimButton,
+      data: {
+        choices: jsPsych.timelineVariable('choices'),
+        audio: jsPsych.timelineVariable('audio'),
+        target: jsPsych.timelineVariable('target'),
+        experiment_part: 'trial'
+      },
+      on_finish: function(data){
+        var acc = false;
+        var indexNumber = data.button_pressed;
+        if (data.target == data.choices[indexNumber]) {
+          acc = true
+        }
+        data.accuracy = acc;
+      }
   };
 
-  /* Pretest procedure */
+  /* Trial block: audio-button trial for fillers */
+
+  /* Trial block: procedure */
   var pretest_procedure = {
     timeline: [pretest_audiotrial],
     timeline_variables: pretest_stimuli,
     randomize_order: true
   };
   timeline.push(pretest_procedure);
+
+  /* Exit page */
 
   /* Array of paths to all images for preloading */
   var allImages = allDistractors.concat(allTargets);
@@ -128,7 +101,10 @@
     preload_audio: allAudio,
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
-    use_webaudio: false // for loading audio through HTML5 when running locally
+    use_webaudio: false, // load audio through HTML5 when running locally
+    on_finish: function(){
+      jsPsych.data.displayData(); // saved data
+    }
     /* excludes browsers that do not have access to WebAudio API
     exclusions: {
       audio: true
@@ -137,5 +113,4 @@
   });
 
   </script>
-
 </html>
