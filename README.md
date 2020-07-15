@@ -1,6 +1,6 @@
 # ASD-word-learning
 
-Code for the ASD and word learning experiment, using the library jsPsych.
+Code for the ASD and word learning experiment, using jsPsych.
 
 # Reference Links
 - https://www.w3schools.com/css/css_grid.asp
