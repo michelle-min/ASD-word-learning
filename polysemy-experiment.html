@@ -7,7 +7,7 @@
     <script src="jspsych-6.1.0/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-audio-button-response.js"></script>
     <script src="jspsych-6.1.0/plugins/jspsych-fullscreen.js"></script>
-    <script src ="trial_info.js"></script>
+    <script src="trial_info.js"></script>
     <link href="jspsych-6.1.0/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <style>
       .grid-container {
@@ -39,26 +39,31 @@
   };
   timeline.push(welcome);
 
-  /* Intro block: */
+/* Intro block: */
 
 
-  /* Trial block: timeline variable of stimuli with the target stimulus, 3 distractors,
-   and audio file for 18 trials; shuffle the order of choices within each trial;
-   record all info in timeline variable for data purposes later.
-   note: delete two distractors from for loop for a 2-choice experiment */
+/* Trial Block */
+
+  /* Shuffle list of distractors (loaded from trial_info.js) */
   var allDistractors = jsPsych.randomization.shuffle(allDistractors);
-  var pretest_stimuli = [];
+  var allTargets
+  var allAudio
+
+  /* Create timeline variable of target, 3 distractors, and audio for 18
+  trials; shuffle choice order within each trial; record info for later.
+  note: delete two distractors from loop for a 2-choice experiment */
+  var trial_stimuli = [];
   for (i = 0; i < allTargets.length; i++) {
     trialChoices = [allTargets[i], allDistractors[3*i], allDistractors[3*i+1], allDistractors[3*i+2]];
     trialChoices = jsPsych.randomization.shuffle(trialChoices);
-    pretest_stimuli[i] = {choices: trialChoices, audio: allAudio[i], target: allTargets[i]}, + "\n";
+    trial_stimuli[i] = {choices: trialChoices, audio: allAudio[i], target: allTargets[i]}, + "\n";
   }
 
-  /* Trial block: HTML for image button */
+  /* HTML for image buttons */
   var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
-  /* Trial block: audio-button trial for target */
-  var pretest_audiotrial = {
+  /* Audio-button trial */
+  var trial_audiobutton = {
       type: 'audio-button-response',
       stimulus: jsPsych.timelineVariable('audio'),
       choices: jsPsych.timelineVariable('choices'),
@@ -79,22 +84,26 @@
       }
   };
 
-  /* Trial block: audio-button trial for fillers */
+  /* Audio-button trial for fillers
+  var filler_audiobutton =
+  */
 
-  /* Trial block: procedure */
-  var pretest_procedure = {
-    timeline: [pretest_audiotrial],
-    timeline_variables: pretest_stimuli,
+  /* Procedure - intersperse target trials with filler trials */
+  var trial_procedure = {
+    timeline: [trial_audiobutton],
+    timeline_variables: trial_stimuli,
     randomize_order: true
   };
-  timeline.push(pretest_procedure);
+  timeline.push(trial_procedure);
 
   /* Exit page */
+
+
+/* Initialize */
 
   /* Array of paths to all images for preloading */
   var allImages = allDistractors.concat(allTargets);
 
-  /* Initialize */
   jsPsych.init({
     timeline: timeline,
     preload_images: allImages, // preload because timeline variable
@@ -105,7 +114,7 @@
     on_finish: function(){
       jsPsych.data.displayData(); // saved data
     }
-    /* excludes browsers that do not have access to WebAudio API
+    /* excludes browsers that don't have access to WebAudio API
     exclusions: {
       audio: true
     }
