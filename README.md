@@ -8,8 +8,7 @@ In this task, participants are shown an intro block and a test block. The **intr
 
 ## PAL Task
 
-The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. There are two blocks for training and free sort. In the **train block**, 18 videos are played in random order. Each video associates a symbol and object through movement. The videos are played twice with movement in opposite directions.
-
+The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. There are two blocks of training and two blocks of free sort. In both **train blocks**, there are 9 videos that associate a symbol and object through movement. Of the two train block, one is iconic and the other is ambiguous.
 
 # Links
 
