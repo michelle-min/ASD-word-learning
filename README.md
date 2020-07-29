@@ -23,3 +23,5 @@ The PAL task has participants learn a pair of images, one a symbol and the other
 - Not a problem? https://github.com/jspsych/jsPsych/discussions/606
 - Fix on Chrome: https://github.com/jspsych/jsPsych/discussions/606
 - Fix on Safari: https://stackoverflow.com/questions/47839947/xmlhttprequest-cannot-load-file-preflight-response-is-not-successful-er
+  - Safari > Preferences > Advanced > Show Develop menu in menu bar
+  - Develop > Disable Local File Restrictions
