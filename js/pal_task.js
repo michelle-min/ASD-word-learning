@@ -1,7 +1,7 @@
 /* 3. PAL Task: ambiguous training blocks */
 
   /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
-  var amb_stimuli = [];
+  var ambStimuli = [];
   for (i = 0; i < cond1.length/2; i++) {
     var vidName = cond1[i];
     var vidName = vidName.replace("videos/cond1_", "");
@@ -11,20 +11,18 @@
     var vidObjectNumber = vidName[1];
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
-    amb_stimuli[i] = {
+    ambStimuli[i] = {
       video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
     }
 
   /* Split stimuli into iconic and ambiguous conditions */
   // var popHalf = cond1.length/2;
-  // var train_stimuli1 = [];
-  // var train_stimuli2 = [];
   // for (i = 0; i < popHalf; i += 1) {
   //     var train_stimuli1[i] = trainStimuli[i];
   // };
 
   /* Video-keyboard trial for PAL task */
-  var pal_videokeyboard = {
+  var ambVideokeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
       width: 640,
@@ -40,7 +38,7 @@
   };
 
   /* Audio-button trial for PAL task */
-  var pal_audiobutton = {
+  var palAudiobutton = {
         type: 'audio-button-response',
         stimulus: 'audio/teachingaudio.mp3',
         choices: ['next'],
@@ -48,9 +46,9 @@
 
 
   /* Procedure for target trials in the test block */
-  var amb_pal_procedure = {
-    timeline: [pal_audiobutton, pal_videokeyboard],
-    timeline_variables: amb_stimuli,
+  var amb_train_procedure = {
+    timeline: [palAudiobutton, ambVideokeyboard],
+    timeline_variables: ambStimuli,
     randomize_order: true
   };
 

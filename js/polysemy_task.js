@@ -3,11 +3,11 @@
   /* Create timeline variable of target, 3 distractors, and audio for 8 trials;
   shuffle choice order within each trial; record block info for analysis.
   note: delete two distractors from loop for a 2-choice experiment */
-  var intro_stimuli = [];
+  var introStimuli = [];
   for (i = 0; i < introTargets.length; i++) {
     introChoices = [introImages[4*i], introImages[4*i+1], introImages[4*i+2], introImages[4*i+3]];
     introChoices = jsPsych.randomization.shuffle(introChoices);
-    intro_stimuli[i] = {choices: introChoices, audio: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
+    introStimuli[i] = {choices: introChoices, audio: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
   }
 
   /* HTML for all image buttons */
@@ -17,7 +17,7 @@
   var stimButtonTranslucent = '<div class="grid-container-translucent"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* Audio-button trial */
-  var polysemy_intro_audiobutton = {
+  var introAudiobutton = {
     timeline: [
       {
         type: 'audio-button-response',
@@ -51,9 +51,9 @@
   };
 
   /* Procedure for an intro block that shuffles trial order */
-  var polysemy_intro_procedure = {
-    timeline: [polysemy_intro_audiobutton],
-    timeline_variables: intro_stimuli,
+  var pol_intro_procedure = {
+    timeline: [introAudiobutton],
+    timeline_variables: introStimuli,
     randomize_order: true
   };
 
@@ -65,15 +65,15 @@
   /* Create timeline variable of target, 3 distractors, and audio for 18 trials;
   shuffle choice order within each trial; record info for later.
   note: delete two distractors from loop for a 2-choice experiment */
-  var test_stimuli = [];
+  var testStimuli = [];
   for (i = 0; i < testTargets.length; i++) {
     testChoices = [testTargets[i], testDistractors[3*i], testDistractors[3*i+1], testDistractors[3*i+2]];
     testChoices = jsPsych.randomization.shuffle(testChoices);
-    test_stimuli[i] = {choices: testChoices, audio: testAudio[i], target: testTargets[i], block: 'test'}, + "\n";
+    testStimuli[i] = {choices: testChoices, audio: testAudio[i], target: testTargets[i], block: 'test'}, + "\n";
   }
 
   /* Audio-button trial */
-  var polysemy_test_audiobutton = {
+  var testAudiobutton = {
     type: 'audio-button-response',
     stimulus: jsPsych.timelineVariable('audio'),
     choices: jsPsych.timelineVariable('choices'),
@@ -96,8 +96,8 @@
   };
 
   /* Procedure for target trials in the test block */
-  var polysemy_trial_procedure = {
-    timeline: [polysemy_test_audiobutton],
-    timeline_variables: test_stimuli,
+  var pol_trial_procedure = {
+    timeline: [testAudiobutton],
+    timeline_variables: testStimuli,
     randomize_order: true // switch to 'sample:' when there are fillers
   };
