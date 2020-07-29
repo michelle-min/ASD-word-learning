@@ -104,10 +104,10 @@
     randomize_order: true // switch to 'sample:' when there are fillers
   };
 
-/* 3. PAL Task: two train blocks */
+/* 3. PAL Task: ambiguous training blocks */
 
   /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
-  var train_stimuli1 = [];
+  var amb_stimuli = [];
   for (i = 0; i < cond1.length/2; i++) {
     var vidName = cond1[i];
     var vidName = vidName.replace("videos/cond1_", "");
@@ -117,7 +117,7 @@
     var vidObjectNumber = vidName[1];
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
-    train_stimuli1[i] = {
+    amb_stimuli[i] = {
       video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
     }
 

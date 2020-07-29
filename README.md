@@ -1,6 +1,6 @@
 # ASD-word-learning
 
-Code for the ASD and word learning experiment, using jsPsych. There are three tasks: polysemy, iconic PAL, and arbitrary PAL. (These are tagged as 'polysemy', 'pal', 'ico', and 'arb'.) The order of these tasks is randomized within a welcome page and conclusion page.
+Code for the ASD and word learning experiment, using jsPsych. There are three tasks: polysemy, iconic PAL, and arbitrary PAL. (These are tagged as 'polysemy', 'ico_pal', and 'amb_pal'.) The order of these tasks is randomized within a welcome page and conclusion page.
 
 ## Polysemy Task
 
@@ -8,7 +8,7 @@ In this task, participants are shown an intro block and a test block. The **intr
 
 ## PAL Task
 
-The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. There are two blocks of training and two blocks of free sort. In both **train blocks**, there are 9 videos that associate a symbol and object through movement. Of the two train block, one is iconic and the other is ambiguous.
+The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. There are two blocks of training and two blocks of free sort. In both **train blocks**, there are 9 videos that associate a symbol and object through movement. Of the two train block, one is iconic (output saved as `ico_stimuli`) and the other is ambiguous (output saved as `amb_stimuli`). The corresponding **sort blocks** display the 9 pairs of symbol-object (18 images total) and ask the participant to move the similar items together.
 
 # Links
 
