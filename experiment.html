@@ -9,17 +9,30 @@
     <script src="js/jspsych/plugins/jspsych-audio-button-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-video-keyboard-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
-    <script src="js/polysemy_info.js"></script>
-    <script src="js/pal_info.js"></script>
+    <script src="js/polysemy_stim.js"></script>
+    <script src="js/polysemy_task.js"></script>
+    <script src="js/pal_stim.js"></script>
+    <script src="js/pal_task.js"></script>
     <link href="js/jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <style>
       .grid-container {
         display: grid;
+        align-content: center;
         grid-template-columns: 1;
         grid-template-rows: 1;
       }
       .grid-container > div {
-        margin: 40px;
+        margin: 50px;
+      }
+      .grid-container-translucent {
+        display: grid;
+        align-content: center;
+        grid-template-columns: 1;
+        grid-template-rows: 1;
+      }
+      .grid-container-translucent > div {
+        opacity: 0.6;
+        margin: 50px;
       }
     </style>
   </head>
@@ -28,179 +41,25 @@
 
   var timeline = [];
 
-/* 1. Polysemy Task: intro block */
-
-  /* Create timeline variable of target, 3 distractors, and audio for 8 trials;
-  shuffle choice order within each trial; record block info for analysis.
-  note: delete two distractors from loop for a 2-choice experiment */
-  var intro_stimuli = [];
-  for (i = 0; i < introTargets.length; i++) {
-    introChoices = [introImages[4*i], introImages[4*i+1], introImages[4*i+2], introImages[4*i+3]];
-    introChoices = jsPsych.randomization.shuffle(introChoices);
-    intro_stimuli[i] = {choices: introChoices, audio: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
-  }
-
-  /* HTML for all image buttons */
-  var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
-
-  /* Audio-button trial for both polysemy task */
-  var polysemy_audiobutton = {
-      type: 'audio-button-response',
-      stimulus: jsPsych.timelineVariable('audio'),
-      choices: jsPsych.timelineVariable('choices'),
-      button_html: stimButton,
-      data: {
-        choices: jsPsych.timelineVariable('choices'),
-        audio: jsPsych.timelineVariable('audio'),
-        target: jsPsych.timelineVariable('target'),
-        block: jsPsych.timelineVariable('block'),
-        task: 'polysemy'
-      },
-      on_finish: function(data){
-        var acc = false;
-        var indexNumber = data.button_pressed;
-        if (data.target == data.choices[indexNumber]) {
-          acc = true
-        }
-        data.accuracy = acc;
-      }
-  };
-
-  /* Procedure for an intro block that shuffles trial order */
-  var intro_procedure = {
-    timeline: [polysemy_audiobutton],
-    timeline_variables: intro_stimuli,
-    randomize_order: true
-  };
-
-/* 2. Polysemy Task: test block */
-
-  /* Shuffle list of distractors (from polysemy_info.js) */
-  var testDistractors = jsPsych.randomization.shuffle(testDistractors);
-
-  /* Create timeline variable of target, 3 distractors, and audio for 18 trials;
-  shuffle choice order within each trial; record info for later.
-  note: delete two distractors from loop for a 2-choice experiment */
-  var test_stimuli = [];
-  for (i = 0; i < testTargets.length; i++) {
-    testChoices = [testTargets[i], testDistractors[3*i], testDistractors[3*i+1], testDistractors[3*i+2]];
-    testChoices = jsPsych.randomization.shuffle(testChoices);
-    test_stimuli[i] = {choices: testChoices, audio: testAudio[i], target: testTargets[i], block: 'test'}, + "\n";
-  }
-
-  /* FILLERS: Intersperse target trials and filler trials with alternate groups
-  var trial_groups =
-  {
-    type: 'alternate-groups',
-    groups: [[0,2],[1,3]],
-    randomize_group_order: false // first trial will be an item from group 1.
-    }
-  */
-
-  /* Procedure for target trials in the test block */
-  var trial_procedure = {
-    timeline: [polysemy_audiobutton],
-    timeline_variables: test_stimuli,
-    randomize_order: true // switch to 'sample:' when there are fillers
-  };
-
-/* 3. PAL Task: ambiguous training blocks */
-
-  /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
-  var amb_stimuli = [];
-  for (i = 0; i < cond1.length/2; i++) {
-    var vidName = cond1[i];
-    var vidName = vidName.replace("videos/cond1_", "");
-    var vidName = vidName.replace(".mov", "");
-    var vidName = vidName.split("_");
-    var vidPair = vidName[0];
-    var vidObjectNumber = vidName[1];
-    var vidObject = vidObjectNumber.slice(0, -1);
-    var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
-    amb_stimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
-    }
-
-  /* Split stimuli into iconic and ambiguous conditions */
-  // var popHalf = cond1.length/2;
-  // var train_stimuli1 = [];
-  // var train_stimuli2 = [];
-  // for (i = 0; i < popHalf; i += 1) {
-  //     var train_stimuli1[i] = trainStimuli[i];
-  // };
-
-  /* Video-keyboard trial for PAL task */
-  var pal_videokeyboard = {
-      type: 'video-keyboard-response',
-      sources: jsPsych.timelineVariable('video'),
-      width: 640,
-      data: {
-        video: jsPsych.timelineVariable('video'),
-        type: jsPsych.timelineVariable('type'),
-        icoamb: jsPsych.timelineVariable('icoamb'),
-        obj: jsPsych.timelineVariable('obj'),
-        num: jsPsych.timelineVariable('num'),
-        block: jsPsych.timelineVariable('block'),
-        task: 'pal'
-      }
-  };
-
-  /* Audio-button trial for PAL task */
-  var pal_audiobutton = {
-        type: 'audio-button-response',
-        stimulus: 'audio/teachingaudio.mp3',
-        choices: ['next'],
-    };
-
-
-  /* Procedure for target trials in the test block */
-  var test_procedure1 = {
-    timeline: [pal_audiobutton, pal_videokeyboard],
-    timeline_variables: amb_stimuli,
-    randomize_order: true
-  };
-
-/* 4: PAL Task: Free sort */
-  // var sorting_stimuli = [];
-  // for (var i = 1; i <= 12; i++) {
-  //   sorting_stimuli.push("img/cell_img_" + i + ".jpg");
-  // }
-  //
-  // var sort_trial = {
-  //   type: 'free-sort',
-  //   stimuli: sorting_stimuli,
-  //   prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
-  // };
-
-/******************************************************************************/
-/* Timeline */
-
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
     type: 'fullscreen',
     fullscreen_mode: true
   });
 
-  /* Welcome page */
+  /* Welcome */
   timeline.push({
     type: 'html-keyboard-response',
     stimulus: 'Welcome to this experiment! Press the space bar to continue.'
   });
 
-  /* Practice */
-  timeline.push({
-    type: 'html-keyboard-response',
-    stimulus: 'Let\'s try some practice first.'
-  });
-
-  timeline.push(intro_procedure);
-
-  timeline.push({
-    type: 'html-keyboard-response',
-    stimulus: 'Perfect! Let\'s keep going.'
-  });
-
-  timeline.push(trial_procedure);
+  /* Polysemy Task */
+  timeline.push(
+    {type: 'html-keyboard-response', stimulus: 'Let\'s try some practice first.'},
+    polysemy_intro_procedure,
+    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
+    polysemy_trial_procedure
+  );
 
   /* Transition page */
   timeline.push({
@@ -208,10 +67,11 @@
     stimulus: 'Great job! Press the space bar to continue.'
   });
 
-  timeline.push(test_procedure1);
-
-/******************************************************************************/
-/* Initialize */
+  /* Arbitrary PAL Task */
+  timeline.push(
+    amb_pal_procedure,
+    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'}
+  );
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
@@ -219,6 +79,8 @@
   var allAudio = testAudio.concat(introAudio);
   var allAudio = allAudio.concat(palAudio);
   var allVideos = cond1.concat(cond2);
+
+  /* Initialize */
 
   jsPsych.init({
     timeline: timeline,
