@@ -43,7 +43,7 @@
   /* HTML for all image buttons */
   var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
-  /* Audio-button trial for polysemy task */
+  /* Audio-button trial for both polysemy task */
   var polysemy_audiobutton = {
       type: 'audio-button-response',
       stimulus: jsPsych.timelineVariable('audio'),
@@ -128,9 +128,6 @@
   // for (i = 0; i < popHalf; i += 1) {
   //     var train_stimuli1[i] = trainStimuli[i];
   // };
-  // for (j = 0, i = popHalf; i < cond1.length; i += 1, j += 1) {
-  //     var train_stimuli2[i] = trainStimuli[i];
-  // };
 
   /* Video-keyboard trial for PAL task */
   var pal_videokeyboard = {
@@ -159,7 +156,7 @@
   /* Procedure for target trials in the test block */
   var test_procedure1 = {
     timeline: [pal_audiobutton, pal_videokeyboard],
-    timeline_variables: train_stimuli1,
+    timeline_variables: amb_stimuli,
     randomize_order: true
   };
 
