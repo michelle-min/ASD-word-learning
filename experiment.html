@@ -8,9 +8,10 @@
     <script src="js/jspsych/plugins/jspsych-image-keyboard-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-audio-button-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-video-keyboard-response.js"></script>
-    <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
+    <script src="js/jspsych-pavlovia-3.0.0.js"></script>
     <script src="js/polysemy_stim.js"></script>
     <script src="js/polysemy_task.js"></script>
     <script src="js/pal_stim.js"></script>
@@ -42,6 +43,32 @@
   <script>
 
   var timeline = [];
+
+  /* Init connection with pavlovia */
+	timeline.push(
+    {
+	     type: "pavlovia",
+	     command: "finish"
+	  }
+  );
+
+  function uuidv4() {
+		var tempsubject = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,
+			function(c) {
+				var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+				var subject = v.toString(16);
+				return v.toString(16);
+	  });
+		var subject = tempsubject;
+		return tempsubject;
+	};
+
+	timeline.push(
+    {
+      type: 'call-function',
+      func: uuidv4
+    }
+  );
 
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
@@ -84,6 +111,16 @@
     ico_sort_procedure,
     {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
   );
+
+  /* Finish connection with pavlovia */
+	timeline.push(
+    {
+      type: "pavlovia",
+		  command: "finish",
+      participantId: function(){
+        return subject}
+	   }
+   );
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
