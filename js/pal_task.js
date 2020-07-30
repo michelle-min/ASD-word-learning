@@ -3,30 +3,30 @@
 
   /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
   var ambStimuli = [];
-  for (i = 0; i < 8; i++) {
+  for (i = 0; i < 16; i++) {
     var vidName = cond1[i];
     var vidName = vidName.replace("videos/cond1_", "");
-    var vidName = vidName.replace(".mov", "");
+    var vidName = vidName.replace(".mp4", "");
     var vidName = vidName.split("_");
     var vidPair = vidName[0];
     var vidObjectNumber = vidName[1];
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     ambStimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
+      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'train'}, + "\n";
     }
   var icoStimuli = [];
-  for (i = 8; i < 16; i++) {
+  for (i = 16; i < 32; i++) {
     var vidName = cond1[i];
     var vidName = vidName.replace("videos/cond1_", "");
-    var vidName = vidName.replace(".mov", "");
+    var vidName = vidName.replace(".mp4", "");
     var vidName = vidName.split("_");
     var vidPair = vidName[0];
     var vidObjectNumber = vidName[1];
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoStimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
+      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'train'}, + "\n";
     }
 
   /* Video-keyboard trial for PAL task */
@@ -37,9 +37,9 @@
       data: {
         video: jsPsych.timelineVariable('video'),
         type: jsPsych.timelineVariable('type'),
-        icoamb: jsPsych.timelineVariable('icoamb'),
-        obj: jsPsych.timelineVariable('obj'),
-        num: jsPsych.timelineVariable('num'),
+        ico_amb: jsPsych.timelineVariable('icoamb'),
+        object: jsPsych.timelineVariable('obj'),
+        direction: jsPsych.timelineVariable('dir'),
         block: jsPsych.timelineVariable('block'),
         task: 'pal'
       }
