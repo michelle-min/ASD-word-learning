@@ -9,6 +9,8 @@
     <script src="js/jspsych/plugins/jspsych-audio-button-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-video-keyboard-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/polysemy_stim.js"></script>
     <script src="js/polysemy_task.js"></script>
     <script src="js/pal_stim.js"></script>
@@ -67,15 +69,26 @@
     stimulus: 'Great job! Press the space bar to continue.'
   });
 
-  /* Arbitrary PAL Task */
+  /* Ambiguous PAL */
   timeline.push(
     amb_train_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'}
+    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
+    amb_sort_procedure,
+    {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
+  );
+
+  /* Iconic PAL */
+  timeline.push(
+    ico_train_procedure,
+    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
+    ico_sort_procedure,
+    {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
   );
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
   var allImages = allImages.concat(introImages);
+  var allImages = allImages.concat(palImages);
   var allAudio = testAudio.concat(introAudio);
   var allAudio = allAudio.concat(palAudio);
   var allVideos = cond1.concat(cond2);

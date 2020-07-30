@@ -1,36 +1,36 @@
 /* 1. INTRO BLOCK */
 
 var introImages = [
-    'images/elephant.jpg', 'images/kite.jpg', 'images/broom.jpg', 'images/bus.jpg',
-    'images/sandwich.jpg', 'images/shoe.jpg', 'images/teddybear.jpg', 'images/stool.jpg',
-    'images/mouth.jpg', 'images/eye.jpg', 'images/ear.jpg', 'images/nose.jpg',
-    'images/calf.jpg', 'images/sheep.jpg', 'images/duck.jpg', 'images/horse.jpg',
-    'images/rose.jpg', 'images/pumpkin.jpg', 'images/ball.jpg', 'images/parrot.jpg',
-    'images/shoulder.jpg', 'images/hand.jpg', 'images/foot.jpg', 'images/neck.jpg',
-    'images/toy.jpg', 'images/pizza.jpg', 'images/starfish.jpg', 'images/flower.jpg',
-    'images/lamb.jpg', 'images/wheel.jpg', 'images/bib.jpg', 'images/banana.jpg'
-  ]
+  'pol_images/elephant.jpg', 'pol_images/kite.jpg', 'pol_images/broom.jpg', 'pol_images/bus.jpg',
+  'pol_images/sandwich.jpg', 'pol_images/shoe.jpg', 'pol_images/teddybear.jpg', 'pol_images/stool.jpg',
+  'pol_images/mouth.jpg', 'pol_images/eye.jpg', 'pol_images/ear.jpg', 'pol_images/nose.jpg',
+  'pol_images/calf.jpg', 'pol_images/sheep.jpg', 'pol_images/duck.jpg', 'pol_images/horse.jpg',
+  'pol_images/rose.jpg', 'pol_images/pumpkin.jpg', 'pol_images/ball.jpg', 'pol_images/parrot.jpg',
+  'pol_images/shoulder.jpg', 'pol_images/hand.jpg', 'pol_images/foot.jpg', 'pol_images/neck.jpg',
+  'pol_images/toy.jpg', 'pol_images/pizza.jpg', 'pol_images/starfish.jpg', 'pol_images/flower.jpg',
+  'pol_images/lamb.jpg', 'pol_images/wheel.jpg', 'pol_images/bib.jpg', 'pol_images/banana.jpg'
+]
 
-  var introTargets = [
-    'images/bus.jpg',
-    'images/shoe.jpg',
-    'images/mouth.jpg',
-    'images/duck.jpg',
-    'images/ball.jpg',
-    'images/foot.jpg',
-    'images/flower.jpg',
-    'images/banana.jpg'
-  ]
+var introTargets = [
+  'pol_images/bus.jpg',
+  'pol_images/shoe.jpg',
+  'pol_images/mouth.jpg',
+  'pol_images/duck.jpg',
+  'pol_images/ball.jpg',
+  'pol_images/foot.jpg',
+  'pol_images/flower.jpg',
+  'pol_images/banana.jpg'
+]
 
-  var introAudio = ['audio/busrecording.mp3','audio/shoerecording.mp3','audio/mouthrecording.mp3','audio/duckrecording.mp3','audio/ballrecording.mp3','audio/footrecording.mp3','audio/flowerrecording.mp3','audio/bananarecording.mp3']
+var introAudio = ['audio/busrecording.mp3','audio/shoerecording.mp3','audio/mouthrecording.mp3','audio/duckrecording.mp3','audio/ballrecording.mp3','audio/footrecording.mp3','audio/flowerrecording.mp3','audio/bananarecording.mp3']
 
 /* 2. TEST BLOCK */
 
 /* Paths to 54 distractors */
-var testDistractors = ['images/distractor1.jpg', 'images/distractor2.jpg', 'images/distractor3.jpg', 'images/distractor4.jpg', 'images/distractor5.jpg', 'images/distractor6.jpg', 'images/distractor7.jpg', 'images/distractor8.jpg', 'images/distractor9.jpg', 'images/distractor10.jpg', 'images/distractor11.jpg', 'images/distractor1.jpg', 'images/distractor13.jpg', 'images/distractor14.jpg', 'images/distractor15.jpg', 'images/distractor16.jpg', 'images/distractor17.jpg', 'images/distractor18.jpg', 'images/distractor19.jpg', 'images/distractor20.jpg', 'images/distractor21.jpg', 'images/distractor2.jpg', 'images/distractor23.jpg', 'images/distractor24.jpg', 'images/distractor25.jpg', 'images/distractor26.jpg', 'images/distractor27.jpg', 'images/distractor28.jpg', 'images/distractor29.jpg', 'images/distractor30.jpg', 'images/distractor31.jpg', 'images/distractor3.jpg', 'images/distractor33.jpg', 'images/distractor34.jpg', 'images/distractor35.jpg', 'images/distractor36.jpg', 'images/distractor37.jpg', 'images/distractor38.jpg', 'images/distractor39.jpg', 'images/distractor40.jpg', 'images/distractor41.jpg', 'images/distractor4.jpg', 'images/distractor43.jpg', 'images/distractor44.jpg', 'images/distractor45.jpg', 'images/distractor46.jpg', 'images/distractor47.jpg', 'images/distractor48.jpg', 'images/distractor49.jpg', 'images/distractor50.jpg', 'images/distractor51.jpg', 'images/distractor5.jpg', 'images/distractor53.jpg', 'images/distractor54.jpg']
+var testDistractors = ['pol_images/distractor1.jpg', 'pol_images/distractor2.jpg', 'pol_images/distractor3.jpg', 'pol_images/distractor4.jpg', 'pol_images/distractor5.jpg', 'pol_images/distractor6.jpg', 'pol_images/distractor7.jpg', 'pol_images/distractor8.jpg', 'pol_images/distractor9.jpg', 'pol_images/distractor10.jpg', 'pol_images/distractor11.jpg', 'pol_images/distractor1.jpg', 'pol_images/distractor13.jpg', 'pol_images/distractor14.jpg', 'pol_images/distractor15.jpg', 'pol_images/distractor16.jpg', 'pol_images/distractor17.jpg', 'pol_images/distractor18.jpg', 'pol_images/distractor19.jpg', 'pol_images/distractor20.jpg', 'pol_images/distractor21.jpg', 'pol_images/distractor2.jpg', 'pol_images/distractor23.jpg', 'pol_images/distractor24.jpg', 'pol_images/distractor25.jpg', 'pol_images/distractor26.jpg', 'pol_images/distractor27.jpg', 'pol_images/distractor28.jpg', 'pol_images/distractor29.jpg', 'pol_images/distractor30.jpg', 'pol_images/distractor31.jpg', 'pol_images/distractor3.jpg', 'pol_images/distractor33.jpg', 'pol_images/distractor34.jpg', 'pol_images/distractor35.jpg', 'pol_images/distractor36.jpg', 'pol_images/distractor37.jpg', 'pol_images/distractor38.jpg', 'pol_images/distractor39.jpg', 'pol_images/distractor40.jpg', 'pol_images/distractor41.jpg', 'pol_images/distractor4.jpg', 'pol_images/distractor43.jpg', 'pol_images/distractor44.jpg', 'pol_images/distractor45.jpg', 'pol_images/distractor46.jpg', 'pol_images/distractor47.jpg', 'pol_images/distractor48.jpg', 'pol_images/distractor49.jpg', 'pol_images/distractor50.jpg', 'pol_images/distractor51.jpg', 'pol_images/distractor5.jpg', 'pol_images/distractor53.jpg', 'pol_images/distractor54.jpg']
 
 /* Paths to 18 targets */
-var testTargets = ['images/hornA.jpg', 'images/capB.jpg', 'images/hornC.jpg', 'images/sheetC.jpg', 'images/hornB.jpg', 'images/collarC.jpg', 'images/glassesB.jpg', 'images/capA.jpg', 'images/balloonA.jpg', 'images/balloonB.jpg', 'images/sheetA.jpg', 'images/collarB.jpg', 'images/sheetB.jpg', 'images/collarA.jpg', 'images/glassesC.jpg', 'images/glassesA.jpg', 'images/capC.jpg', 'images/balloonC.jpg']
+var testTargets = ['pol_images/hornA.jpg', 'pol_images/capB.jpg', 'pol_images/hornC.jpg', 'pol_images/sheetC.jpg', 'pol_images/hornB.jpg', 'pol_images/collarC.jpg', 'pol_images/glassesB.jpg', 'pol_images/capA.jpg', 'pol_images/balloonA.jpg', 'pol_images/balloonB.jpg', 'pol_images/sheetA.jpg', 'pol_images/collarB.jpg', 'pol_images/sheetB.jpg', 'pol_images/collarA.jpg', 'pol_images/glassesC.jpg', 'pol_images/glassesA.jpg', 'pol_images/capC.jpg', 'pol_images/balloonC.jpg']
 
 /* Paths to 18 audio recordings */
 var testAudio = ['audio/hornrecording.mp3', 'audio/caprecording.mp3', 'audio/hornrecording.mp3', 'audio/sheetrecording.mp3', 'audio/hornrecording.mp3', 'audio/collarrecording.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/caprecording.mp3', 'audio/balloonrecording.mp3', 'audio/balloonrecording.mp3', 'audio/sheetrecording.mp3', 'audio/collarrecording.mp3', 'audio/sheetrecording.mp3', 'audio/collarrecording.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/caprecording.mp3', 'audio/balloonrecording.mp3']

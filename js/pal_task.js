@@ -1,8 +1,9 @@
-/* 3. PAL Task: ambiguous training blocks */
+/* 1. PAL: training blocks */
+/* just need to be able to change condition across participants!!! */
 
   /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
   var ambStimuli = [];
-  for (i = 0; i < cond1.length/2; i++) {
+  for (i = 0; i < 8; i++) {
     var vidName = cond1[i];
     var vidName = vidName.replace("videos/cond1_", "");
     var vidName = vidName.replace(".mov", "");
@@ -14,15 +15,22 @@
     ambStimuli[i] = {
       video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
     }
-
-  /* Split stimuli into iconic and ambiguous conditions */
-  // var popHalf = cond1.length/2;
-  // for (i = 0; i < popHalf; i += 1) {
-  //     var train_stimuli1[i] = trainStimuli[i];
-  // };
+  var icoStimuli = [];
+  for (i = 8; i < 16; i++) {
+    var vidName = cond1[i];
+    var vidName = vidName.replace("videos/cond1_", "");
+    var vidName = vidName.replace(".mov", "");
+    var vidName = vidName.split("_");
+    var vidPair = vidName[0];
+    var vidObjectNumber = vidName[1];
+    var vidObject = vidObjectNumber.slice(0, -1);
+    var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
+    icoStimuli[i] = {
+      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, num: vidNumber, block: 'train'}, + "\n";
+    }
 
   /* Video-keyboard trial for PAL task */
-  var ambVideokeyboard = {
+  var palVideokeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
       width: 640,
@@ -44,22 +52,29 @@
         choices: ['next'],
     };
 
-
-  /* Procedure for target trials in the test block */
+  /* Procedure for ambiguous pairs training */
   var amb_train_procedure = {
-    timeline: [palAudiobutton, ambVideokeyboard],
+    timeline: [palAudiobutton, palVideokeyboard],
     timeline_variables: ambStimuli,
     randomize_order: true
   };
 
-/* 4: PAL Task: Free sort */
-  // var sorting_stimuli = [];
-  // for (var i = 1; i <= 12; i++) {
-  //   sorting_stimuli.push("img/cell_img_" + i + ".jpg");
-  // }
-  //
-  // var sort_trial = {
-  //   type: 'free-sort',
-  //   stimuli: sorting_stimuli,
-  //   prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
-  // };
+  /* Procedure for iconic pairs training */
+  var ico_train_procedure = {
+    timeline: [palAudiobutton, palVideokeyboard],
+    timeline_variables: icoStimuli,
+    randomize_order: true
+  };
+
+/* 2. PAL: free sort */
+  var amb_sort_procedure = {
+      type: 'free-sort',
+      stimuli: ambImages,
+      prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+  };
+
+  var ico_sort_procedure = {
+      type: 'free-sort',
+      stimuli: icoImages,
+      prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+  };
