@@ -42,12 +42,6 @@
   <script>
 
   var timeline = [];
-  //
-  // /* Init connection with pavlovia */
-	// timeline.push({
-  //   type: "pavlovia",
-  //   command: "finish"
-	// });
 
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
@@ -69,12 +63,6 @@
     pol_trial_procedure
   );
 
-  /* Transition page */
-  timeline.push({
-    type: 'html-keyboard-response',
-    stimulus: 'Great job! Press the space bar to continue.'
-  });
-
   /* Ambiguous PAL */
   timeline.push(
     amb_train_procedure,
@@ -90,12 +78,6 @@
     ico_sort_procedure,
     {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
   );
-
-  // /* Finish connection with pavlovia */
-	// timeline.push({
-  //   type: "pavlovia",
-	//   command: "finish",
-  // });
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
@@ -115,9 +97,6 @@
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
     use_webaudio: false, // load audio through HTML5 when running locally
-    on_finish: function(){
-      jsPsych.data.displayData(); // saved data
-    }
     /* excludes browsers that don't have access to WebAudio API
     exclusions: {
       audio: true
