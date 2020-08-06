@@ -6,8 +6,8 @@
     <script src="js/jspsych/plugins/jspsych-fullscreen.js"></script>
     <script src="js/jspsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-image-keyboard-response.js"></script>
-    <script src="js/jspsych/plugins/jspsych-audio-button-response.js"></script>
-    <script src="js/jspsych/plugins/jspsych-video-keyboard-response.js"></script>
+    <script src="js/jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="js/jspsych/plugins/jspsych-video-keyboard-response-edits.js"></script>
     <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/jspsych-pavlovia-3.0.0.js"></script>
@@ -49,11 +49,11 @@
   //   command: "finish"
   // });
 
-  /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
-  timeline.push({
-    type: 'fullscreen',
-    fullscreen_mode: true
-  });
+  // /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
+  // timeline.push({
+  //   type: 'fullscreen',
+  //   fullscreen_mode: true
+  // });
 
   /* Welcome */
   timeline.push({
@@ -71,7 +71,7 @@
 
   /* Ambiguous PAL */
   timeline.push(
-    amb_train_procedure,
+    amb_teach_procedure,
     {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
     amb_sort_procedure,
     {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
@@ -79,18 +79,17 @@
 
   /* Iconic PAL */
   timeline.push(
-    ico_train_procedure,
+    ico_teach_procedure,
     {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
     ico_sort_procedure,
     {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
   );
 
-
-    /* Ending */
-    timeline.push({
-      type: 'html-keyboard-response',
-      stimulus: 'Thanks for your time!'
-    });
+  /* Ending */
+  timeline.push({
+    type: 'html-keyboard-response',
+    stimulus: 'Thanks for your time!'
+  });
 
   // /* Finish connection with pavlovia */
   // timeline.push({
@@ -106,8 +105,9 @@
   var allAudio = allAudio.concat(palAudio);
   var allVideos = cond1.concat(cond2);
 
-  /* Initialize */
+  console.log(allVideos)
 
+  /* Initialize */
   jsPsych.init({
     timeline: timeline,
     preload_images: allImages,
@@ -115,7 +115,7 @@
     preload_video: allVideos,
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
-    use_webaudio: true, // load audio through HTML5 when running locally
+    use_webaudio: false,
     /* excludes browsers that don't have access to WebAudio API
     exclusions: {
       audio: true

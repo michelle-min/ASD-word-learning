@@ -1,4 +1,4 @@
-var cond1 = [
+var cond1Ambiguous = [
   "videos/cond1_amb_bib1.mp4",
   "videos/cond1_amb_bib2.mp4",
   "videos/cond1_amb_boots1.mp4",
@@ -14,7 +14,10 @@ var cond1 = [
   "videos/cond1_amb_lightning1.mp4",
   "videos/cond1_amb_lightning2.mp4",
   "videos/cond1_amb_pizza1.mp4",
-  "videos/cond1_amb_pizza2.mp4",
+  "videos/cond1_amb_pizza2.mp4"
+]
+
+var cond1Iconic = [
   "videos/cond1_iconic_boat1.mp4",
   "videos/cond1_iconic_boat2.mp4",
   "videos/cond1_iconic_car1.mp4",
@@ -33,7 +36,9 @@ var cond1 = [
   "videos/cond1_iconic_tub2.mp4"
 ]
 
-var cond2 = [
+var cond1 = cond1Ambiguous.concat(cond1Iconic)
+
+var cond2Ambiguous = [
   "videos/cond2_amb_boat1.mp4",
   "videos/cond2_amb_boat2.mp4",
   "videos/cond2_amb_car1.mp4",
@@ -49,7 +54,10 @@ var cond2 = [
   "videos/cond2_amb_table1.mp4",
   "videos/cond2_amb_table2.mp4",
   "videos/cond2_amb_tub1.mp4",
-  "videos/cond2_amb_tub2.mp4",
+  "videos/cond2_amb_tub2.mp4"
+]
+
+var cond2Iconic = [
   "videos/cond2_iconic_bib1.mp4",
   "videos/cond2_iconic_bib2.mp4",
   "videos/cond2_iconic_boots1.mp4",
@@ -67,6 +75,8 @@ var cond2 = [
   "videos/cond2_iconic_pizza1.mp4",
   "videos/cond2_iconic_pizza2.mp4"
 ]
+
+var cond2 = cond2Ambiguous.concat(cond2Iconic)
 
 var palAudio = ['audio/teachingaudio.mp3', 'audio/testaudio.mp3']
 
@@ -107,36 +117,4 @@ var icoImages = [
   'pal_images/snake.jpg',
   'pal_images/symbol15.jpg']
 
-var palImages = [
-'pal_images/bib.jpg',
-'pal_images/eye.jpg',
-'pal_images/symbol1.jpg',
-'pal_images/symbol16.jpg',
-'pal_images/symbol8.jpg',
-'pal_images/boat.jpg',
-'pal_images/flag.jpg',
-'pal_images/symbol10.jpg',
-'pal_images/symbol2.jpg',
-'pal_images/symbol9.jpg',
-'pal_images/boots.jpg',
-'pal_images/fox.jpg',
-'pal_images/symbol11.jpg',
-'pal_images/symbol3.jpg',
-'pal_images/table.jpg',
-'pal_images/butterfly.jpg',
-'pal_images/lightning.jpg',
-'pal_images/symbol12.jpg',
-'pal_images/symbol4.jpg',
-'pal_images/tub.jpg',
-'pal_images/button.jpg',
-'pal_images/pizza.jpg',
-'pal_images/symbol13.jpg',
-'pal_images/symbol5.jpg',
-'pal_images/car.jpg',
-'pal_images/sandbox.jpg',
-'pal_images/symbol14.jpg',
-'pal_images/symbol6.jpg',
-'pal_images/chair.jpg',
-'pal_images/snake.jpg',
-'pal_images/symbol15.jpg',
-'pal_images/symbol7.jpg']
+var palImages = ambImages.concat(icoImages)
