@@ -57,7 +57,7 @@
         var feedback_text = '<span style="font-size:30px;color:red;">Incorrect</span>';
         var last_trial_accuracy = jsPsych.data.getLastTrialData().values()[0].accuracy;
         if (last_trial_accuracy == true) {
-            feedback_text = '<span style="font-size:30px;color:red;">Correct!</span>'
+            feedback_text = '<span style="font-size:30px;color:green;">Correct!</span>'
         }
         return feedback_text;
     },

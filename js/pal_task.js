@@ -1,6 +1,15 @@
 /* 1. PAL: teaching blocks */
 /* just need to be able to change condition and order across participants!!! */
 
+  // Randomly choose a version for PAL stimuli condition: 1 or 2
+  // var version = jsPsych.randomization.sampleWithoutReplacement([1,2],1)[0];
+  // var amb_trial_info;
+  // if (version == 1) {
+  //   amb_trial_info = amb_trial_info_v1;
+  // } else {
+  //   amb_trial_info = amb_trial_info_v2;
+  // }
+
   /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
   var ambStimuli = [];
   for (i = 0; i < 16; i++) {

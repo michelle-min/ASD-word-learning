@@ -45,10 +45,11 @@
   var timeline = [];
 
   /* Init connection with pavlovia */
-  timeline.push({
-    type: "pavlovia",
-    command: "finish"
-  });
+  var pavlovia_init = {
+  	type: "pavlovia",
+  	command: "init"
+  };
+  timeline.push(pavlovia_init);
 
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
@@ -60,7 +61,7 @@
   timeline.push({
     type: 'html-button-response',
     stimulus: 'Welcome to this experiment!',
-    choices: 'Start'
+    choices: ['Start']
   });
 
   /* Polysemy Task */
@@ -81,11 +82,11 @@
   var task2 = taskListShuffled[1]
 
   timeline.push(
-    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: 'Start'},
+    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: ['Start']},
     task1[0], // ambiguous or iconic teach procedure
     {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
     task1[1], // the same sort procedure
-    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: 'Start'},
+    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: ['Start']},
     task2[0], // the other teach procedure
     {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
     task2[1] // the other sort procedure
@@ -98,10 +99,11 @@
   });
 
   /* Finish connection with pavlovia */
-  timeline.push({
-    type: "pavlovia",
-    command: "finish",
-  });
+  var pavlovia_finish = {
+  	type: "pavlovia",
+  	command: "finish"
+  	};
+  timeline.push(pavlovia_finish);
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
