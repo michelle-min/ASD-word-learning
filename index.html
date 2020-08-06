@@ -43,6 +43,12 @@
 
   var timeline = [];
 
+  // /* Init connection with pavlovia */
+  // timeline.push({
+  //   type: "pavlovia",
+  //   command: "finish"
+  // });
+
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
     type: 'fullscreen',
@@ -79,6 +85,19 @@
     {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
   );
 
+
+    /* Ending */
+    timeline.push({
+      type: 'html-keyboard-response',
+      stimulus: 'Thanks for your time!'
+    });
+
+  // /* Finish connection with pavlovia */
+  // timeline.push({
+  //   type: "pavlovia",
+  //   command: "finish",
+  // });
+
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
   var allImages = allImages.concat(introImages);
@@ -96,7 +115,7 @@
     preload_video: allVideos,
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
-    use_webaudio: false, // load audio through HTML5 when running locally
+    use_webaudio: true, // load audio through HTML5 when running locally
     /* excludes browsers that don't have access to WebAudio API
     exclusions: {
       audio: true
