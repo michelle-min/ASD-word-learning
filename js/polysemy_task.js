@@ -50,9 +50,24 @@
     ]
   };
 
+  /* Feedback trial */
+  var feedback = {
+    type: 'html-keyboard-response',
+    stimulus: function() {
+        var feedback_text = '<span style="font-size:30px;color:red;">Incorrect</span>';
+        var last_trial_accuracy = jsPsych.data.getLastTrialData().values()[0].accuracy;
+        if (last_trial_accuracy == true) {
+            feedback_text = '<span style="font-size:30px;color:red;">Correct!</span>'
+        }
+        return feedback_text;
+    },
+    choices: jsPsych.NO_KEYS,
+    trial_duration: 3000
+  }
+
   /* Procedure for an intro block that shuffles trial order */
   var pol_intro_procedure = {
-    timeline: [introAudiobutton],
+    timeline: [introAudiobutton, feedback],
     timeline_variables: introStimuli,
     randomize_order: true
   };
