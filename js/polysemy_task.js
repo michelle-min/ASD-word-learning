@@ -7,7 +7,7 @@
   for (i = 0; i < introTargets.length; i++) {
     introChoices = [introImages[4*i], introImages[4*i+1], introImages[4*i+2], introImages[4*i+3]];
     introChoices = jsPsych.randomization.shuffle(introChoices);
-    introStimuli[i] = {choices: introChoices, audio: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
+    introStimuli[i] = {choices: introChoices, audioPre: introAudio[i], audioPost: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
   }
 
   /* HTML for all image buttons */
@@ -21,19 +21,19 @@
     timeline: [
       {
         type: 'audio-button-response',
-        stimulus: jsPsych.timelineVariable('audio'),
+        stimulus: jsPsych.timelineVariable('audioPre'),
         choices: jsPsych.timelineVariable('choices'),
         button_html: stimButtonTranslucent,
+        response_ends_trial: false, //  trial continues for timing_response time reached so subject must view
         trial_duration: 2000
       },
       {
         type: 'audio-button-response',
-        stimulus: jsPsych.timelineVariable('audio'),
+        stimulus: jsPsych.timelineVariable('audioPost'),
         choices: jsPsych.timelineVariable('choices'),
         button_html: stimButton,
         data: {
           choices: jsPsych.timelineVariable('choices'),
-          audio: jsPsych.timelineVariable('audio'),
           target: jsPsych.timelineVariable('target'),
           block: jsPsych.timelineVariable('block'),
           task: 'polysemy'
@@ -80,7 +80,6 @@
     button_html: stimButton,
     data: {
       choices: jsPsych.timelineVariable('choices'),
-      audio: jsPsych.timelineVariable('audio'),
       target: jsPsych.timelineVariable('target'),
       block: jsPsych.timelineVariable('block'),
       task: 'polysemy'

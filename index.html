@@ -64,32 +64,36 @@
 
   /* Polysemy Task */
   timeline.push(
-    {type: 'html-keyboard-response', stimulus: 'Let\'s try some practice first.'},
+    {type: 'html-keyboard-response', stimulus: 'Let\'s try some practice first. Press the space bar to continue.'},
     pol_intro_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
+    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going. Press the space bar.'},
     pol_trial_procedure
   );
 
-  /* Ambiguous PAL */
-  timeline.push(
-    amb_teach_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
-    amb_sort_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
-  );
+  /* Two PAL Tasks */
+  var taskList = [
+    [amb_teach_procedure, amb_sort_procedure],
+    [ico_teach_procedure, ico_sort_procedure]
+  ]
+  var taskListShuffled = jsPsych.randomization.shuffle(taskList)
+  var task1 = taskListShuffled[0]
+  var task2 = taskListShuffled[1]
 
-  /* Iconic PAL */
   timeline.push(
-    ico_teach_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Perfect! Let\'s keep going.'},
-    ico_sort_procedure,
-    {type: 'html-keyboard-response', stimulus: 'Great job! Press the space bar to continue.'}
-  );
+    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: 'Start'},
+    task1[0], // ambiguous or iconic teach procedure
+    {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
+    task1[1], // the same sort procedure
+    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: 'Start'},
+    task2[0], // the other teach procedure
+    {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
+    task2[1] // the other sort procedure
+  )
 
   /* Ending */
   timeline.push({
     type: 'html-keyboard-response',
-    stimulus: 'Thanks for your time!'
+    stimulus: 'Great job! You finished!'
   });
 
   // /* Finish connection with pavlovia */
