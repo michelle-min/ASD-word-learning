@@ -28,7 +28,7 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     ambStimuli[i] = {
-      video: [conditionStimuli[i]], icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+      video: [conditionStimuli[i]], icoamb: vidPair, obj: vidObject, dir: vidNumber}, + "\n";
   }
 
   var icoStimuli = [];
@@ -42,7 +42,7 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoStimuli[i] = {
-      video: [conditionStimuli[i+16]], icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+      video: [conditionStimuli[i+16]], icoamb: vidPair, obj: vidObject, dir: vidNumber}, + "\n";
   }
 
   /* Video-keyboard trial for PAL task */
@@ -60,7 +60,7 @@
         ico_amb: jsPsych.timelineVariable('icoamb'),
         object: jsPsych.timelineVariable('obj'),
         direction: jsPsych.timelineVariable('dir'),
-        block: jsPsych.timelineVariable('block'),
+        block: 'teach',
         task: 'pal'
       }
   };
