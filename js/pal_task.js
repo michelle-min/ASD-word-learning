@@ -28,7 +28,6 @@
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoStimuli[i] = {
       video: [cond1[i+16]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
-    console.log(icoStimuli[i])
   }
 
   /* Video-keyboard trial for PAL task */
