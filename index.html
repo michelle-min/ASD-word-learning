@@ -44,11 +44,11 @@
 
   var timeline = [];
 
-  // /* Init connection with pavlovia */
-  // timeline.push({
-  //   type: "pavlovia",
-  //   command: "finish"
-  // });
+  /* Init connection with pavlovia */
+  timeline.push({
+    type: "pavlovia",
+    command: "finish"
+  });
 
   /* Launch fullscreen mode. note: this plugin will NOT work for Safari */
   timeline.push({
@@ -58,8 +58,9 @@
 
   /* Welcome */
   timeline.push({
-    type: 'html-keyboard-response',
-    stimulus: 'Welcome to this experiment! Press the space bar to continue.'
+    type: 'html-button-response',
+    stimulus: 'Welcome to this experiment!',
+    choices: 'Start'
   });
 
   /* Polysemy Task */
@@ -96,11 +97,11 @@
     stimulus: 'Great job! You finished!'
   });
 
-  // /* Finish connection with pavlovia */
-  // timeline.push({
-  //   type: "pavlovia",
-  //   command: "finish",
-  // });
+  /* Finish connection with pavlovia */
+  timeline.push({
+    type: "pavlovia",
+    command: "finish",
+  });
 
   /* Paths to all stimuli for preloading because of timeline variables */
   var allImages = testDistractors.concat(testTargets);
