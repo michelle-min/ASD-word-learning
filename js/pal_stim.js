@@ -80,7 +80,7 @@ var cond2 = cond2Ambiguous.concat(cond2Iconic)
 
 var palAudio = ['audio/teachingaudio.mp3', 'audio/testaudio.mp3']
 
-var ambImages = [
+var imagesA = [
   'pal_images/bib.jpg',
   'pal_images/boots.jpg',
   'pal_images/butterfly.jpg',
@@ -99,7 +99,7 @@ var ambImages = [
   'pal_images/symbol8.jpg'
 ]
 
-var icoImages = [
+var imagesB = [
   'pal_images/symbol16.jpg',
   'pal_images/boat.jpg',
   'pal_images/symbol10.jpg',
@@ -117,4 +117,4 @@ var icoImages = [
   'pal_images/snake.jpg',
   'pal_images/symbol15.jpg']
 
-var palImages = ambImages.concat(icoImages)
+var palImages = imagesA.concat(imagesB)

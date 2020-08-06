@@ -1,19 +1,25 @@
 /* 1. PAL: teaching blocks */
 /* just need to be able to change condition and order across participants!!! */
 
-  // Randomly choose a version for PAL stimuli condition: 1 or 2
-  // var version = jsPsych.randomization.sampleWithoutReplacement([1,2],1)[0];
-  // var amb_trial_info;
-  // if (version == 1) {
-  //   amb_trial_info = amb_trial_info_v1;
-  // } else {
-  //   amb_trial_info = amb_trial_info_v2;
-  // }
+  /* Randomly choose a version for PAL stimuli condition: 1 or 2 */
+  var version = jsPsych.randomization.sampleWithoutReplacement([1,2],1)[0];
+  var conditionStimuli;
+  var freeSortImages1;
+  var freeSortImages2;
+  if (version == 1) {
+    conditionStimuli = cond1;
+    freeSortImages1 = imagesA;
+    freeSortImages2 = imagesB;
+  } else {
+    conditionStimuli = cond2;
+    freeSortImages1 = imagesB;
+    freeSortImages2 = imagesA;
+  }
 
   /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
   var ambStimuli = [];
   for (i = 0; i < 16; i++) {
-    var vidName = cond1[i];
+    var vidName = conditionStimuli[i];
     var vidName = vidName.replace("videos/cond1_", "");
     var vidName = vidName.replace(".mp4", "");
     var vidName = vidName.split("_");
@@ -22,12 +28,12 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     ambStimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+      video: [conditionStimuli[i]], icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
   }
 
   var icoStimuli = [];
   for (i = 0; i < 16; i++) {
-    var vidName = cond1[i+16];
+    var vidName = conditionStimuli[i+16];
     var vidName = vidName.replace("videos/cond1_", "");
     var vidName = vidName.replace(".mp4", "");
     var vidName = vidName.split("_");
@@ -36,7 +42,7 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoStimuli[i] = {
-      video: [cond1[i+16]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+      video: [conditionStimuli[i+16]], icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
   }
 
   /* Video-keyboard trial for PAL task */
@@ -49,8 +55,8 @@
       trial_duration: 3500, // trial duration in ms
       response_ends_trial: false, // trial continues for trial_duration regardless of keyboard response
       data: {
+        version: version,
         video: jsPsych.timelineVariable('video'),
-        type: jsPsych.timelineVariable('type'),
         ico_amb: jsPsych.timelineVariable('icoamb'),
         object: jsPsych.timelineVariable('obj'),
         direction: jsPsych.timelineVariable('dir'),
@@ -63,7 +69,7 @@
   var palHtmlbutton = {
         type: 'html-button-response',
         stimulus: '',
-        choices: ['Next'],
+        choices: ['Play'],
   };
 
   /* Procedure for ambiguous pairs teaching */
@@ -83,12 +89,22 @@
 /* 2. PAL: free sort */
   var amb_sort_procedure = {
       type: 'free-sort',
-      stimuli: ambImages,
-      prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+      stimuli: freeSortImages1,
+      prompt: "<p>Which pictures go together? Move them next to each other.</p>",
+      data: {
+        version: version,
+        block: 'sort',
+        task: 'pal'
+      }
   };
 
   var ico_sort_procedure = {
       type: 'free-sort',
-      stimuli: icoImages,
-      prompt: "<p>Click and drag the images below to sort them so that similar items are close together.</p>"
+      stimuli: freeSortImages2,
+      prompt: "<p>Which pictures go together? Move them next to each other.</p>",
+      data: {
+        version: version,
+        block: 'sort',
+        task: 'pal'
+      }
   };
