@@ -1,7 +1,7 @@
-/* 1. PAL: training blocks */
-/* just need to be able to change condition across participants!!! */
+/* 1. PAL: teaching blocks */
+/* just need to be able to change condition and order across participants!!! */
 
-  /* Create timeline variable of video and audio for all 18 pairs in two conditions. */
+  /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
   var ambStimuli = [];
   for (i = 0; i < 16; i++) {
     var vidName = cond1[i];
@@ -13,11 +13,12 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     ambStimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'train'}, + "\n";
-    }
+      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+  }
+
   var icoStimuli = [];
-  for (i = 16; i < 32; i++) {
-    var vidName = cond1[i];
+  for (i = 0; i < 16; i++) {
+    var vidName = cond1[i+16];
     var vidName = vidName.replace("videos/cond1_", "");
     var vidName = vidName.replace(".mp4", "");
     var vidName = vidName.split("_");
@@ -26,14 +27,19 @@
     var vidObject = vidObjectNumber.slice(0, -1);
     var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoStimuli[i] = {
-      video: [cond1[i]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'train'}, + "\n";
-    }
+      video: [cond1[i+16]], type: 1, icoamb: vidPair, obj: vidObject, dir: vidNumber, block: 'teach'}, + "\n";
+    console.log(icoStimuli[i])
+  }
 
   /* Video-keyboard trial for PAL task */
   var palVideokeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
+      stimulus: 'audio/teachingaudio.mp3',
       width: 640,
+      //start: 5000, // video starts at 1 second (after teaching audio)
+      trial_duration: 3500, // trial duration in ms
+      response_ends_trial: false, // trial continues for trial_duration regardless of keyboard response
       data: {
         video: jsPsych.timelineVariable('video'),
         type: jsPsych.timelineVariable('type'),
@@ -45,23 +51,23 @@
       }
   };
 
-  /* Audio-button trial for PAL task */
-  var palAudiobutton = {
-        type: 'audio-button-response',
-        stimulus: 'audio/teachingaudio.mp3',
-        choices: ['next'],
-    };
+  /* Html-button trial for PAL task */
+  var palHtmlbutton = {
+        type: 'html-button-response',
+        stimulus: '',
+        choices: ['Next'],
+  };
 
-  /* Procedure for ambiguous pairs training */
-  var amb_train_procedure = {
-    timeline: [palAudiobutton, palVideokeyboard],
+  /* Procedure for ambiguous pairs teaching */
+  var amb_teach_procedure = {
+    timeline: [palHtmlbutton, palVideokeyboard],
     timeline_variables: ambStimuli,
     randomize_order: true
   };
 
-  /* Procedure for iconic pairs training */
-  var ico_train_procedure = {
-    timeline: [palAudiobutton, palVideokeyboard],
+  /* Procedure for iconic pairs teaching */
+  var ico_teach_procedure = {
+    timeline: [palHtmlbutton, palVideokeyboard],
     timeline_variables: icoStimuli,
     randomize_order: true
   };

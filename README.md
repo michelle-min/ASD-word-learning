@@ -8,7 +8,7 @@ In this task, participants are shown an intro block and a test block. The **intr
 
 ## PAL Tasks
 
-The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. The pairs are either iconically related or non-iconically related (i.e., ambiguous). There are two blocks of training and free sort. In both **train blocks**, participants watch 9 videos that associate a symbol and object through movement. One train block has only iconic pairs (`ico_train_procedure`) and the other has only ambiguous pairs (`amb_train_procedure`). The corresponding **sort blocks** display the 9 pairs of symbol-object (18 images total) and ask the participant to move the similar items together. These are saved as `ico_sort_procedure` and `amb_sort_procedure`, respectively.
+The PAL task has participants learn a pair of images, one a symbol and the other a picture of an object. The pairs are either iconically related or non-iconically related (i.e., ambiguous). There are two blocks of teaching and free sort. In both **teach blocks**, participants watch 9 videos that associate a symbol and object through movement. One train block has only iconic pairs (`ico_teach_procedure`) and the other has only ambiguous pairs (`amb_teach_procedure`). The corresponding **sort blocks** display the 9 pairs of symbol-object (18 images total) and ask the participant to move the similar items together. These are saved as `ico_sort_procedure` and `amb_sort_procedure`, respectively.
 
 ## Data
 
