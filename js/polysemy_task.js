@@ -7,7 +7,7 @@
   for (i = 0; i < introTargets.length; i++) {
     introChoices = [introImages[4*i], introImages[4*i+1], introImages[4*i+2], introImages[4*i+3]];
     introChoices = jsPsych.randomization.shuffle(introChoices);
-    introStimuli[i] = {choices: introChoices, audioPre: introAudio[i], audioPost: introAudio[i], target: introTargets[i], block: 'intro'}, + "\n";
+    introStimuli[i] = {choices: introChoices, audioPre: introAudioPre[i], audioPost: introAudioPost[i], target: introTargets[i], block: 'intro'}, + "\n";
   }
 
   /* HTML for all image buttons */
@@ -17,7 +17,7 @@
   var stimButtonTranslucent = '<div class="grid-container-translucent"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* Audio-button trial */
-  var introAudiobutton = {
+  var introAudioButton = {
     timeline: [
       {
         type: 'audio-button-response',
@@ -67,7 +67,7 @@
 
   /* Procedure for an intro block that shuffles trial order */
   var pol_intro_procedure = {
-    timeline: [introAudiobutton, feedback],
+    timeline: [introAudioButton, feedback],
     timeline_variables: introStimuli,
     randomize_order: true
   };
