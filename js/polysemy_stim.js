@@ -22,11 +22,11 @@ var introTargets = [
   'pol_images/banana.jpg'
 ]
 
-var introAudioPre = ['audio/hornrecording1.mp3', 'audio/caprecording1.mp3', 'audio/hornrecording1.mp3', 'audio/sheetrecording1.mp3', 'audio/hornrecording1.mp3', 'audio/collarrecording1.mp3', 'audio/glassesrecording-whichis1.mp3', 'audio/caprecording1.mp3', 'audio/balloonrecording1.mp3', 'audio/balloonrecording1.mp3', 'audio/sheetrecording1.mp3', 'audio/collarrecording1.mp3', 'audio/sheetrecording1.mp3', 'audio/collarrecording1.mp3', 'audio/glassesrecording-whichis1.mp3', 'audio/glassesrecording-whichis1.mp3', 'audio/caprecording1.mp3', 'audio/balloonrecording1.mp3']
-
-var introAudioPost = ['audio/hornrecording2.mp3', 'audio/caprecording2.mp3', 'audio/hornrecording2.mp3', 'audio/sheetrecording2.mp3', 'audio/hornrecording2.mp3', 'audio/collarreco2ding2.mp3', 'audio/glassesrecording-whichis2.mp3', 'audio/caprecording2.mp3', 'audio/balloonrecording2.mp3', 'audio/balloonrecording2.mp3', 'audio/sheetrecording2.mp3', 'audio/collarrecording2.mp3', 'audio2sheetrecording2.mp3', 'audio/collarrecording2.mp3', 'audio/glassesrecording-whichis2.mp3', 'audio/glassesrecording-whichis2.mp2', 'audio/caprecording2.mp3', 'audio/balloonrecording2.mp3']
-
+var introAudioPre = ['audio/busrecording1.mp3','audio/shoerecording1.mp3','audio/mouthrecording1.mp3','audio/duckrecording1.mp3','audio/ballrecording1.mp3','audio/footrecording1.mp3','audio/flowerrecording1.mp3','audio/bananarecording1.mp3']
+var introAudioPost = ['audio/busrecording2.mp3','audio/shoerecording2.mp3','audio/mouthrecording2.mp3','audio/duckrecording2.mp3','audio/ballrecording2.mp3','audio/footrecording2.mp3','audio/flowerrecording2.mp3','audio/bananarecording2.mp3']
+var feedbackAudio = ['audio/answer-correct.mp3','audio/answer-error.mp3'
 var introAudio = introAudioPre.concat(introAudioPost)
+var introAudio = introAudio.concat(feedbackAudio)
 
 /* 2. TEST BLOCK */
 

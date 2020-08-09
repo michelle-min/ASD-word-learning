@@ -52,8 +52,17 @@
 
   /* Feedback trial */
   var feedback = {
-    type: 'html-keyboard-response',
+    type: 'audio-keyboard-response',
     stimulus: function() {
+        var feedback_audio = 'audio/answer-error.mp3';
+        var last_trial_accuracy = jsPsych.data.getLastTrialData().values()[0].accuracy;
+        if (last_trial_accuracy == true) {
+            feedback_text = 'audio/answer-correct.mp3'
+        }
+        return feedback_text;
+    },
+    choices: jsPsych.NO_KEYS,
+    prompt: function() {
         var feedback_text = '<span style="font-size:30px;color:red;">Incorrect</span>';
         var last_trial_accuracy = jsPsych.data.getLastTrialData().values()[0].accuracy;
         if (last_trial_accuracy == true) {
@@ -61,7 +70,7 @@
         }
         return feedback_text;
     },
-    choices: jsPsych.NO_KEYS,
+    response_ends_trial: false,
     trial_duration: 3000
   }
 
