@@ -24,7 +24,8 @@ var introTargets = [
 
 var introAudioPre = ['audio/busrecording1.mp3','audio/shoerecording1.mp3','audio/mouthrecording1.mp3','audio/duckrecording1.mp3','audio/ballrecording1.mp3','audio/footrecording1.mp3','audio/flowerrecording1.mp3','audio/bananarecording1.mp3']
 var introAudioPost = ['audio/busrecording2.mp3','audio/shoerecording2.mp3','audio/mouthrecording2.mp3','audio/duckrecording2.mp3','audio/ballrecording2.mp3','audio/footrecording2.mp3','audio/flowerrecording2.mp3','audio/bananarecording2.mp3']
-var feedbackAudio = ['audio/answer-correct.mp3','audio/answer-error.mp3'
+var feedbackAudio = ['audio/answer-correct.mp3','audio/answer-error.mp3']
+
 var introAudio = introAudioPre.concat(introAudioPost)
 var introAudio = introAudio.concat(feedbackAudio)
 
