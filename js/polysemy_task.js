@@ -57,7 +57,7 @@
         var feedback_audio = 'audio/answer-error.mp3';
         var last_trial_accuracy = jsPsych.data.getLastTrialData().values()[0].accuracy;
         if (last_trial_accuracy == true) {
-            feedback_text = 'audio/answer-correct.mp3'
+            feedback_audio = 'audio/answer-correct.mp3'
         }
         return feedback_audio;
     },
