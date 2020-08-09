@@ -59,7 +59,7 @@
         if (last_trial_accuracy == true) {
             feedback_text = 'audio/answer-correct.mp3'
         }
-        return feedback_text;
+        return feedback_audio;
     },
     choices: jsPsych.NO_KEYS,
     prompt: function() {
