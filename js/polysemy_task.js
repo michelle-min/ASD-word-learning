@@ -74,9 +74,21 @@
     trial_duration: 3000
   }
 
+  /* Fixation cross */
+  var fixation = {
+      type: 'html-button-response',
+      stimulus: [],
+      choices: [+],
+      button_html: '<span style="font-size:40px;">%choice%</span>',
+      data: {
+        block: jsPsych.timelineVariable('block'),
+        task: 'polysemy'
+      }
+  }
+
   /* Procedure for an intro block that shuffles trial order */
   var pol_intro_procedure = {
-    timeline: [introAudioButton, feedback],
+    timeline: [fixation, introAudioButton, feedback],
     timeline_variables: introStimuli,
     randomize_order: true
   };
@@ -120,7 +132,7 @@
 
   /* Procedure for target trials in the test block */
   var pol_trial_procedure = {
-    timeline: [testAudiobutton],
+    timeline: [fixation, testAudiobutton],
     timeline_variables: testStimuli,
     randomize_order: true // switch to 'sample:' when there are fillers
   };
