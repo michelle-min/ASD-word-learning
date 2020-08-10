@@ -78,7 +78,7 @@
   var fixation = {
       type: 'html-button-response',
       stimulus: [],
-      choices: [+],
+      choices: ['+'],
       button_html: '<span style="font-size:40px;">%choice%</span>',
       data: {
         block: jsPsych.timelineVariable('block'),
