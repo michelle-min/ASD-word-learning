@@ -37,6 +37,10 @@
         opacity: 0.4;
         margin: 50px;
       }
+      button {
+        padding: 0;
+        margin: 0;
+      }
     </style>
   </head>
   <body></body>
@@ -86,7 +90,7 @@
     task1[0], // ambiguous or iconic teach procedure in condition 1 or 2
     {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
     task1[1], // the same sort procedure
-    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: ['Start']},
+    {type: 'audio-button-response', stimulus: 'audio/testaudio.mp3', choices: ['Continue']},
     task2[0], // the other teach procedure
     {type: 'html-keyboard-response', stimulus: 'Fantastic! Go the next page by pressing the space bar.'},
     task2[1] // the other sort procedure
@@ -119,6 +123,7 @@
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
     use_webaudio: false,
+    show_progress_bar: false // because of warning for update_loading_progress_bar
     /* excludes browsers that don't have access to WebAudio API
     exclusions: {
       audio: true
