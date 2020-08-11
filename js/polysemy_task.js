@@ -25,7 +25,7 @@
         choices: jsPsych.timelineVariable('choices'),
         button_html: stimButtonTranslucent,
         response_ends_trial: false, //  trial continues for timing_response time reached so subject must view
-        trial_duration: 3000
+        trial_duration: 2000
       },
       {
         type: 'audio-button-response',
