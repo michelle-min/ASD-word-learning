@@ -51,7 +51,7 @@
       sources: jsPsych.timelineVariable('video'),
       stimulus: 'audio/teachingaudio.mp3',
       width: 640,
-      //start: 5000, // video starts at 1 second (after teaching audio)
+      //start: 5000, // video starts at 1 second (after teaching audio) **this doesn't work?
       trial_duration: 3500, // trial duration in ms
       response_ends_trial: false, // trial continues for trial_duration regardless of keyboard response
       data: {
@@ -65,23 +65,16 @@
       }
   };
 
-  /* Html-button trial for PAL task */
-  var palHtmlbutton = {
-        type: 'html-button-response',
-        stimulus: '',
-        choices: ['Play'],
-  };
-
   /* Procedure for ambiguous pairs teaching */
   var amb_teach_procedure = {
-    timeline: [palHtmlbutton, palVideokeyboard],
+    timeline: [fixation, palVideokeyboard],
     timeline_variables: ambStimuli,
     randomize_order: true
   };
 
   /* Procedure for iconic pairs teaching */
   var ico_teach_procedure = {
-    timeline: [palHtmlbutton, palVideokeyboard],
+    timeline: [fixation, palVideokeyboard],
     timeline_variables: icoStimuli,
     randomize_order: true
   };

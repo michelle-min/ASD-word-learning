@@ -133,5 +133,3 @@ var imagesB = [
   'pal_images/symbol13.jpg',
   'pal_images/symbol12.jpg'
 ]
-
-var palImages = imagesA.concat(imagesB)

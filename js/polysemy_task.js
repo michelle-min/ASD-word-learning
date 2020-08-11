@@ -1,4 +1,4 @@
-/* 1. Polysemy Task: intro block */
+/* 1. Polysemy Task: intro (PPVT) block */
 
   /* Create timeline variable of target, 3 distractors, and audio for 8 trials;
   shuffle choice order within each trial; record block info for analysis.
@@ -78,15 +78,11 @@
   var fixation = {
       type: 'html-button-response',
       stimulus: [],
-      choices: ['pal_images/playbutton.jpg'],
-      button_html: '<button class="jspsych-btn"><img src="%choice%"/></button>',
-      data: {
-        block: jsPsych.timelineVariable('block'),
-        task: 'polysemy'
-      }
+      choices: ['pol_images/playbutton.jpg'],
+      button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>',
   }
 
-  /* Procedure for an intro block that shuffles trial order */
+  /* Procedure for intro (PPVT) block that shuffles trial order */
   var pol_intro_procedure = {
     timeline: [fixation, introAudioButton, feedback],
     timeline_variables: introStimuli,
@@ -95,7 +91,7 @@
 
 /* 2. Polysemy Task: test block */
 
-  /* Shuffle list of distractors (from polysemy_info.js) */
+  /* Shuffle list of distractors */
   var testDistractors = jsPsych.randomization.shuffle(testDistractors);
 
   /* Create timeline variable of target, 3 distractors, and audio for 18 trials;
