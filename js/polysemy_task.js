@@ -78,8 +78,8 @@
   var fixation = {
       type: 'html-button-response',
       stimulus: [],
-      choices: ['+'],
-      button_html: '<span style="font-size:40px;">%choice%</span>',
+      choices: ['pal_images/playbutton.jpg'],
+      button_html: '<button class="jspsych-btn"><img src="%choice%"/></button>',
       data: {
         block: jsPsych.timelineVariable('block'),
         task: 'polysemy'
