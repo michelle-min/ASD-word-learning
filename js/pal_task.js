@@ -3,20 +3,16 @@
 
   /* Randomly choose a version for PAL stimuli condition */
   var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
-  console.log(version)
-  var conditionStimuli;
-  var freeSortImages1;
-  var freeSortImages2;
 
   if (version <= 2) {
-    conditionStimuli = cond1;
-    freeSortImages1 = imagesA;
-    freeSortImages2 = imagesB;
+    var conditionStimuli = cond1;
+    var freeSortImages1 = imagesA;
+    var freeSortImages2 = imagesB;
   }
   else if (version >= 3) {
-    conditionStimuli = cond2;
-    freeSortImages1 = imagesB;
-    freeSortImages2 = imagesA;
+    var conditionStimuli = cond2;
+    var freeSortImages1 = imagesB;
+    var freeSortImages2 = imagesA;
   }
 
   /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
@@ -110,9 +106,7 @@
   if (version == 1 || version == 3) {
     task1 = [amb_teach_procedure, amb_sort_procedure];
     task2 = [ico_teach_procedure, ico_sort_procedure];
-  }
-  else {
+  } else {
     task1 = [ico_teach_procedure, ico_sort_procedure];
     task2 = [amb_teach_procedure, amb_sort_procedure];
   }
-console.log(task1, task2)
