@@ -100,8 +100,8 @@
   };
 
 /* Order the iconic and ambiguous procedures based on version */
-  var task1;
-  var task2;
+  var task1 = [];
+  var task2 = [];
 
   if (version == 1 || version == 3) {
     task1 = [amb_teach_procedure, amb_sort_procedure];
