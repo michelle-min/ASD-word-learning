@@ -74,13 +74,13 @@
   /* Two PAL Tasks */
   timeline.push(
     {type: 'audio-button-response', stimulus: 'audio/keep_going.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-    task1[0], // ambiguous or iconic teach procedure in condition 1 or 2
+    amb_teach_procedure, // ambiguous or iconic teach procedure in condition 1 or 2
     {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-    task1[1], // the same sort procedure
+    amb_sort_procedure, // the same sort procedure
     {type: 'audio-button-response', stimulus: 'audio/new_game.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-    task2[0], // the other teach procedure
+    ico_teach_procedure, // the other teach procedure
     {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-    task2[1] // the other sort procedure
+    ico_sort_procedure // the other sort procedure
   );
 
   /* Ending */
