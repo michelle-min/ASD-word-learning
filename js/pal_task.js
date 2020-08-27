@@ -104,9 +104,9 @@
   var task2;
 
   if (version == 1 || version == 3) {
-    var task1 = [amb_teach_procedure, amb_sort_procedure];
-    var task2 = [ico_teach_procedure, ico_sort_procedure];
+    task1 = [amb_teach_procedure, amb_sort_procedure];
+    task2 = [ico_teach_procedure, ico_sort_procedure];
   } else {
-    var task1 = [ico_teach_procedure, ico_sort_procedure];
-    var task2 = [amb_teach_procedure, amb_sort_procedure];
+    task1 = [ico_teach_procedure, ico_sort_procedure];
+    task2 = [amb_teach_procedure, amb_sort_procedure];
   }
