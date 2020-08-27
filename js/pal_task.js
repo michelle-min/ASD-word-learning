@@ -3,6 +3,7 @@
 
   /* Randomly choose a version for PAL stimuli condition */
   var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
+  console.log(version)
   var conditionStimuli;
   var freeSortImages1;
   var freeSortImages2;
@@ -85,7 +86,6 @@
   var amb_sort_procedure = {
       type: 'free-sort',
       stimuli: freeSortImages1,
-      prompt: "<p>Which pictures go together? Move them next to each other.</p>",
       data: {
         version: version,
         block: 'sort',
@@ -96,7 +96,6 @@
   var ico_sort_procedure = {
       type: 'free-sort',
       stimuli: freeSortImages2,
-      prompt: "<p>Which pictures go together? Move them next to each other.</p>",
       data: {
         version: version,
         block: 'sort',
@@ -116,3 +115,4 @@
     task1 = [ico_teach_procedure, ico_sort_procedure];
     task2 = [amb_teach_procedure, amb_sort_procedure];
   }
+console.log(task1, task2)
