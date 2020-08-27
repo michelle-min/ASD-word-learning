@@ -97,14 +97,6 @@ var imagesA = [
   'pal_images/symbol16.jpg',
   'pal_images/symbol11.jpg',
   'pal_images/symbol14.jpg',
-  'pal_images/symbol7.jpg',
-  'pal_images/symbol2.jpg',
-  'pal_images/symbol3.jpg',
-  'pal_images/symbol8.jpg',
-  'pal_images/symbol1.jpg',
-  'pal_images/symbol4.jpg',
-  'pal_images/symbol5.jpg',
-  'pal_images/symbol6.jpg'
 ]
 
 var imagesB = [
@@ -116,20 +108,12 @@ var imagesB = [
   'pal_images/sandbox.jpg',
   'pal_images/chair.jpg',
   'pal_images/snake.jpg',
-  'pal_images/symbol3.jpg',
-  'pal_images/symbol4.jpg',
-  'pal_images/symbol6.jpg',
-  'pal_images/symbol1.jpg',
-  'pal_images/symbol2.jpg',
-  'pal_images/symbol5.jpg',
-  'pal_images/symbol8.jpg',
   'pal_images/symbol7.jpg',
-  'pal_images/symbol16.jpg',
-  'pal_images/symbol10.jpg',
-  'pal_images/symbol14.jpg',
-  'pal_images/symbol15.jpg',
-  'pal_images/symbol9.jpg',
-  'pal_images/symbol11.jpg',
-  'pal_images/symbol13.jpg',
-  'pal_images/symbol12.jpg'
+  'pal_images/symbol2.jpg',
+  'pal_images/symbol3.jpg',
+  'pal_images/symbol8.jpg',
+  'pal_images/symbol1.jpg',
+  'pal_images/symbol4.jpg',
+  'pal_images/symbol5.jpg',
+  'pal_images/symbol6.jpg'
 ]
