@@ -1,5 +1,4 @@
 /* 1. PAL: teaching blocks */
-/* just need to be able to change condition and order across participants!!! */
 
   /* Randomly choose a version for PAL stimuli condition */
   var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
@@ -79,22 +78,78 @@
   };
 
 /* 2. PAL: free sort */
-  var amb_sort_procedure = {
-      type: 'free-sort',
-      stimuli: freeSortImages1,
-      data: {
-        version: version,
-        block: 'sort',
-        task: 'pal'
+
+  /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
+  var ambSortStimuli = [];
+  for (i = 0; i < 8; i++) {
+    // id target symbol
+    var targetSymbol = freeSortImages1[i+8]
+    // select random symbol
+    var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
+    // if same as target symbol, repeat
+    if (randomNum = i+8) {
+      var newNum = [8,9,10,11,12,13,14,15];
+      newNum.splice(randomNum-8, 1);
+      var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
+    }
+    var icoChoices = [targetSymbol, freeSortImages1[randomNum]];
+    var icoChoices = jsPsych.randomization.shuffle(icoChoices);
+    ambSortStimuli[i] = {
+      image: freeSortImages1[i], choices: icoChoices, target: targetSymbol, block: 'sort'}, + "\n";
+  }
+
+  var icoSortStimuli = [];
+  for (i = 0; i < 8; i++) {
+    // id target symbol
+    var targetSymbol = freeSortImages2[i+8]
+    // select random symbol
+    var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
+    // if same as target symbol, repeat
+    if (randomNum = i+8) {
+      var newNum = [8,9,10,11,12,13,14,15];
+      newNum.splice(randomNum-8, 1);
+      var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
+    }
+    var icoChoices = [targetSymbol, freeSortImages2[randomNum]];
+    var icoChoices = jsPsych.randomization.shuffle(icoChoices);
+    icoSortStimuli[i] = {
+      image: freeSortImages2[i], choices: icoChoices, target: targetSymbol, block: 'sort'}, + "\n";
+  }
+
+  /* Image-button trial */
+  var palImageButton = {
+    type: 'image-button-response',
+    stimulus: jsPsych.timelineVariable('image'),
+    choices: jsPsych.timelineVariable('choices'),
+    button_html: stimButton,
+    data: {
+      choices: jsPsych.timelineVariable('choices'),
+      image: jsPsych.timelineVariable('image'),
+      target: jsPsych.timelineVariable('target'),
+      version: version,
+      block: 'sort',
+      task: 'pal'
+    },
+    on_finish: function(data){
+      var acc = false;
+      var indexNumber = data.button_pressed;
+      if (data.target == data.choices[indexNumber]) {
+        acc = true
       }
+      data.accuracy = acc;
+    }
   };
 
+  /* Procedure for ambiguous pairs sorting */
+  var amb_sort_procedure = {
+    timeline: [fixation, palImageButton],
+    timeline_variables: ambSortStimuli,
+    randomize_order: true
+  };
+
+  /* Procedure for iconic pairs sorting */
   var ico_sort_procedure = {
-      type: 'free-sort',
-      stimuli: freeSortImages2,
-      data: {
-        version: version,
-        block: 'sort',
-        task: 'pal'
-      }
+    timeline: [fixation, palImageButton],
+    timeline_variables: icoSortStimuli,
+    randomize_order: true
   };
