@@ -8,8 +8,9 @@
     <script src="js/jspsych/plugins/jspsych-audio-keyboard-response.js"></script>
     <script src="js/jspsych/plugins/jspsych-video-keyboard-response-edits.js"></script>
     <script src="js/jspsych/plugins/jspsych-html-button-response.js"></script>
-    <script src="js/jspsych/plugins/jspsych-image-button-response.js"></script>
+    <script src="js/jspsych/plugins/jspsych-free-sort.js"></script>
     <script src="js/jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/jspsych-pavlovia-3.0.0.js"></script>
     <script src="js/polysemy_stim.js"></script>
     <script src="js/polysemy_task.js"></script>
@@ -60,39 +61,39 @@
     fullscreen_mode: true
   });
 
-  // /* Polysemy Task */
-  // timeline.push(
-  //   {type: 'audio-button-response', stimulus: 'audio/practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/wait_picture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-  //   pol_intro_procedure,
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.mp3', response_ends_trial: false, trial_duration: 2500},
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/wait_full.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-  //   pol_trial_procedure
-  // );
-  //
-  // /* Select PAL Task Version */
-  // if (version == 2 || version == 4) {
-  //   var task1 = [amb_teach_procedure, amb_sort_procedure];
-  //   var task2 = [ico_teach_procedure, ico_sort_procedure];
-  // } else {
-  //   var task1 = [ico_teach_procedure, ico_sort_procedure];
-  //   var task2 = [amb_teach_procedure, amb_sort_procedure];
-  // }
+  /* Polysemy Task */
+  timeline.push(
+    {type: 'audio-button-response', stimulus: 'audio/practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
+    {type: 'audio-keyboard-response', stimulus: 'audio/wait_picture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
+    pol_intro_procedure,
+    {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.mp3', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/wait_full.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
+    pol_trial_procedure
+  );
+
+  /* Select PAL Task Version */
+  if (version == 2 || version == 4) {
+    var task1 = [amb_teach_procedure, amb_sort_procedure];
+    var task2 = [ico_teach_procedure, ico_sort_procedure];
+  } else {
+    var task1 = [ico_teach_procedure, ico_sort_procedure];
+    var task2 = [amb_teach_procedure, amb_sort_procedure];
+  }
 
   /* Two PAL Tasks */
-  // timeline.push(
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.mp3', response_ends_trial: false, trial_duration: 2500},
-  //   task1[0], // ambiguous or iconic + teach procedure + condition 1 or 2
-  //   {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-  //   task1[1], // the same + sort procedure
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/new_game.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-  //   task2[0], // the other + teach procedure
-  //   {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-  //   task2[1] // the other + sort procedure
-  // );
+  timeline.push(
+    {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.mp3', response_ends_trial: false, trial_duration: 2500},
+    task1[0], // ambiguous or iconic + teach procedure + condition 1 or 2
+    {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
+    task1[1], // the same + sort procedure
+    {type: 'audio-keyboard-response', stimulus: 'audio/new_game.mp3', response_ends_trial: false, trial_duration: 2500},
+    task2[0], // the other + teach procedure
+    {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
+    task2[1] // the other + sort procedure
+  );
 
-  // /* Ending */
-  // timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true});
+  /* Ending */
+  timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true});
 
   /* Finish connection with pavlovia */
   var pavlovia_finish = {
