@@ -88,6 +88,7 @@
       // if same as target symbol, repeat
       while (randomNum = i+8) {
         var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
+        break;
       }
       // combime and shuffle symbol order
       var icoChoices = [targetSymbol, imageSet[randomNum]];
@@ -140,7 +141,7 @@
   };
 
 /* Procedure for iconic pairs sorting */
-  var ico_sort_procedure = {
+  var amb_sort_procedure = {
     timeline: [fixation, palImageButton],
     timeline_variables: ambSortStimuli,
     randomize_order: true
