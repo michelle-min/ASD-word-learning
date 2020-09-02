@@ -86,9 +86,11 @@
       // select random symbol
       var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
       // if same as target symbol, repeat
-      while (randomNum = i+8) {
-        var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
-        break;
+      if (randomNum = i+8) {
+        var newNum = [8,9,10,11,12,13,14,15];
+        const deleteIndex = newNum.indexOf(randomNum);
+        newNum.splice(index, 1);
+        var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
       }
       // combime and shuffle symbol order
       var icoChoices = [targetSymbol, imageSet[randomNum]];
