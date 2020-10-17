@@ -103,7 +103,8 @@
   timeline.push(pavlovia_finish);
 
   /* Paths to stimuli for preloading (because of timeline variables) */
-  var allImages = introImages.concat(choiceDistractors, choiceTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB)
+  var allImages = introImages.concat(//choiceDistractors,choiceTargets,
+    ['pol_images/playbutton.jpg'], imagesA, imagesB)
   var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, choiceAudio, instructionsAudio, palAudio)
   var allVideos = cond1.concat(cond2);
 
