@@ -130,5 +130,5 @@
   var pol_choice_procedure = {
     timeline: [fixation, choiceAudioButton],
     timeline_variables: choiceStimuli,
-    randomize_order: true // switch to 'sample:' when there are fillers
+    randomize_order: true // switch to 'sample:' when there are filler trials
   };
