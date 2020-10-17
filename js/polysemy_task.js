@@ -132,3 +132,4 @@
     timeline_variables: choiceStimuli,
     randomize_order: true // switch to 'sample:' when there are filler trials
   };
+console.log(pol_choice_procedure)

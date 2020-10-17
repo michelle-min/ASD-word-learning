@@ -24,7 +24,7 @@ var introTargets = [
 
 var introAudioPre = ['audio/busrecording1.mp3','audio/shoerecording1.mp3','audio/mouthrecording1.mp3','audio/duckrecording1.mp3','audio/ballrecording1.mp3','audio/footrecording1.mp3','audio/flowerrecording1.mp3','audio/bananarecording1.mp3']
 var introAudioPost = ['audio/busrecording2.mp3','audio/shoerecording2.mp3','audio/mouthrecording2.mp3','audio/duckrecording2.mp3','audio/ballrecording2.mp3','audio/footrecording2.mp3','audio/flowerrecording2.mp3','audio/bananarecording2.mp3']
-var introAudioFeedback = ['audio/answer-correct.mp3','audio/answer-error.mp3']
+var introAudioFeedback = ['audio/answer-correct.mp3','audio/answer-error.mp3', 'audio/instructions_practice.mp3', 'audio/instructions_waitpicture.mp3']
 
 /* 2. CHOICE BLOCK */
 
@@ -36,6 +36,3 @@ var choiceTargets = ['pol_images/hornA.jpg', 'pol_images/capB.jpg', 'pol_images/
 
 /* Paths to 18 audio recordings */
 var choiceAudio = ['audio/hornrecording.mp3', 'audio/caprecording.mp3', 'audio/hornrecording.mp3', 'audio/sheetrecording.mp3', 'audio/hornrecording.mp3', 'audio/collarrecording.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/caprecording.mp3', 'audio/balloonrecording.mp3', 'audio/balloonrecording.mp3', 'audio/sheetrecording.mp3', 'audio/collarrecording.mp3', 'audio/sheetrecording.mp3', 'audio/collarrecording.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/glassesrecording-whichis.mp3', 'audio/caprecording.mp3', 'audio/balloonrecording.mp3']
-
-/* Paths to polysemy audio instructions */
-var instructionsAudio = ['audio/instructions_practice.mp3', 'audio/instructions_waitpicture.mp3']
