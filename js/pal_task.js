@@ -92,10 +92,10 @@
       newNum.splice(randomNum-8, 1);
       var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
     }
-    var icoChoices = [targetSymbol, freeSortImages1[randomNum]];
-    var icoChoices = jsPsych.randomization.shuffle(icoChoices);
+    var icoSet = [targetSymbol, freeSortImages1[randomNum]];
+    var icoSet = jsPsych.randomization.shuffle(icoSet);
     ambSortStimuli[i] = {
-      image: freeSortImages1[i], choices: icoChoices, target: targetSymbol, block: 'sort'}, + "\n";
+      image: freeSortImages1[i], set: icoSet, target: targetSymbol, block: 'sort'}, + "\n";
   }
 
   var icoSortStimuli = [];
@@ -110,20 +110,20 @@
       newNum.splice(randomNum-8, 1);
       var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
     }
-    var icoChoices = [targetSymbol, freeSortImages2[randomNum]];
-    var icoChoices = jsPsych.randomization.shuffle(icoChoices);
+    var icoSet = [targetSymbol, freeSortImages2[randomNum]];
+    var icoSet = jsPsych.randomization.shuffle(icoSet);
     icoSortStimuli[i] = {
-      image: freeSortImages2[i], choices: icoChoices, target: targetSymbol, block: 'sort'}, + "\n";
+      image: freeSortImages2[i], set: icoSet, target: targetSymbol, block: 'sort'}, + "\n";
   }
 
   /* Image-button trial */
   var palImageButton = {
     type: 'image-button-response',
     stimulus: jsPsych.timelineVariable('image'),
-    choices: jsPsych.timelineVariable('choices'),
+    choices: jsPsych.timelineVariable('set'),
     button_html: stimButton,
     data: {
-      choices: jsPsych.timelineVariable('choices'),
+      choices: jsPsych.timelineVariable('set'),
       image: jsPsych.timelineVariable('image'),
       target: jsPsych.timelineVariable('target'),
       version: version,

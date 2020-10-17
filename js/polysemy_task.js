@@ -83,7 +83,7 @@
   }
 
   /* Procedure for intro (PPVT) block that shuffles trial order */
-  var pol_choice_procedure = {
+  var pol_intro_procedure = {
     timeline: [fixation, introAudioButton, feedback],
     timeline_variables: introStimuli,
     randomize_order: true
@@ -105,7 +105,7 @@
   }
 
   /* Audio-button trial */
-  var choiceAudiobutton = {
+  var choiceAudioButton = {
     type: 'audio-button-response',
     stimulus: jsPsych.timelineVariable('audio'),
     choices: jsPsych.timelineVariable('set'),
@@ -127,8 +127,8 @@
   };
 
   /* Procedure for target trials in the choice block */
-  var pol_trial_procedure = {
-    timeline: [fixation, choiceAudiobutton],
+  var pol_choice_procedure = {
+    timeline: [fixation, choiceAudioButton],
     timeline_variables: choiceStimuli,
     randomize_order: true // switch to 'sample:' when there are fillers
   };
