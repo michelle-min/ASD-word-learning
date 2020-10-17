@@ -6,7 +6,7 @@ Code for the ASD and word learning experiment, using jsPsych. There are three ta
 
 In this task, participants are shown an intro block and a test block. The **intro block** has 8 trials with four randomly ordered images each (8 x 4 = 32 images). The four image sets are fixed but trial order is shuffled. The procedure is `pol_intro_procedure`.
 
-In the **choice block**, there are 18 trials with four randomly ordered images (18 x 4 = 72 images), of which three are distractors and one is the target. The distractors are pulled from a shuffled list. The trials are shuffled, which means that the order that targets are shown changes for every participant. [Additionally, there are 9 filler trials which are made of four distractor images (9 x 4 = 36 images) and these appear after every two target trials.] The procedure is `pol_choice_procedure`.
+In the **choose block**, there are 18 trials with four randomly ordered images (18 x 4 = 72 images), of which three are distractors and one is the target. The distractors are pulled from a shuffled list. The trials are shuffled, which means that the order that targets are shown changes for every participant. [Additionally, there are 9 filler trials which are made of four distractor images (9 x 4 = 36 images) and these appear after every two target trials.] The procedure is `pol_choose_procedure`.
 
 ## PAL Tasks
 

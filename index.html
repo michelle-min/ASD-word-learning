@@ -69,7 +69,7 @@
     pol_intro_procedure,
     {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.wav', response_ends_trial: false, trial_duration: 2500},
     {type: 'audio-keyboard-response', stimulus: 'audio/wait_full.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-
+    pol_choose_procedure
   );
 
   /* Select PAL Task Version */
@@ -104,8 +104,8 @@
   timeline.push(pavlovia_finish);
 
   /* Paths to stimuli for preloading (because of timeline variables) */
-  var allImages = introImages.concat(choiceDistractors, choiceTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB)
-  var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, choiceAudio, palAudio)
+  var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB)
+  var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
   var allVideos = cond1.concat(cond2);
 
   /* Initialize */

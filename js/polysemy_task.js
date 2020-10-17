@@ -89,23 +89,23 @@
     randomize_order: true
   };
 
-/* 2. Polysemy Task: choice block */
+/* 2. Polysemy Task: choose block */
 
   /* Shuffle list of distractors */
-  var choiceDistractors = jsPsych.randomization.shuffle(choiceDistractors);
+  var chooseDistractors = jsPsych.randomization.shuffle(chooseDistractors);
 
   /* Create timeline variable of target, 3 distractors, and audio for 18 trials;
   shuffle choice order within each trial; record info for later.
   note: delete two distractors from loop for a 2-choice experiment */
-  var choiceStimuli = [];
-  for (i = 0; i < choiceTargets.length; i++) {
-    choiceSet = [choiceTargets[i], choiceDistractors[3*i], choiceDistractors[3*i+1], choiceDistractors[3*i+2]];
-    choiceSet = jsPsych.randomization.shuffle(choiceSet);
-    choiceStimuli[i] = {set: choiceSet, audio: choiceAudio[i], target: choiceTargets[i], block: 'choice'}, + "\n";
+  var chooseStimuli = [];
+  for (i = 0; i < chooseTargets.length; i++) {
+    chooseSet = [chooseTargets[i], chooseDistractors[3*i], chooseDistractors[3*i+1], chooseDistractors[3*i+2]];
+    chooseSet = jsPsych.randomization.shuffle(chooseSet);
+    chooseStimuli[i] = {set: chooseSet, audio: chooseAudio[i], target: chooseTargets[i], block: 'choose'}, + "\n";
   }
 
   /* Audio-button trial */
-  var choiceAudioButton = {
+  var chooseAudioButton = {
     type: 'audio-button-response',
     stimulus: jsPsych.timelineVariable('audio'),
     choices: jsPsych.timelineVariable('set'),
@@ -126,13 +126,13 @@
     }
   };
 
-  /* Procedure for target trials in the choice block */
-  var pol_choice_procedure = {
-    timeline: [fixation, choiceAudioButton],
-    timeline_variables: choiceStimuli,
+  /* Procedure for target trials in the choose block */
+  var pol_choose_procedure = {
+    timeline: [fixation, chooseAudioButton],
+    timeline_variables: chooseStimuli,
     randomize_order: true // switch to 'sample:' when there are filler trials
   };
 
 
-console.log(pol_choice_procedure)
+console.log(pol_choose_procedure)
 console.log(pol_intro_procedure)
