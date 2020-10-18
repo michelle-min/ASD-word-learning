@@ -88,7 +88,7 @@
     timeline_variables: introStimuli,
     randomize_order: true
   };
-
+  console.log("Pol intro " + pol_intro_procedure);
 /* 2. Polysemy Task: choose block */
 
   /* Shuffle list of distractors */
@@ -132,7 +132,4 @@
     timeline_variables: chooseStimuli,
     randomize_order: true // switch to 'sample:' when there are filler trials
   };
-
-
-console.log(pol_choose_procedure)
-console.log(pol_intro_procedure)
+  console.log("Pol choose " + pol_choose_procedure);
