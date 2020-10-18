@@ -80,7 +80,7 @@
       stimulus: [],
       choices: ['pol_images/playbutton.jpg'],
       button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>',
-  }
+  };
 
   /* Procedure for intro (PPVT) block that shuffles trial order */
   var pol_intro_procedure = {
