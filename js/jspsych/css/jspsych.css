@@ -79,6 +79,7 @@
 .jspsych-btn:hover {
   background-color: #ddd;
   border-color: #aaa;
+  filter: brightness(125%); // up brightness on hover
 }
 
 .jspsych-btn:disabled {
