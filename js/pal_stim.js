@@ -82,7 +82,7 @@ var cond2Ambiguous = [
 
 var cond2 = cond2Iconic.concat(cond2Ambiguous)
 
-var palAudio = ['audio/teachingaudio.mp3', 'audio/testaudio.mp3', 'audio/keep_going.wav', 'audio/wait_full.mp3', 'audio/click_drag.mp3', 'audio/new_game.mp3', 'audio/click_drag.mp3', 'audio/done.mp3']
+var palAudio = ['audio/instructions_gotogether.mp3', 'audio/instructions_keepgoing.wav', 'audio/instructions_waitfull.mp3', 'audio/instructions_whichpictures.wav', 'audio/instructions_newgame.mp3', 'audio/done.mp3']
 
 var cond1ImagesA = [
   'pal_images/bib.jpg',

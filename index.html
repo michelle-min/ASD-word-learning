@@ -67,8 +67,8 @@
     {type: 'audio-button-response', stimulus: 'audio/instructions_practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitpicture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     pol_intro_procedure,
-    {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.wav', response_ends_trial: false, trial_duration: 2500},
-    {type: 'audio-keyboard-response', stimulus: 'audio/wait_full.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitfull.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     pol_choose_procedure
   );
 
@@ -85,11 +85,11 @@
   timeline.push(
     {type: 'audio-keyboard-response', stimulus: 'audio/keep_going.wav', response_ends_trial: false, trial_duration: 2500},
     task1[0], // ambiguous or iconic + teach procedure
-    {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
     task1[1], // same + test procedure
-    {type: 'audio-keyboard-response', stimulus: 'audio/new_game.mp3', response_ends_trial: false, trial_duration: 5000},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
     task2[0], // other + teach procedure
-    {type: 'audio-button-response', stimulus: 'audio/click_drag.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
     task2[1] // other + test procedure
   );
 

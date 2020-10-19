@@ -67,5 +67,5 @@ The order of the four blocks is determined by the experiment version, which is r
 
 # Links
 
-- Error message: https://stackoverflow.com/questions/19235345/javascript-typeerror-cannot-read-property-style-of-null
+- Loading progress bar error: https://stackoverflow.com/questions/19235345/javascript-typeerror-cannot-read-property-style-of-null
 - Favicon error: https://www.digitalocean.com/community/tutorials/how-to-add-a-favicon-to-your-website-with-html

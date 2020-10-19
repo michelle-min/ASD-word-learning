@@ -1,4 +1,3 @@
-/* 1. PAL: teaching blocks */
 
   /* Randomly choose one version of four */
   var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
@@ -31,7 +30,7 @@
   var palVideoKeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
-      stimulus: 'audio/teachingaudio.mp3',
+      stimulus: 'audio/instructions_gotogether.mp3',
       width: 640,
       //start: 5000, // video starts at 1 second (after teaching audio) **this doesn't work?
       trial_duration: 3500, // trial duration in ms
