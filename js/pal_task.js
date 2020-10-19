@@ -17,30 +17,14 @@
   /* Create timeline variables of video and audio for ambiguous and iconic pairs. */
   var ambTeachStimuli = [];
   for (i = 0; i < 16; i++) {
-    var vidName = conditionStimuli[i];
-    var vidName = vidName.replace("videos/cond1_", "");
-    var vidName = vidName.replace(".mp4", "");
-    var vidName = vidName.split("_");
-    var vidPair = vidName[0];
-    var vidObjectNumber = vidName[1];
-    var vidObject = vidObjectNumber.slice(0, -1);
-    var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     ambTeachStimuli[i] = {
-      video: [conditionStimuli[i]], icoamb: vidPair, obj: vidObject, dir: vidNumber}, + "\n";
+      video: [conditionStimuli[i]]}, + "\n";
   }
 
   var icoTeachStimuli = [];
   for (i = 0; i < 16; i++) {
-    var vidName = conditionStimuli[i+16];
-    var vidName = vidName.replace("videos/cond1_", "");
-    var vidName = vidName.replace(".mp4", "");
-    var vidName = vidName.split("_");
-    var vidPair = vidName[0];
-    var vidObjectNumber = vidName[1];
-    var vidObject = vidObjectNumber.slice(0, -1);
-    var vidNumber = vidObjectNumber.substr(vidObjectNumber.length - 1);
     icoTeachStimuli[i] = {
-      video: [conditionStimuli[i+16]], icoamb: vidPair, obj: vidObject, dir: vidNumber}, + "\n";
+      video: [conditionStimuli[i+16]]}, + "\n";
   }
 
   /* Video-keyboard trial for PAL task */
@@ -55,9 +39,6 @@
       data: {
         version: version,
         video: jsPsych.timelineVariable('video'),
-        ico_amb: jsPsych.timelineVariable('icoamb'),
-        object: jsPsych.timelineVariable('obj'),
-        direction: jsPsych.timelineVariable('dir'),
         block: 'teach',
         task: 'pal'
       }
@@ -119,26 +100,6 @@
       image: testImagesIco[i], set: icoSet, target: targetSym, block: 'sort'}, + "\n";
   }
 
-
-
-  var icoTestStimuli = [];
-  for (i = 0; i < 8; i++) {
-    // id target symbol
-    var targetSymbol = testImagesIco[i+8]
-    // select random symbol
-    var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
-    // if same as target symbol, repeat
-    if (randomNum = i+8) {
-      var newNum = [8,9,10,11,12,13,14,15];
-      newNum.splice(randomNum-8, 1);
-      var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
-    }
-    var icoSet = [targetSymbol, testImages2[randomNum]];
-    var icoSet = jsPsych.randomization.shuffle(icoSet);
-    icoTestStimuli[i] = {
-      image: testImages2[i], set: icoSet, target: targetSymbol, block: 'sort'}, + "\n";
-  }
-
   /* Image-button trial */
   var testImageButton = {
     type: 'image-button-response',
@@ -147,10 +108,9 @@
     button_html: stimButton,
     data: {
       choices: jsPsych.timelineVariable('set'),
-      image: jsPsych.timelineVariable('image'),
       target: jsPsych.timelineVariable('target'),
       version: version,
-      block: 'sort',
+      block: 'test',
       task: 'pal'
     },
     on_finish: function(data){

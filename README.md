@@ -23,7 +23,47 @@ The order of the four blocks is determined by the experiment version, which is r
 
 ## Data
 
+#### Trial Info
+- trial_type
+- trial_index
+- time_elapsed
+- internal_node_id
+- success: did it go into fullscreen mode?
 
+#### Stimulus
+- rt
+- stimulus: primary audio (usually instructions) or image (in PAL: test) for the trial
+- button_pressed: participant's response to buttons (clicking on image) coded as 0-3 (from top left and continuing clockwise)
+- key_press: participant's keyboard response coded numerically (*not important*, should just be null because the option is turned off)
+
+#### Polysemy: Intro
+- task: `polysemy`
+- block: `intro`
+- choices: four buttons (images) shown to participant
+- target: the correct answer
+- accuracy: TRUE if button_pressed = target
+
+#### Polysemy: Choose
+- task: `polysemy`
+- block: `choose`
+- choices: four buttons (images) shown to participant
+- target: the correct answer
+- accuracy: TRUE if button_pressed = target
+
+#### PAL: Teach
+- task: `pal`
+- block: `teach`
+- version: 1 to 4
+- video: name of video that teaches the symbol-object pair
+
+#### PAL: Test
+- task: `pal`
+- block: `test`
+- version: 1 to 4
+- stimulus: a picture of an object
+- choices: two buttons (symbols) shown to participant
+- target: the name of the correct symbol
+- accuracy: TRUE if button_pressed = target
 
 # Links
 
