@@ -93,8 +93,14 @@
     task2[1] // other + test procedure
   );
 
+  /* Payment code and survey question */
+  timeline.push({type: 'survey-text',
+                 preamble: 'Your payment code is: <strong>273811</strong>'
+                 questions: [{prompt: "Do you have any feedback for us about the task?", name: 'feedback', required: false}],
+                 button_label: 'Submit'});
+
   /* Ending */
-  timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true});
+  timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done.'});
 
   /* Finish connection with pavlovia */
   var pavlovia_finish = {
