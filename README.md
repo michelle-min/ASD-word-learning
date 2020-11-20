@@ -14,12 +14,12 @@ The PAL task has participants learn a pair of images, one a symbol and the other
 
 The corresponding **test blocks** display the 9 objects in random order and ask participants to select the matching symbol (one correct, one randomly selected). Just like before, one test block has only iconic pairs (`ico_test_procedure`) and the other has only ambiguous pairs (`amb_test_procedure`).
 
-The order of the four blocks is determined by the experiment version, which is randomly assigned to participants. Initially, the 18 symbol-object pairs were all iconic. After being split into two random groups, A and B, half of the pairings were shuffled to create ambiguous pairings. Condition 1 keeps the shuffles pairings for group A and keeps the iconic pairings for group B, while condition 2 shuffles pairings for group B and keeps the iconic pairings for group A. Then, when the tasks are shown, the order is again randomized to be either arbitrary->iconic or iconic->arbitrary. With 2 conditions and 2 orders, there are four possible versions:
+The order of the four blocks is determined by the experiment version, which is randomly assigned to participants. Initially, the 18 symbol-object pairs were all iconic. After being split into two random groups, A and B, half of the pairings were shuffled to create ambiguous pairings. Condition 1 keeps iconic pairings for group A and shuffles pairings for group B, while condition 2 shuffles pairings for group A and keeps the iconic pairings for group B. Then, when the tasks are shown, the order is again randomized to be either iconic->arbitrary or arbitrary->iconic. With 2 conditions and 2 orders, there are four possible versions:
 
-1) cond 1, order 1 = A arbitrary, B iconic
-2) cond 1, order 2 = B iconic, A arbitrary
-3) cond 2, order 1 = A iconic, B arbitrary
-4) cond 2, order 2 = B arbitrary, A iconic
+1) cond 1, order 1 = A iconic, B arbitrary
+2) cond 1, order 2 = B arbitrary, A iconic
+3) cond 2, order 1 = A arbitrary, B iconic
+4) cond 2, order 2 = B iconic, A arbitrary
 
 ## Data
 
