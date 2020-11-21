@@ -35,7 +35,7 @@
   var palVideoKeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
-      stimulus: function(data) {
+      stimulus: function() {
         trial_num = jsPsych.data.get().count();
         if (trial_num == 109 || trial_num < 79) {
           console.log(trial_num)
