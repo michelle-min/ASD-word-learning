@@ -1,20 +1,20 @@
 
   /* Randomly choose one of four versions */
-  var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
+  var ver = Math.floor((Math.random() * 4) + 1);
 
-  if (version = 1) {
+  if (ver == 1) {
     var conditionStimuli = ver1_stim; // these are used for teaching
     var testBlock1 = imagesA; // iconic boat
     var testBlock2 = imagesB; // ambiguous bib
-  } else if (version = 2) {
+  } else if (ver == 2) {
     var conditionStimuli = ver2_stim;
     var testBlock1 = imagesB;
     var testBlock2 = imagesA;
-  } else if (version = 3) {
+  } else if (ver == 3) {
     var conditionStimuli = ver3_stim;
     var testBlock1 = imagesC;
     var testBlock2 = imagesD;
-  } else if (version = 4) {
+  } else if (ver == 4) {
     var conditionStimuli = ver4_stim;
     var testBlock1 = imagesD;
     var testBlock2 = imagesC;
@@ -23,27 +23,31 @@
   /* Create timeline variables of video/audio for teaching, two blocks. */
   var videosBlock1 = [];
   for (i = 0; i < 16; i++) {
-    videosBlock1[i] = {
-      video: [conditionStimuli[i]]}, + "\n";
+    videosBlock1[i] = {video: [conditionStimuli[i]]}, + "\n";
   }
 
   var videosBlock2 = [];
   for (i = 0; i < 16; i++) {
-    videosBlock2[i] = {
-      video: [conditionStimuli[i+16]]}, + "\n";
+    videosBlock2[i] = {video: [conditionStimuli[i+16]]}, + "\n";
   }
 
   /* Video-keyboard trial for PAL task */
   var palVideoKeyboard = {
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
-      stimulus: 'audio/instructions_gotogether.mp3',
+      stimulus: function(data) {
+        trial_num = jsPsych.data.getLastTrialData().select('trial_index').values[0];
+        if (trial_num = 109) {
+          console.log(trialnum)
+          return 'audio/instructions_gotogether.mp3';
+        }
+      },
       width: 640,
       //start: 5000, // video starts at 1 second (after teaching audio) **this doesn't work?
       trial_duration: 3500, // trial duration in ms
       response_ends_trial: false, // trial continues for trial_duration regardless of keyboard response
       data: {
-        version: version,
+        version: ver,
         video: jsPsych.timelineVariable('video'),
         block: 'teach',
         task: 'pal'
@@ -114,7 +118,7 @@
     data: {
       choices: jsPsych.timelineVariable('set'),
       target: jsPsych.timelineVariable('target'),
-      version: version,
+      version: ver,
       block: 'test',
       task: 'pal'
     },
@@ -146,4 +150,4 @@
 /* 3. Combine for PAL task */
 
 task1 = [block1_teach_procedure, block1_test_procedure];
-task2 = [block2_teach_procedure, block2_test_procedure]
+task2 = [block2_teach_procedure, block2_test_procedure];

@@ -37,9 +37,6 @@ var videosB = [
   "videos/cond1_amb_pizza1.mp4",
   "videos/cond1_amb_pizza2.mp4"]
 
-var ver1_stim = videosA.concat(videosB)
-var ver2_stim = videosB.concat(videosA)
-
 // COND 2, ICONIC
 var videosC = [
   "videos/cond2_iconic_bib1.mp4",
@@ -80,6 +77,9 @@ var videosD = [
   "videos/cond2_amb_tub2.mp4"
 ]
 
+
+var ver1_stim = videosA.concat(videosB)
+var ver2_stim = videosB.concat(videosA)
 var ver3_stim = videosC.concat(videosD)
 var ver4_stim = videosD.concat(videosC)
 
