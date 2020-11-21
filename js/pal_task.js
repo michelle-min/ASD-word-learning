@@ -38,7 +38,7 @@
       stimulus: function(data) {
         trial_num = jsPsych.data.getLastTrialData().select('trial_index').values[0];
         if (trial_num = 109) {
-          console.log(trialnum)
+          console.log(trial_num)
           return 'audio/instructions_gotogether.mp3';
         }
       },
