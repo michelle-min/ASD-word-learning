@@ -37,9 +37,11 @@
       sources: jsPsych.timelineVariable('video'),
       stimulus: function() {
         trial_num = jsPsych.data.get().count();
-        if (trial_num == 109 || trial_num < 79) {
+        if (trial_num < 79 || trial_num == 109 ) {
           console.log(trial_num)
           return 'audio/instructions_gotogether.mp3';
+        } else {
+          return null
         }
       },
       width: 640,
