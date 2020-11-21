@@ -1,5 +1,5 @@
-// COND 1: group A
-]var cond1Iconic = [
+// COND 1, ICONIC
+var videosA = [
   "videos/cond1_iconic_boat1.mp4",
   "videos/cond1_iconic_boat2.mp4",
   "videos/cond1_iconic_car1.mp4",
@@ -18,8 +18,8 @@
   "videos/cond1_iconic_tub2.mp4"
 ]
 
-// COND 1: group B
-var cond1Ambiguous = [
+// COND 1, AMBIGUOUS
+var videosB = [
   "videos/cond1_amb_bib1.mp4",
   "videos/cond1_amb_bib2.mp4",
   "videos/cond1_amb_boots1.mp4",
@@ -35,32 +35,13 @@ var cond1Ambiguous = [
   "videos/cond1_amb_lightning1.mp4",
   "videos/cond1_amb_lightning2.mp4",
   "videos/cond1_amb_pizza1.mp4",
-  "videos/cond1_amb_pizza2.mp4"
+  "videos/cond1_amb_pizza2.mp4"]
 
-var cond1 = cond1Iconic.concat(cond1Ambiguous)
+var ver1_stim = videosA.concat(videosB)
+var ver2_stim = videosB.concat(videosA)
 
-// COND 2: group A
-var cond2Ambiguous = [
-  "videos/cond2_amb_boat1.mp4",
-  "videos/cond2_amb_boat2.mp4",
-  "videos/cond2_amb_car1.mp4",
-  "videos/cond2_amb_car2.mp4",
-  "videos/cond2_amb_chair1.mp4",
-  "videos/cond2_amb_chair2.mp4",
-  "videos/cond2_amb_fox1.mp4",
-  "videos/cond2_amb_fox2.mp4",
-  "videos/cond2_amb_sandbox1.mp4",
-  "videos/cond2_amb_sandbox2.mp4",
-  "videos/cond2_amb_snake1.mp4",
-  "videos/cond2_amb_snake2.mp4",
-  "videos/cond2_amb_table1.mp4",
-  "videos/cond2_amb_table2.mp4",
-  "videos/cond2_amb_tub1.mp4",
-  "videos/cond2_amb_tub2.mp4"
-]
-
-// COND 2: group B
-var cond2Iconic = [
+// COND 2, ICONIC
+var videosC = [
   "videos/cond2_iconic_bib1.mp4",
   "videos/cond2_iconic_bib2.mp4",
   "videos/cond2_iconic_boots1.mp4",
@@ -79,11 +60,32 @@ var cond2Iconic = [
   "videos/cond2_iconic_pizza2.mp4"
 ]
 
-var cond2 = cond2Iconic.concat(cond2Ambiguous)
+// COND 2, AMBIGUOUS
+var videosD = [
+  "videos/cond2_amb_boat1.mp4",
+  "videos/cond2_amb_boat2.mp4",
+  "videos/cond2_amb_car1.mp4",
+  "videos/cond2_amb_car2.mp4",
+  "videos/cond2_amb_chair1.mp4",
+  "videos/cond2_amb_chair2.mp4",
+  "videos/cond2_amb_fox1.mp4",
+  "videos/cond2_amb_fox2.mp4",
+  "videos/cond2_amb_sandbox1.mp4",
+  "videos/cond2_amb_sandbox2.mp4",
+  "videos/cond2_amb_snake1.mp4",
+  "videos/cond2_amb_snake2.mp4",
+  "videos/cond2_amb_table1.mp4",
+  "videos/cond2_amb_table2.mp4",
+  "videos/cond2_amb_tub1.mp4",
+  "videos/cond2_amb_tub2.mp4"
+]
+
+var ver3_stim = videosC.concat(videosD)
+var ver4_stim = videosD.concat(videosC)
 
 var palAudio = ['audio/instructions_gotogether.mp3', 'audio/instructions_keepgoing.wav', 'audio/instructions_waitfull.mp3', 'audio/instructions_whichpictures.wav', 'audio/instructions_newgame.mp3', 'audio/done.mp3']
 
-var cond1ImagesA = [
+var imagesA = [
   'pal_images/boat.jpg',
   'pal_images/car.jpg',
   'pal_images/chair.jpg',
@@ -102,7 +104,7 @@ var cond1ImagesA = [
   'pal_images/symbol6.jpg'
 ]
 
-var cond1ImagesB = [
+var imagesB = [
   'pal_images/bib.jpg',
   'pal_images/boots.jpg',
   'pal_images/butterfly.jpg',
@@ -121,7 +123,7 @@ var cond1ImagesB = [
   'pal_images/symbol14.jpg'
 ]
 
-var cond2ImagesA = [
+var imagesC = [
   'pal_images/bib.jpg',
   'pal_images/boots.jpg',
   'pal_images/butterfly.jpg',
@@ -140,7 +142,7 @@ var cond2ImagesA = [
   'pal_images/symbol12.jpg'
 ]
 
-var cond2ImagesB = [
+var imagesD = [
   'pal_images/boat.jpg',
   'pal_images/car.jpg',
   'pal_images/chair.jpg',

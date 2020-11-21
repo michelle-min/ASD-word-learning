@@ -73,14 +73,6 @@
     pol_choose_procedure
   );
 
-  /* Select version for PAL Tasks */
-  if (version == 2 || version == 4) {
-    var task1 = [amb_teach_procedure, amb_sort_procedure];
-    var task2 = [ico_teach_procedure, ico_sort_procedure];
-  } else {
-    var task1 = [ico_teach_procedure, ico_sort_procedure];
-    var task2 = [amb_teach_procedure, amb_sort_procedure];
-  }
 
   /* Two PAL Tasks */
   timeline.push(
@@ -111,9 +103,9 @@
   timeline.push(pavlovia_finish);
 
   /* Paths to stimuli for preloading (because of timeline variables) */
-  var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], cond1ImagesA, cond1ImagesB)
+  var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB, imagesC, imagesD)
   var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
-  var allVideos = cond1.concat(cond2);
+  var allVideos = ver1_stim.concat(ver3_stim);
 
   /* Initialize */
   jsPsych.init({

@@ -1,28 +1,35 @@
 
-  /* Randomly choose one version of four */
+  /* Randomly choose one of four versions */
   var version = jsPsych.randomization.sampleWithoutReplacement([1,2,3,4],1)[0];
 
-  if (version <= 2) {
-    var conditionStimuli = cond1; // these are used in testing blocks
-    var testImagesAmb = cond1ImagesA; // iconic boat
-    var testImagesIco = cond1ImagesB; // ambiguous bib
-  }
-  else if (version >= 3) {
-    var conditionStimuli = cond2;
-    var testImagesIco = cond2ImagesA; // ambiguous boat
-    var testImagesAmb = cond2ImagesB; // iconic bib
+  if (version = 1) {
+    var conditionStimuli = ver1_stim; // these are used for teaching
+    var testBlock1 = imagesA; // iconic boat
+    var testBlock2 = imagesB; // ambiguous bib
+  } else if (version = 2) {
+    var conditionStimuli = ver2_stim;
+    var testBlock1 = imagesB;
+    var testBlock2 = imagesA;
+  } else if (version = 3) {
+    var conditionStimuli = ver3_stim;
+    var testBlock1 = imagesC;
+    var testBlock2 = imagesD;
+  } else if (version = 4) {
+    var conditionStimuli = ver4_stim;
+    var testBlock1 = imagesD;
+    var testBlock2 = imagesC;
   }
 
-  /* Create timeline variables of video and audio for iconic and ambiguous pairs. */
-  var icoTeachStimuli = [];
+  /* Create timeline variables of video/audio for teaching, two blocks. */
+  var videosBlock1 = [];
   for (i = 0; i < 16; i++) {
-    icoTeachStimuli[i] = {
+    videosBlock1[i] = {
       video: [conditionStimuli[i]]}, + "\n";
   }
 
-  var ambTeachStimuli = [];
+  var videosBlock2 = [];
   for (i = 0; i < 16; i++) {
-    ambTeachStimuli[i] = {
+    videosBlock2[i] = {
       video: [conditionStimuli[i+16]]}, + "\n";
   }
 
@@ -43,27 +50,27 @@
       }
   };
 
-  /* Procedure for iconic pairs teaching */
-  var ico_teach_procedure = {
+  /* Procedure for block 1 teaching */
+  var block1_teach_procedure = {
     timeline: [fixation, palVideoKeyboard],
-    timeline_variables: icoTeachStimuli,
+    timeline_variables: videosBlock1,
     randomize_order: true
   };
 
   /* Procedure for ambiguous pairs teaching */
-  var amb_teach_procedure = {
+  var block2_teach_procedure = {
     timeline: [fixation, palVideoKeyboard],
-    timeline_variables: ambTeachStimuli,
+    timeline_variables: videosBlock2,
     randomize_order: true
   };
 
 /* 2. PAL: testing blocks */
 
-  /* Create timeline variable of image and buttons for iconic pairs. */
-  var icoTestStimuli = [];
+  /* Create timeline variable of image/buttons for testing, two blocks. */
+  var choicesBlock1 = [];
   for (i = 0; i < 8; i++) {
     // identify target symbol
-    var targetSym = testImagesIco[i+8]
+    var targetSym = testBlock1[i+8]
     // select random symbol
     var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
     // if same as target symbol, repeat
@@ -73,17 +80,16 @@
       var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
     }
     // list of target and random symbols
-    var icoSet = [targetSym, testImagesIco[randomNum]];
-    var icoSet = jsPsych.randomization.shuffle(icoSet);
-    icoTestStimuli[i] = {
-      image: testImagesIco[i], set: icoSet, target: targetSym, block: 'sort'}, + "\n";
+    var stimSet = [targetSym, testBlock1[randomNum]];
+    var stimSet = jsPsych.randomization.shuffle(stimSet);
+    choicesBlock1[i] = {
+      image: testBlock1[i], set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   }
 
-  /* Create timeline variable of image and buttons for ambiguous pairs. */
-  var ambTestStimuli = [];
+  var choicesBlock2 = [];
   for (i = 0; i < 8; i++) {
     // identify target symbol
-    var targetSym = testImagesAmb[i+8]
+    var targetSym = testBlock2[i+8]
     // select random symbol
     var randomNum = jsPsych.randomization.sampleWithoutReplacement([8,9,10,11,12,13,14,15],1)[0];
     // if same as target symbol, repeat
@@ -93,10 +99,10 @@
       var randomNum = jsPsych.randomization.sampleWithoutReplacement(newNum)[0];
     }
     // list of target and random symbols
-    var ambSet = [targetSym, testImagesAmb[randomNum]];
-    var ambSet = jsPsych.randomization.shuffle(ambSet);
-    ambTestStimuli[i] = {
-      image: testImagesAmb[i], set: ambSet, target: targetSym, block: 'sort'}, + "\n";
+    var stimSet = [targetSym, testBlock2[randomNum]];
+    var stimSet = jsPsych.randomization.shuffle(stimSet);
+    choicesBlock2[i] = {
+      image: testBlock2[i], set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   }
 
   /* Image-button trial */
@@ -123,16 +129,21 @@
   };
 
   /* Procedure for iconic pairs sorting */
-  var ico_sort_procedure = {
+  var block1_test_procedure = {
     timeline: [fixation, testImageButton],
-    timeline_variables: icoTestStimuli,
+    timeline_variables: choicesBlock1,
     randomize_order: true
   };
 
 
   /* Procedure for ambiguous pairs sorting */
-  var amb_sort_procedure = {
+  var block2_test_procedure = {
     timeline: [fixation, testImageButton],
-    timeline_variables: ambTestStimuli,
+    timeline_variables: choicesBlock2,
     randomize_order: true
   };
+
+/* 3. Combine for PAL task */
+
+task1 = [block1_teach_procedure, block1_test_procedure];
+task2 = [block2_teach_procedure, block2_test_procedure]
