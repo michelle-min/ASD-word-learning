@@ -36,7 +36,7 @@
       type: 'video-keyboard-response',
       sources: jsPsych.timelineVariable('video'),
       stimulus: function(data) {
-        trial_num = jsPsych.data.getLastTrialData().select('trial_index').values[0];
+        trial_num = jsPsych.data.get().count();
         if (trial_num = 109) {
           console.log(trial_num)
           return 'audio/instructions_gotogether.mp3';
