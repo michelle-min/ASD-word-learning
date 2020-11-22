@@ -44,7 +44,7 @@
         } else if (trial_num < 99 || (trial_num > 141 && trial_num < 149) ) {
           return 'audio/instructions_gotogethertoo.mp3';
         } else {
-          return 'audio/instructions_almostdone.mp3';
+          return 'audio/instructions_justafewmore.mp3';
         }
       },
       width: 640,
