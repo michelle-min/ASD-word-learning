@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Polysemy Experiment </title>
+    <title> Language Experiment </title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <script src="js/jspsych/jspsych.js"></script>
     <script src="js/jspsych/plugins/jspsych-fullscreen.js"></script>
     <script src="js/jspsych/plugins/jspsych-audio-button-response.js"></script>
@@ -77,13 +81,13 @@
   /* Two PAL Tasks */
   timeline.push(
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
-    task1[0], // ambiguous or iconic + teach procedure
+    task1[0], // ambiguous or iconic + teach
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-    task1[1], // same + test procedure
+    task1[1], // same + test
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
-    task2[0], // other + teach procedure
+    task2[0], // other + teach
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-    task2[1] // other + test procedure
+    task2[1] // other + test
   );
 
   /* Payment code and survey question */
@@ -104,7 +108,7 @@
 
   /* Paths to stimuli for preloading (because of timeline variables) */
   var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB, imagesC, imagesD)
-  var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
+  var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio, [])
   var allVideos = ver1_stim.concat(ver3_stim);
 
   /* Initialize */

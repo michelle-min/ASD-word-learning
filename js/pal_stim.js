@@ -83,7 +83,7 @@ var ver2_stim = videosB.concat(videosA)
 var ver3_stim = videosC.concat(videosD)
 var ver4_stim = videosD.concat(videosC)
 
-var palAudio = ['audio/instructions_gotogether.mp3', 'audio/instructions_keepgoing.wav', 'audio/instructions_waitfull.mp3', 'audio/instructions_whichpictures.wav', 'audio/instructions_newgame.mp3', 'audio/done.mp3']
+var palAudio = ['audio/instructions_gotogether.mp3', 'audio/instructions_keepgoing.wav', 'audio/instructions_waitfull.mp3', 'audio/instructions_whichpictures.wav', 'audio/instructions_newgame.mp3', 'audio/done.mp3', `audio/instructions_almostdone.mp3`, `audio/instructions_alsogotogether.mp3`, `audio/instructions_gotogethertoo.mp3`]
 
 var imagesA = [
   'pal_images/boat.jpg',
