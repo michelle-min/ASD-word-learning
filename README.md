@@ -64,8 +64,3 @@ The order of the four blocks is determined by the experiment version, which is r
 - choices: two buttons (symbols) shown to participant
 - target: the name of the correct symbol
 - accuracy: TRUE if button_pressed = target
-
-# Links
-
-- Loading progress bar error: https://stackoverflow.com/questions/19235345/javascript-typeerror-cannot-read-property-style-of-null
-- Favicon error: https://www.digitalocean.com/community/tutorials/how-to-add-a-favicon-to-your-website-with-html
