@@ -37,11 +37,14 @@
       sources: jsPsych.timelineVariable('video'),
       stimulus: function() {
         trial_num = jsPsych.data.get().count();
-        if (trial_num < 79 || trial_num == 109 ) {
-          console.log(trial_num)
+        if (trial_num < 83 || (trial_num > 125 && trial_num < 133) ) {
           return 'audio/instructions_gotogether.mp3';
+        } else if (trial_num < 91 || (trial_num > 133 && trial_num < 141) ) {
+          return 'audio/instructions_alsogotogether.mp3';
+        } else if (trial_num < 99 || (trial_num > 141 && trial_num < 149) ) {
+          return 'audio/instructions_gotogethertoo.mp3';
         } else {
-          return null
+          return 'audio/instructions_almostdone.mp3';
         }
       },
       width: 640,
