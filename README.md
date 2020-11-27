@@ -24,16 +24,17 @@ The order of the four blocks is determined by the experiment version, which is r
 ## Data
 
 #### Trial Info
-- trial_type
-- trial_index
-- time_elapsed
+- trial_type: type of each new page (e.g., fullscreen, audio-keyboard-response, html-button-response)
+- trial_index: number of trials/new pages starting from 0
+- time_elapsed: total time online (ms)
 - internal_node_id
+- subject: unique subject id from Qualtrics
 - success: did it go into fullscreen mode?
 
 #### Stimulus
-- rt
+- rt: reaction time
 - stimulus: primary audio (usually instructions) or image (in PAL: test) for the trial
-- button_pressed: participant's response to buttons (clicking on image) coded as 0-3 (from top left and continuing clockwise)
+- button_pressed: participant's response to buttons (clicking on image) coded as 0-3 (clockwise from top left)
 - key_press: participant's keyboard response coded numerically (*not important*, should just be null because the option is turned off)
 
 #### Polysemy: Intro
