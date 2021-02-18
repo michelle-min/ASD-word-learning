@@ -1,7 +1,0 @@
-"trial_type","trial_index","time_elapsed","internal_node_id","subject","success","rt","stimulus","button_pressed","key_press"
-"pavlovia","0","5","0.0-0.0","","","","","",""
-"fullscreen","1","2834","0.0-1.0","","true","","","",""
-"audio-button-response","2","7455","0.0-2.0","","","4518.340000002354","audio/instructions_practice.mp3","0",""
-"audio-keyboard-response","3","10913","0.0-3.0","","","null","audio/instructions_waitpicture.mp3","","null"
-"html-button-response","4","12968","0.0-4.0-0.0","","","1949.0599999990081","","0",""
-"audio-button-response","5","15074","0.0-4.0-1.0-0.0","","","863.1749999985914","audio/flowerrecording1.mp3","0",""

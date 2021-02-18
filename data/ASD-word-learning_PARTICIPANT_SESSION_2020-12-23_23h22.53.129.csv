@@ -1,7 +1,0 @@
-"trial_type","trial_index","time_elapsed","internal_node_id","subject","success","rt","stimulus","button_pressed","key_press"
-"pavlovia","0","7","0.0-0.0","","","","","",""
-"fullscreen","1","2328","0.0-1.0","","true","","","",""
-"audio-button-response","2","3043","0.0-2.0","","","608.3600000001752","audio/instructions_practice.mp3","0",""
-"audio-keyboard-response","3","6479","0.0-3.0","","","null","audio/instructions_waitpicture.mp3","","null"
-"html-button-response","4","8699","0.0-4.0-0.0","","","2113.970000000336","","0",""
-"audio-button-response","5","11535","0.0-4.0-1.0-0.0","","","null","audio/bananarecording1.mp3","null",""

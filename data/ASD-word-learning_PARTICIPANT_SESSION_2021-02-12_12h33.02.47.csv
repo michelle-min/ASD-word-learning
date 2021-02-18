@@ -1,7 +1,0 @@
-"trial_type","trial_index","time_elapsed","internal_node_id","subject","success","rt","stimulus","button_pressed","key_press"
-"pavlovia","0","4","0.0-0.0","","","","","",""
-"fullscreen","1","2324","0.0-1.0","","true","","","",""
-"audio-button-response","2","116441","0.0-2.0","","","114012.64500000024","audio/instructions_practice.mp3","0",""
-"audio-keyboard-response","3","119898","0.0-3.0","","","null","audio/instructions_waitpicture.mp3","","null"
-"html-button-response","4","125538","0.0-4.0-0.0","","","5492.979999999996","","0",""
-"audio-button-response","5","127642","0.0-4.0-1.0-0.0","","","null","audio/shoerecording1.mp3","null",""
