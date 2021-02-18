@@ -39,7 +39,7 @@
 
   var timeline = [];
 
-  /* Initialize connection with pavlovia */
+  /* Initialize connection with Pavlovia */
   var pavlovia_init = {
   	type: "pavlovia",
   	command: "init"
@@ -50,8 +50,7 @@
   subj_id = jsPsych.data.getURLVariable('subject');
   jsPsych.data.addProperties({subject: subj_id});
 
-  /* Fullscreen Mode.
-  note: this plugin may NOT work for Safari according to documentation */
+  /* Fullscreen Mode */
   timeline.push({
     type: 'fullscreen',
     fullscreen_mode: true
@@ -68,7 +67,7 @@
   );
 
 
-  /* Two PAL Tasks */
+  /* PAL Tasks */
   timeline.push(
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
     task1[0], // ambiguous or iconic + teach
@@ -80,7 +79,7 @@
     task2[1] // other + test
   );
 
-  /* Payment code and survey question */
+  /* Payment and Feedback */
   timeline.push({type: 'survey-text',
                  preamble: 'Your payment code is: <strong>273811</strong>',
                  questions: [{prompt: "Do you have any feedback for us about the task?", name: 'feedback', required: false}],
@@ -89,14 +88,14 @@
   /* Ending */
   timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done.'});
 
-  /* Finish connection with pavlovia */
+  /* Finish connection with Pavlovia */
   var pavlovia_finish = {
   	type: "pavlovia",
   	command: "finish"
   	};
   timeline.push(pavlovia_finish);
 
-  /* Paths to stimuli for preloading (because of timeline variables) */
+  /* Paths to stimuli for preloading (timeline variables) */
   var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB, imagesC, imagesD)
   var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio, [])
   var allVideos = ver1_stim.concat(ver3_stim);
@@ -107,9 +106,10 @@
     preload_images: allImages,
     preload_audio: allAudio,
     preload_video: allVideos,
-    default_iti: 100//, // intertrial interval (ms)
-    //experiment_width: 750 // max experiment width
-    //use_webaudio: false
+    default_iti: 100, // intertrial interval (ms)
+    experiment_width: 750, // max experiment width
+    show_progress_bar: true,
+    auto_update_progress_bar: true
   });
 
   </script>
