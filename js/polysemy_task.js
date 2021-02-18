@@ -11,10 +11,10 @@
   }
 
   /* HTML for all image buttons */
-  var stimButton = '<div class="grid-container"><div><img src="%choice%" width="250" height="250"/></div></div>';
+  var stimButton = '<div class="gjspsych-btn"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* HTML for transparent images buttons */
-  var stimButtonTranslucent = '<div class="grid-container-translucent"><div><img src="%choice%" width="250" height="250"/></div></div>';
+  var stimButtonTranslucent = '<div class="jspsych-btn-translucent"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* Audio-button trial */
   var introAudioButton = {
@@ -130,6 +130,5 @@
   var pol_choose_procedure = {
     timeline: [fixation, chooseAudioButton],
     timeline_variables: chooseStimuli,
-    randomize_order: true // switch to 'sample:' when there are filler trials
+    randomize_order: true
   };
-  
