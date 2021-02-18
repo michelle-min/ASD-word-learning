@@ -11,10 +11,10 @@
   }
 
   /* HTML for all image buttons */
-  var stimButton = '<div class="jspsych-btn button4"><div><img src="%choice%" width="250" height="250"/></div></div>';
+  var stimButton = '<div class="jspsych-btn button1"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* HTML for transparent images buttons */
-  var stimButtonTranslucent = '<div class="jspsych-btn-translucent button4"><div><img src="%choice%" width="250" height="250"/></div></div>';
+  var stimButtonTranslucent = '<div class="jspsych-btn-translucent button1"><div><img src="%choice%" width="250" height="250"/></div></div>';
 
   /* Audio-button trial */
   var introAudioButton = {
