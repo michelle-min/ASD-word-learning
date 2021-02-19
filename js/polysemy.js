@@ -128,12 +128,3 @@
     timeline_variables: chooseStimuli,
     randomize_order: true
   };
-
-/* Full task procedure */
-poltask = [
-  {type: 'audio-button-response', stimulus: 'audio/instructions_practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
-  {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitpicture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-  pol_intro_procedure,
-  {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
-  {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitfull.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
-  pol_choose_procedure]
