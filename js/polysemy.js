@@ -11,7 +11,7 @@
 
   /* HTML for buttons */
   var stimButton = '<button class="jspsych-btn button1"><img src="%choice%" width="250" height="250"/></button>'; // opaque
-  var stimButtonTranslucent = '<button class="jspsych-btn-translucent button1"><img src="%choice%" width="250" height="250"/></button>'; // translucent
+  var stimButtonTranslucent = '<button class="jspsych-btn button1translucent"><img src="%choice%" width="250" height="250"/></button>'; // translucent
 
   /* Audio-button trial */
   var introAudioButton = {
