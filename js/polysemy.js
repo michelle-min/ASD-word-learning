@@ -1,8 +1,7 @@
 /* 1. Polysemy Task: intro (PPVT) block */
 
   /* Create timeline variable of target, 3 distractors, and audio for 8 trials;
-  shuffle choice order within each trial; record block info for analysis.
-  NOTE: delete two distractors from loop for a 2-choice experiment */
+  shuffle choice order within each trial; record block info for analysis. */
   var introStimuli = [];
   for (i = 0; i < introTargets.length; i++) {
     introSet = [introImages[4*i], introImages[4*i+1], introImages[4*i+2], introImages[4*i+3]];
@@ -10,11 +9,9 @@
     introStimuli[i] = {set: introSet, audioPre: introAudioPre[i], audioPost: introAudioPost[i], target: introTargets[i], block: 'intro'}, + "\n";
   }
 
-  /* HTML for all image buttons */
-  var stimButton = '<div class="jspsych-btn button1"><div><img src="%choice%" width="250" height="250"/></div></div>';
-
-  /* HTML for transparent images buttons */
-  var stimButtonTranslucent = '<div class="jspsych-btn-translucent button1"><div><img src="%choice%" width="250" height="250"/></div></div>';
+  /* HTML for buttons */
+  var stimButton = '<button class="jspsych-btn button1"><img src="%choice%" width="250" height="250"/></button>'; // opaque
+  var stimButtonTranslucent = '<button class="jspsych-btn button1"><img src="%choice%" width="250" height="250"/></button>'; // translucent
 
   /* Audio-button trial */
   var introAudioButton = {
@@ -89,14 +86,13 @@
     randomize_order: true
   };
 
-  /* 2. Polysemy Task: choose block */
+/* 2. Polysemy Task: choose block */
 
   /* Shuffle list of distractors */
   var chooseDistractors = jsPsych.randomization.shuffle(chooseDistractors);
 
   /* Create timeline variable of target, 3 distractors, and audio for 18 trials;
-  shuffle choice order within each trial; record info for later.
-  note: delete two distractors from loop for a 2-choice experiment */
+  shuffle choice order within each trial; record info for later. */
   var chooseStimuli = [];
   for (i = 0; i < chooseTargets.length; i++) {
     chooseSet = [chooseTargets[i], chooseDistractors[3*i], chooseDistractors[3*i+1], chooseDistractors[3*i+2]];

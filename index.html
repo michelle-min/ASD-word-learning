@@ -17,24 +17,18 @@
     <script src="js/jspsych/plugins/jspsych-survey-text.js"></script>
     <script src="js/jspsych/jspsych-pavlovia-3.0.0.js"></script>
     <script src="js/jspsych/jquery-3.5.1.min.js"></script>
-    <script src="js/polysemy_stim.js"></script>
-    <script src="js/polysemy_task.js"></script>
-    <script src="js/pal_stim.js"></script>
-    <script src="js/pal_task.js"></script>
+    <script src="js/stim.js"></script>
+    <script src="js/polysemy.js"></script>
     <link href="js/jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <style>
-      .grid-container-translucent > div {
-        opacity: 0.4;
-      }
       .button1 {
         display: inline-block;
       }
       #jspsych-audio-button-response-btngroup {position: static; height: 700px; width: 750px;}
-      #jspsych-audio-button-response-button-0 {position: absolute; top: 40%; left: 40%;}
-      #jspsych-audio-button-response-button-1 {position: absolute; top: 40%; left: 60%;}
-      #jspsych-audio-button-response-button-2 {position: absolute; top: 60%; left: 40%;}
-      #jspsych-audio-button-response-button-3 {position: absolute; top: 60%; left: 40%}
-
+      #jspsych-audio-button-response-button-0 {position: absolute; top: 25%; left: 25%;}
+      #jspsych-audio-button-response-button-1 {position: absolute; top: 25%; left: 75%;}
+      #jspsych-audio-button-response-button-2 {position: absolute; top: 75%; left: 25%;}
+      #jspsych-audio-button-response-button-3 {position: absolute; top: 75%; left: 75%}
     </style>
   </head>
   <body></body>
@@ -43,11 +37,10 @@
   var timeline = [];
 
   /* Initialize connection with Pavlovia */
-  var pavlovia_init = {
+  timeline.push({
   	type: "pavlovia",
   	command: "init"
-  };
-  timeline.push(pavlovia_init);
+  });
 
   /* Save subject ID from Qualtrics */
   subj_id = jsPsych.data.getURLVariable('subject');
@@ -59,7 +52,7 @@
     fullscreen_mode: true
   });
 
-  /* Polysemy Task */
+  /* Tasks */
   timeline.push(
     {type: 'audio-button-response', stimulus: 'audio/instructions_practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitpicture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
@@ -69,39 +62,24 @@
     pol_choose_procedure
   );
 
-
-  /* PAL Tasks */
-  timeline.push(
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
-    task1[0], // ambiguous or iconic + teach
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-    task1[1], // same + test
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
-    task2[0], // other + teach
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-    task2[1] // other + test
-  );
-
   /* Payment and Feedback */
   timeline.push({type: 'survey-text',
                  preamble: 'Your payment code is: <strong>273811</strong>',
-                 questions: [{prompt: "Do you have any feedback for us about the task?", name: 'feedback', required: false}],
+                 questions: [{prompt: "Do you have any feedback for us about the task?",
+                              name: 'feedback', required: false}],
                  button_label: 'Submit'});
 
   /* Ending */
-  timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done.'});
+  timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3',
+                 choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done.'});
 
   /* Finish connection with Pavlovia */
-  var pavlovia_finish = {
-  	type: "pavlovia",
-  	command: "finish"
-  	};
-  timeline.push(pavlovia_finish);
+  timeline.push({type: "pavlovia", command: "finish"});
 
   /* Paths to stimuli for preloading (timeline variables) */
-  var allImages = introImages.concat(chooseDistractors, chooseTargets, ['pol_images/playbutton.jpg'], imagesA, imagesB, imagesC, imagesD)
-  var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio, [])
-  var allVideos = ver1_stim.concat(ver3_stim);
+  var allImages = introImages
+  var allAudio = introAudioPre
+  var allVideos = ver1_stim
 
   /* Initialize */
   jsPsych.init({
