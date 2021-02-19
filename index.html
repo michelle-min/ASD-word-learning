@@ -54,6 +54,7 @@
   });
 
   /* Tasks */
+<<<<<<< HEAD
   timeline.push(
     {type: 'audio-button-response', stimulus: 'audio/instructions_practice.mp3', choices: ['pol_images/playbutton.jpg'], button_html: '<button class="jspsych-btn"><img src="%choice%" width="100" height="100"/></button>'},
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitpicture.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
@@ -61,6 +62,9 @@
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitfull.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     pol_choose_procedure);
+=======
+  timeline.push(poltask);
+>>>>>>> 54808c0532aefd197cc43c228a3b6ff414456306
 
   /* Payment and Feedback */
   timeline.push({type: 'survey-text',
