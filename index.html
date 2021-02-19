@@ -97,11 +97,6 @@
   /* Finish connection with Pavlovia */
   timeline.push({type: "pavlovia", command: "finish"});
 
-  /* Paths to stimuli for preloading (timeline variables) */
-  var allImages = polImages.concat(taskImages)
-  var allAudio = polAudio.concat(taskAudio)
-  var allVideos = taskVideos
-
   /* Initialize */
   jsPsych.init({
     timeline: timeline,

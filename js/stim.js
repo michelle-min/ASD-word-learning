@@ -37,6 +37,6 @@
     var cond2Distractors = ['pal_images/iconic_boat.jpg','pal_images/iconic_car.jpg','pal_images/iconic_chair.jpg','pal_images/iconic_fox.jpg','pal_images/iconic_sandbox.jpg','pal_images/iconic_snake.jpg','pal_images/iconic_table.jpg','pal_images/iconic_tub.jpg']
 
   // PRELOADING
-    var taskImages = introImages.concat(introTargets, chooseDistractors, chooseTargets, cond1Targets, cond1Random, cond1Distractors, cond2Targets, cond2Distractors)
-    var taskAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
-    var taskVideos = cond1Videos.concat(cond2Videos)
+    var allImages = introImages.concat(introTargets, chooseDistractors, chooseTargets, cond1Targets, cond1Random, cond1Distractors, cond2Targets, cond2Distractors)
+    var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
+    var allVideos = cond1Videos.concat(cond2Videos)

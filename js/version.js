@@ -8,7 +8,7 @@
   } else if (ver == 2) {
     var palVideos = cond2Videos; // for teaching
     var palDistractors = cond2Distractors; // iconic distractors
-    var palRandom = cond2Random; // random distractors
+    var palRandom = cond1Random; // random distractors
   }
 
 /* Split numbers into 4 groups */
