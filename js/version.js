@@ -17,22 +17,22 @@
 
   var block1Num = [];
   for (i = 0; i < listNum.length/4; i++) {
-    block1Num.append(i);
+    block1Num.push(i);
   }
 
   var block2Num = [];
   for (i = 0+listNum.length/4; i < listNum.length/2; i++) {
-    block2Num.append(i);
+    block2Num.push(i);
   }
 
   var block3Num = [];
   for (i = 0+(listNum.length/2); i < listNum.length/4*3; i++) {
-    block3Num.append(i);
+    block3Num.push(i);
   }
 
   var block4Num = [];
   for (i = 0+(listNum.length/4*3); i < listNum.length; i++) {
-    block4Num.append(i);
+    block4Num.push(i);
   }
 
 /* Split stimuli into 4 groups */
