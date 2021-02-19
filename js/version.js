@@ -38,20 +38,24 @@
 /* Split stimuli into 4 groups */
   var videosBlock1 = [];
   for (i = 0; i < 6; i++) {
-    videosBlock1[i] = {video: [conditionStimuli[i]]}, + "\n";
+    index = block1Num[i];
+    videosBlock1[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock2 = [];
   for (i = 6; i < 12; i++) {
-    videosBlock2[i] = {video: [conditionStimuli[i+6]]}, + "\n";
+    index = block2Num[i];
+    videosBlock2[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock3 = [];
   for (i = 12; i < 18; i++) {
-    videosBlock3[i] = {video: [conditionStimuli[i+12]]}, + "\n";
+    index = block3Num[i];
+    videosBlock3[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock4 = [];
   for (i = 18; i < 24; i++) {
-    videosBlock4[i] = {video: [conditionStimuli[i+18]]}, + "\n";
+    index = block4Num[i];
+    videosBlock4[i] = {video: [palVideos[index]]}, + "\n";
   }
