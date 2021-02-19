@@ -19,6 +19,8 @@
     <script src="js/jspsych/jquery-3.5.1.min.js"></script>
     <script src="js/stim.js"></script>
     <script src="js/polysemy.js"></script>
+    <script src="js/version.js"></script>
+    <script src="js/pal.js"></script>
     <link href="js/jspsych/css/jspsych.css" rel="stylesheet" type="text/css"></link>
     <style>
       .button1translucent {
@@ -59,7 +61,7 @@
   });
 
 
-  /* Tasks */
+  /* Polysemy Task */
   timeline.push(
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_practice.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     fixation,
@@ -68,6 +70,18 @@
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_waitfull.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     pol_choose_procedure);
+
+  /* PAL Task */
+  timeline.push(
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
+    pal_procedure[0],
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    pal_procedure[1],
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
+    pal_procedure[2],
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    pal_procedure[3]
+  )
 
   /* Payment and Feedback */
   timeline.push({type: 'survey-text',
@@ -84,16 +98,16 @@
   timeline.push({type: "pavlovia", command: "finish"});
 
   /* Paths to stimuli for preloading (timeline variables) */
-  var allImages = polImages
-  var allAudio = polAudio
-  //var allVideos = ver1_stim
+  var allImages = polImages.concat(taskImages)
+  var allAudio = polAudio.concat(taskAudio)
+  var allVideos = taskVideos
 
   /* Initialize */
   jsPsych.init({
     timeline: timeline,
     preload_images: allImages,
     preload_audio: allAudio,
-    //preload_video: allVideos,
+    preload_video: allVideos,
     default_iti: 100, // intertrial interval (ms)
     experiment_width: 750, // max experiment width
     show_progress_bar: true,
