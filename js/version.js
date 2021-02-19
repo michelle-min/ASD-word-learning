@@ -12,7 +12,7 @@
   }
 
 /* Split numbers into 4 groups */
-  var listNum = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23];
+  var listNum = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
   var listNum = jsPsych.randomization.shuffle(listNum);
 
   var block1Num = [];
@@ -37,25 +37,27 @@
 
 /* Split stimuli into 4 groups */
   var videosBlock1 = [];
-  for (i = 0; i < 6; i++) {
+  for (i = 0; i < 4; i++) {
     index = block1Num[i];
     videosBlock1[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock2 = [];
-  for (i = 6; i < 12; i++) {
+  for (i = 4; i < 8; i++) {
     index = block2Num[i];
     videosBlock2[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock3 = [];
-  for (i = 12; i < 18; i++) {
+  for (i = 8; i < 12; i++) {
     index = block3Num[i];
     videosBlock3[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock4 = [];
-  for (i = 18; i < 24; i++) {
+  for (i = 12; i < 16; i++) {
     index = block4Num[i];
     videosBlock4[i] = {video: [palVideos[index]]}, + "\n";
   }
+
+/* Split testing into 4 groups */
