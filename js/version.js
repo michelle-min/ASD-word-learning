@@ -1,15 +1,15 @@
-/* Randomly choose one of two conditions */
+palTargets[/* Randomly choose one of two conditions */
   var ver = Math.floor((Math.random() * 2) + 1);
 
   if (ver == 1) {
     var palVideos = cond1Videos; // for teaching
     var palObjects = cond1Objects; // for testing
-    var palTarget = cond1Targets; // right answer
+    var palTargets = cond1Targets; // right answer
     var palDistractors = cond1Distractors; // distractors (for iconic)
   } else if (ver == 2) {
     var palVideos = cond2Videos; // for teaching
     var palObjects = cond2Objects; // for testing
-    var palTarget = cond2Targets; // right answer
+    var palTargets = cond2Targets; // right answer
     var palDistractors = cond2Distractors; // distractors (for iconic)
   }
 
@@ -73,12 +73,12 @@
     // object
     var testedObject = palObjects[index];
     // target image
-    var targetSym = palTarget[index];
+    var targetSym = palTargets[index];
     // nontarget image
     if (index < 8) {
-      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
-    } else {
       var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
+    } else {
+      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
     };
     // join images into list (random order)
     var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
@@ -86,6 +86,7 @@
     choicesBlock1[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   };
+  4853
 
   var choicesBlock2 = [];
   for (i = 0; i < 4; i++) {
@@ -93,7 +94,7 @@
     // object
     var testedObject = palObjects[index];
     // target image
-    var targetSym = palTarget[index];
+    var targetSym = palTargets[index];
     // nontarget image
     if (index < 8) {
       var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
@@ -113,7 +114,7 @@
     // object
     var testedObject = palObjects[index];
     // target image
-    var targetSym = palTarget[index];
+    var targetSym = palTargets[index];
     // nontarget image
     if (index < 8) {
       var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
@@ -133,7 +134,7 @@
     // object
     var testedObject = palObjects[index];
     // target image
-    var targetSym = palTarget[index];
+    var targetSym = palTargets[index];
     // nontarget image
     if (index < 8) {
       var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor

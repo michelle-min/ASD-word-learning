@@ -6,11 +6,11 @@
       sources: jsPsych.timelineVariable('video'),
       stimulus: function() {
         trial_num = jsPsych.data.get().count();
-        if (trial_num < 84 || (trial_num > 126 && trial_num < 134) ) {
+        if (trial_num < 84) {
           return 'audio/instructions_gotogether.mp3';
-        } else if (trial_num < 92 || (trial_num > 134 && trial_num < 142) ) {
+        } else if (trial_num < 101) {
           return 'audio/instructions_alsogotogether.mp3';
-        } else if (trial_num < 100 || (trial_num > 142 && trial_num < 150) ) {
+        } else if (trial_num < 118) {
           return 'audio/instructions_gotogethertoo.mp3';
         } else {
           return 'audio/instructions_justafewmore.mp3';
