@@ -49,19 +49,19 @@
   }
 
   var videosBlock2 = [];
-  for (i = 4; i < 8; i++) {
+  for (i = 0; i < 4; i++) {
     index = block2Num[i];
     videosBlock2[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock3 = [];
-  for (i = 8; i < 12; i++) {
+  for (i = 0; i < 4; i++) {
     index = block3Num[i];
     videosBlock3[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock4 = [];
-  for (i = 12; i < 16; i++) {
+  for (i = 0; i < 4; i++) {
     index = block4Num[i];
     videosBlock4[i] = {video: [palVideos[index]]}, + "\n";
   }
@@ -88,7 +88,7 @@
   };
 
   var choicesBlock2 = [];
-  for (i = 4; i < 8; i++) {
+  for (i = 0; i < 4; i++) {
     index = block2Num[i];
     // object
     var testedObject = palObjects[index];
@@ -108,7 +108,7 @@
   };
 
   var choicesBlock3 = [];
-  for (i = 8; i < 12; i++) {
+  for (i = 0; i < 4; i++) {
     index = block3Num[i];
     // object
     var testedObject = palObjects[index];
@@ -128,7 +128,7 @@
   };
 
   var choicesBlock4 = [];
-  for (i = 12; i < 16; i++) {
+  for (i = 0; i < 4; i++) {
     index = block4Num[i];
     // object
     var testedObject = palObjects[index];
