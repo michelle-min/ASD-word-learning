@@ -20,7 +20,6 @@
       trial_duration: 3500, // trial duration in ms
       response_ends_trial: false, // trial continues for trial_duration regardless of keyboard response
       data: {
-        version: ver,
         video: jsPsych.timelineVariable('video'),
         block: 'teach',
         task: 'pal'
@@ -66,7 +65,7 @@
     data: {
       choices: jsPsych.timelineVariable('set'),
       target: jsPsych.timelineVariable('target'),
-      version: ver,
+      condition: ver,
       block: 'test',
       task: 'pal'
     },

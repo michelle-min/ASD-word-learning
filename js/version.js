@@ -88,8 +88,9 @@
     // create timeline var
     choicesBlock1[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
-    }
-  }
+  };
+
+
 
 
   //
