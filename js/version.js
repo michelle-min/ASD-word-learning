@@ -76,9 +76,9 @@ palTargets[/* Randomly choose one of two conditions */
     var targetSym = palTargets[index];
     // nontarget image
     if (index < 8) {
-      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
-    } else {
       var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
+    } else {
+      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
     };
     // join images into list (random order)
     var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
