@@ -26,31 +26,16 @@
       }
   };
 
-  /* Procedure for block 1 teaching */
+  /* Procedure for 2 blocks teaching */
   var block1_teach_procedure = {
     timeline: [fixation, palVideoKeyboard],
     timeline_variables: videosBlock1,
     randomize_order: true
   };
 
-  /* Procedure for ambiguous pairs teaching */
   var block2_teach_procedure = {
     timeline: [fixation, palVideoKeyboard],
     timeline_variables: videosBlock2,
-    randomize_order: true
-  };
-
-  /* Procedure for ambiguous pairs teaching */
-  var block3_teach_procedure = {
-    timeline: [fixation, palVideoKeyboard],
-    timeline_variables: videosBlock3,
-    randomize_order: true
-  };
-
-  /* Procedure for ambiguous pairs teaching */
-  var block4_teach_procedure = {
-    timeline: [fixation, palVideoKeyboard],
-    timeline_variables: videosBlock4,
     randomize_order: true
   };
 
@@ -79,7 +64,7 @@
     }
   };
 
-  /* Procedure for 4 blocks testing */
+  /* Procedure for 2 blocks testing */
   var block1_test_procedure = {
     timeline: [fixation, testImageButton],
     timeline_variables: choicesBlock1,
@@ -89,17 +74,5 @@
   var block2_test_procedure = {
     timeline: [fixation, testImageButton],
     timeline_variables: choicesBlock2,
-    randomize_order: true
-  };
-
-  var block3_test_procedure = {
-    timeline: [fixation, testImageButton],
-    timeline_variables: choicesBlock3,
-    randomize_order: true
-  };
-
-  var block4_test_procedure = {
-    timeline: [fixation, testImageButton],
-    timeline_variables: choicesBlock4,
     randomize_order: true
   };
