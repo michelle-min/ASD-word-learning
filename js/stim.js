@@ -26,6 +26,7 @@
   // CONDITION 1
 
     var cond1Videos = ['videos/cond1_newamb_pizza.mp4','videos/cond1_newamb_bib.mp4','videos/cond1_newamb_boots.mp4','videos/cond1_newamb_butterfly.mp4','videos/cond1_newamb_button.mp4','videos/cond1_newamb_eye.mp4','videos/cond1_newamb_flag.mp4','videos/cond1_newamb_lightning.mp4','videos/cond1_iconic_boat1_MUTE.mp4','videos/cond1_iconic_car1_MUTE.mp4','videos/cond1_iconic_chair1_MUTE.mp4','videos/cond1_iconic_fox1_MUTE.mp4','videos/cond1_iconic_sandbox1_MUTE.mp4','videos/cond1_iconic_snake1_MUTE.mp4','videos/cond1_iconic_table1_MUTE.mp4','videos/cond1_iconic_tub1_MUTE.mp4']
+    var cond1Objects = ['pal_images/pizza.jpg','pal_images/bib.jpg','pal_images/boots.jpg','pal_images/butterfly.jpg','pal_images/button.jpg','pal_images/eye.jpg','pal_images/flag.jpg','pal_images/lightning.jpg','pal_images/boat.jpg','pal_images/car.jpg','pal_images/chair.jpg','pal_images/fox.jpg','pal_images/sandbox.jpg','pal_images/snake.jpg','pal_images/table.jpg','pal_images/tub.jpg']
     var cond1Targets = ['pal_images/amb_pizza.jpg','pal_images/amb_bib.jpg','pal_images/amb_boots.jpg','pal_images/amb_butterfly.jpg','pal_images/amb_button.jpg','pal_images/amb_eye.jpg','pal_images/amb_flag.jpg','pal_images/amb_lightning.jpg']
     var cond1Random = ['pal_images/random4.jpg','pal_images/random5.jpg','pal_images/random6.jpg','pal_images/random7.jpg','pal_images/random8.jpg','pal_images/random9.jpg','pal_images/random1.jpg','pal_images/random10.jpg','pal_images/random11.jpg','pal_images/random12.jpg','pal_images/random13.jpg','pal_images/random14.jpg','pal_images/random15.jpg','pal_images/random16.jpg','pal_images/random2.jpg','pal_images/random3.jpg']
     var cond1Distractors = ['pal_images/iconic_pizza.jpg','pal_images/iconic_bib.jpg','pal_images/iconic_boots.jpg','pal_images/iconic_butterfly.jpg','pal_images/iconic_button.jpg','pal_images/iconic_eye.jpg','pal_images/iconic_flag.jpg','pal_images/iconic_lightning.jpg']
@@ -33,10 +34,11 @@
   // CONDITION 2
 
     var cond2Videos = ['videos/cond2_newamb_boat.mp4','videos/cond2_newamb_car.mp4','videos/cond2_newamb_chair.mp4','videos/cond2_newamb_fox.mp4','videos/cond2_newamb_sandbox.mp4','videos/cond2_newamb_snake.mp4','videos/cond2_newamb_table.mp4','videos/cond2_newamb_tub.mp4','videos/cond2_iconic_bib1_MUTE.mp4','videos/cond2_iconic_boots1_MUTE.mp4','videos/cond2_iconic_butterfly1_MUTE.mp4','videos/cond2_iconic_button1_MUTE.mp4','videos/cond2_iconic_eye1_MUTE.mp4','videos/cond2_iconic_flag1_MUTE.mp4','videos/cond2_iconic_lightning1_MUTE.mp4','videos/cond2_iconic_pizza1_MUTE.mp4']
+    var cond2Objects = ['pal_images/boat.jpg','pal_images/car.jpg','pal_images/chair.jpg','pal_images/fox.jpg','pal_images/sandbox.jpg','pal_images/snake.jpg','pal_images/table.jpg','pal_images/tub.jpg','pal_images/bib.jpg','pal_images/boots.jpg','pal_images/butterfly.jpg','pal_images/button.jpg','pal_images/eye.jpg','pal_images/flag.jpg','pal_images/lightning.jpg','pal_images/pizza.jpg']
     var cond2Targets = ['pal_images/amb_boat.jpg','pal_images/amb_car.jpg','pal_images/amb_chair.jpg','pal_images/amb_fox.jpg','pal_images/amb_sandbox.jpg','pal_images/amb_snake.jpg','pal_images/amb_table.jpg','pal_images/amb_tub.jpg']
     var cond2Distractors = ['pal_images/iconic_boat.jpg','pal_images/iconic_car.jpg','pal_images/iconic_chair.jpg','pal_images/iconic_fox.jpg','pal_images/iconic_sandbox.jpg','pal_images/iconic_snake.jpg','pal_images/iconic_table.jpg','pal_images/iconic_tub.jpg']
 
   // PRELOADING
-    var allImages = introImages.concat(introTargets, chooseDistractors, chooseTargets, cond1Targets, cond1Random, cond1Distractors, cond2Targets, cond2Distractors)
+    var allImages = introImages.concat(introTargets, chooseDistractors, chooseTargets, cond1Objects, cond1Targets, cond1Random, cond1Distractors, cond2Objects, cond2Targets, cond2Distractors)
     var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio)
     var allVideos = cond1Videos.concat(cond2Videos)
