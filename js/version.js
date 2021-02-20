@@ -22,53 +22,31 @@
   var listNum = jsPsych.randomization.shuffle(listNum);
 
   var block1Num = [];
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 8; i++) {
     block1Num.push(listNum[i]);
   }
 
   var block2Num = [];
-  for (i = 4; i < 8; i++) {
+  for (i = 8; i < 16; i++) {
     block2Num.push(listNum[i]);
   }
 
-  var block3Num = [];
-  for (i = 8; i < 12; i++) {
-    block3Num.push(listNum[i]);
-  }
-
-  var block4Num = [];
-  for (i = 12; i < 16; i++) {
-    block4Num.push(listNum[i]);
-  }
-
-/* Split teaching stimuli into 4 groups */
+/* Split teaching stimuli into 2 groups */
   var videosBlock1 = [];
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 8; i++) {
     index = block1Num[i];
     videosBlock1[i] = {video: [palVideos[index]]}, + "\n";
   }
 
   var videosBlock2 = [];
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 8; i++) {
     index = block2Num[i];
     videosBlock2[i] = {video: [palVideos[index]]}, + "\n";
   }
 
-  var videosBlock3 = [];
-  for (i = 0; i < 4; i++) {
-    index = block3Num[i];
-    videosBlock3[i] = {video: [palVideos[index]]}, + "\n";
-  }
-
-  var videosBlock4 = [];
-  for (i = 0; i < 4; i++) {
-    index = block4Num[i];
-    videosBlock4[i] = {video: [palVideos[index]]}, + "\n";
-  }
-
 /* Split testing stimuli into 4 groups */
   var choicesBlock1 = [];
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 8; i++) {
     index = block1Num[i];
     // object
     var testedObject = palObjects[index];
@@ -86,10 +64,9 @@
     choicesBlock1[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   };
-  4853
 
   var choicesBlock2 = [];
-  for (i = 0; i < 4; i++) {
+  for (i = 0; i < 8; i++) {
     index = block2Num[i];
     // object
     var testedObject = palObjects[index];
@@ -105,45 +82,5 @@
     var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
     // create timeline var
     choicesBlock2[i] = {
-      image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
-  };
-
-  var choicesBlock3 = [];
-  for (i = 0; i < 4; i++) {
-    index = block3Num[i];
-    // object
-    var testedObject = palObjects[index];
-    // target image
-    var targetSym = palTargets[index];
-    // nontarget image
-    if (index < 8) {
-      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
-    } else {
-      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
-    };
-    // join images into list (random order)
-    var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
-    // create timeline var
-    choicesBlock3[i] = {
-      image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
-  };
-
-  var choicesBlock4 = [];
-  for (i = 0; i < 4; i++) {
-    index = block4Num[i];
-    // object
-    var testedObject = palObjects[index];
-    // target image
-    var targetSym = palTargets[index];
-    // nontarget image
-    if (index < 8) {
-      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
-    } else {
-      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
-    };
-    // join images into list (random order)
-    var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
-    // create timeline var
-    choicesBlock4[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   };
