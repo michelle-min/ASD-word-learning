@@ -22,23 +22,23 @@
   var listNum = jsPsych.randomization.shuffle(listNum);
 
   var block1Num = [];
-  for (i = 0; i < listNum.length/4; i++) {
-    block1Num.push(i);
+  for (i = 0; i < 4; i++) {
+    block1Num.push(listNum[i]);
   }
 
   var block2Num = [];
-  for (i = 0+listNum.length/4; i < listNum.length/2; i++) {
-    block2Num.push(i);
+  for (i = 4; i < 8; i++) {
+    block2Num.push(listNum[i]);
   }
 
   var block3Num = [];
-  for (i = 0+(listNum.length/2); i < listNum.length/4*3; i++) {
-    block3Num.push(i);
+  for (i = 8; i < 12; i++) {
+    block3Num.push(listNum[i]);
   }
 
   var block4Num = [];
-  for (i = 0+(listNum.length/4*3); i < listNum.length; i++) {
-    block4Num.push(i);
+  for (i = 12; i < 16; i++) {
+    block4Num.push(listNum[i]);
   }
 
 /* Split teaching stimuli into 4 groups */
