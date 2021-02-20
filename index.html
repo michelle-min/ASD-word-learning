@@ -39,7 +39,7 @@
       #jspsych-audio-button-response-button-3 {position: absolute; top: 60%; left: 60%}
 
       #jspsych-image-button-response-button-0 {position: relative; top: 80px; right: 20px;}
-      #jspsych-audio-button-response-button-1 {position: relative; top: 80px; left: 20px;}
+      #jspsych-image-button-response-button-1 {position: relative; top: 80px; left: 20px;}
 
     </style>
   </head>
@@ -78,16 +78,14 @@
   // /* PAL Task */
   timeline.push(
     {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
-    block1_teach_procedure,
-    block1_test_procedure);
-    // {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-    // block2_teach_procedure);
-
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
-  //   pal_procedure[2],
-  //   {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
-  //   pal_procedure[3]
-  // )
+    block1_teach_procedure, block1_test_procedure,
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    block2_teach_procedure, block2_test_procedure,
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 5000},
+    block3_teach_procedure, block3_test_procedure,
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    block4_teach_procedure, block4_test_procedure,
+  )
 
   /* Payment and Feedback */
   timeline.push({type: 'survey-text',

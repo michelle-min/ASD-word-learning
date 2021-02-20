@@ -70,10 +70,8 @@
   var choicesBlock1 = [];
   for (i = 0; i < 4; i++) {
     index = block1Num[i];
-
     // object
     var testedObject = palObjects[index];
-
     // target image
     var targetSym = palTarget[index];
     // nontarget image
@@ -82,33 +80,69 @@
     } else {
       var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
     };
-    // join into list (random order)
+    // join images into list (random order)
     var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
-
     // create timeline var
     choicesBlock1[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
   };
 
+  var choicesBlock2 = [];
+  for (i = 4; i < 8; i++) {
+    index = block2Num[i];
+    // object
+    var testedObject = palObjects[index];
+    // target image
+    var targetSym = palTarget[index];
+    // nontarget image
+    if (index < 8) {
+      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
+    } else {
+      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
+    };
+    // join images into list (random order)
+    var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
+    // create timeline var
+    choicesBlock2[i] = {
+      image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
+  };
 
+  var choicesBlock3 = [];
+  for (i = 8; i < 12; i++) {
+    index = block3Num[i];
+    // object
+    var testedObject = palObjects[index];
+    // target image
+    var targetSym = palTarget[index];
+    // nontarget image
+    if (index < 8) {
+      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
+    } else {
+      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
+    };
+    // join images into list (random order)
+    var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
+    // create timeline var
+    choicesBlock3[i] = {
+      image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
+  };
 
-
-  //
-  //
-  // var choicesBlock1 = [];
-  // for (i = 4; i < 8; i++) {
-  //   index = block2Num[i];
-  //   choicesBlock1[i] = {video: [palVideos[index]]}, + "\n";
-  // }
-  //
-  // var videosBlock3 = [];
-  // for (i = 8; i < 12; i++) {
-  //   index = block3Num[i];
-  //   videosBlock3[i] = {video: [palVideos[index]]}, + "\n";
-  // }
-  //
-  // var videosBlock4 = [];
-  // for (i = 12; i < 16; i++) {
-  //   index = block4Num[i];
-  //   videosBlock4[i] = {video: [palVideos[index]]}, + "\n";
-  // }
+  var choicesBlock4 = [];
+  for (i = 12; i < 16; i++) {
+    index = block4Num[i];
+    // object
+    var testedObject = palObjects[index];
+    // target image
+    var targetSym = palTarget[index];
+    // nontarget image
+    if (index < 8) {
+      var nontargetSym = palDistractors[index]; // ambiguous target --> iconic distractor
+    } else {
+      var nontargetSym = palRandom[index-8]; // iconic target --> random distractor
+    };
+    // join images into list (random order)
+    var stimSet = jsPsych.randomization.shuffle([targetSym, nontargetSym]);
+    // create timeline var
+    choicesBlock4[i] = {
+      image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
+  };

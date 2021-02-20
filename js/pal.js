@@ -79,21 +79,27 @@
     }
   };
 
-  /* Procedure for iconic pairs sorting */
+  /* Procedure for 4 blocks testing */
   var block1_test_procedure = {
     timeline: [fixation, testImageButton],
     timeline_variables: choicesBlock1,
     randomize_order: true
   };
 
+  var block2_test_procedure = {
+    timeline: [fixation, testImageButton],
+    timeline_variables: choicesBlock2,
+    randomize_order: true
+  };
 
-    // /* Procedure for ambiguous pairs sorting */
-    // var block2_test_procedure = {
-    //   timeline: [fixation, testImageButton],
-    //   timeline_variables: choicesBlock2,
-    //   randomize_order: true
-    // };
+  var block3_test_procedure = {
+    timeline: [fixation, testImageButton],
+    timeline_variables: choicesBlock3,
+    randomize_order: true
+  };
 
-
-//temp
-//  var pal_procedure = [block1_teach_procedure, block2_teach_procedure, block3_teach_procedure, block4_teach_procedure]
+  var block4_test_procedure = {
+    timeline: [fixation, testImageButton],
+    timeline_variables: choicesBlock4,
+    randomize_order: true
+  };
