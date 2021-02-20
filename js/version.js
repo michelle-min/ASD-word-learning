@@ -1,4 +1,4 @@
-palTargets[/* Randomly choose one of two conditions */
+/* Randomly choose one of two conditions */
   var ver = Math.floor((Math.random() * 2) + 1);
 
   if (ver == 1) {
