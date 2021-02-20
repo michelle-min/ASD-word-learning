@@ -77,13 +77,13 @@
 
   /* PAL Task */
   timeline.push(
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_keepgoing.wav', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     block1_teach_procedure,
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     block1_test_procedure,
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_newgame.mp3', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     block2_teach_procedure,
-    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', response_ends_trial: false, trial_duration: 2500},
+    {type: 'audio-keyboard-response', stimulus: 'audio/instructions_whichpictures.wav', choices: jsPsych.NO_KEYS, trial_ends_after_audio: true},
     block2_test_procedure
   )
 
@@ -96,7 +96,7 @@
 
   /* Ending */
   timeline.push({type: 'audio-keyboard-response', stimulus: 'audio/done.mp3',
-                 choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done.'});
+                 choices: jsPsych.NO_KEYS, trial_ends_after_audio: true, prompt: 'You are all done!'});
 
   /* Finish connection with Pavlovia */
   timeline.push({type: "pavlovia", command: "finish"});
