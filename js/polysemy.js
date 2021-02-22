@@ -29,6 +29,7 @@
         stimulus: jsPsych.timelineVariable('audioPost'),
         choices: jsPsych.timelineVariable('set'),
         button_html: stimButton,
+        response_allowed_while_playing: false,
         data: {
           choices: jsPsych.timelineVariable('set'),
           target: jsPsych.timelineVariable('target'),
@@ -106,6 +107,7 @@
     stimulus: jsPsych.timelineVariable('audio'),
     choices: jsPsych.timelineVariable('set'),
     button_html: stimButton,
+    response_allowed_while_playing: false,
     data: {
       choices: jsPsych.timelineVariable('set'),
       target: jsPsych.timelineVariable('target'),
