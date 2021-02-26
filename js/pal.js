@@ -6,7 +6,6 @@
       stimulus: jsPsych.timelineVariable('audio'),
       choices: jsPsych.timelineVariable('set'),
       button_html: stimButton,
-      response_allowed_while_playing: false,
       response_ends_trial: false, //  trial continues for timing_response time reached so subject must view
       trial_duration: 5000,
       data: {
@@ -37,11 +36,11 @@
       sources: jsPsych.timelineVariable('video'),
       stimulus: function() {
         trial_num = jsPsych.data.get().count();
-        if (trial_num < 84) {
+        if (trial_num < 92) {
           return 'audio/instructions_gotogether.mp3';
         } else if (trial_num < 101) {
           return 'audio/instructions_alsogotogether.mp3';
-        } else if (trial_num < 118) {
+        } else if (trial_num < 134) {
           return 'audio/instructions_gotogethertoo.mp3';
         } else {
           return 'audio/instructions_justafewmore.mp3';

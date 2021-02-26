@@ -78,13 +78,13 @@
 
 .jspsych-btn:hover {
   background-color: Transparent;
+  color: #6495ed; // MM added
   border-color: #aaa;
-  /* filter: brightness(120%); to up brightness on hover */
 }
 
 .jspsych-btn:disabled {
-  background-color: #eee;
-  color: #aaa;
+  background-color: Transparent; // MM changed from #eee
+  color: Transparent; // MM changed from #aaa
   border-color: #ccc;
   cursor: not-allowed;
 }

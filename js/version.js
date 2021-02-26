@@ -101,10 +101,8 @@
   var previewSet2 = [];
   var previewBlock2 = [];
 
-  // shuffle audio
-  var palPreviewAudio = jsPsych.randomization.shuffle(palPreviewAudio);
-  // add a fourth audio
-  var palPreviewAudio = palPreviewAudio.concat(palPreviewAudio[0]);
+  // shuffle audio and add a fourth
+  var palPreviewAudio = jsPsych.randomization.shuffle(palPreviewAudio).concat(palPreviewAudio[0]);
 
   for (i = 0; i < 4; i++) {
     previewSet1 = [previewList1[4*i], previewList1[4*i+1], previewList1[4*i+2], previewList1[4*i+3]];
