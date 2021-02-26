@@ -110,7 +110,7 @@
     previewSet1 = [previewList1[4*i], previewList1[4*i+1], previewList1[4*i+2], previewList1[4*i+3]];
     previewBlock1[i] = {
       set: previewSet1,
-      audio: palpreviewAudio[i]}, + "\n";
+      audio: palPreviewAudio[i]}, + "\n";
     };
 
   for (i = 0; i < 4; i++) {
