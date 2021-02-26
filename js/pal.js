@@ -1,4 +1,4 @@
-/* 0. PAL Pre-exposure of all tested images (8 targets + 8 distractors) */
+/* 0. PAL preview of all tested images (8 targets + 8 distractors) */
 
   /* Audio-keyboard trial */
   var palAudioKeyboard = {
@@ -11,21 +11,21 @@
       trial_duration: 5000,
       data: {
         choices: jsPsych.timelineVariable('set'),
-        block: 'exposure',
+        block: 'preview',
         task: 'pal'
       }
     };
 
-  /* Procedure for 2 blocks exposure */
-  var block1_exposure_procedure = {
+  /* Procedure for 2 blocks preview */
+  var block1_preview_procedure = {
     timeline: [fixation, palAudioKeyboard],
-    timeline_variables: exposureBlock1,
+    timeline_variables: previewBlock1,
     randomize_order: true
   };
 
-  var block2_exposure_procedure = {
+  var block2_preview_procedure = {
     timeline: [fixation, palAudioKeyboard],
-    timeline_variables: exposureBlock2,
+    timeline_variables: previewBlock2,
     randomize_order: true
   };
 

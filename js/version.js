@@ -46,7 +46,7 @@
 
 /* Split testing stimuli into 4 groups */
   var choicesBlock1 = [];
-  var exposureList1 = [];
+  var previewList1 = [];
   for (i = 0; i < 8; i++) {
     index = block1Num[i];
     // object
@@ -64,12 +64,12 @@
     // create timeline var for testing (image-button trials)
     choicesBlock1[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
-    // add list for exposure (audio-button trials)
-    var exposureList1 = exposureList1.concat(stimSet);
+    // add list for preview (audio-button trials)
+    var previewList1 = previewList1.concat(stimSet);
   };
 
   var choicesBlock2 = [];
-  var exposureList2 = [];
+  var previewList2 = [];
   for (i = 0; i < 8; i++) {
     index = block2Num[i];
     // object
@@ -87,35 +87,35 @@
     // create timeline var for testing (image-button trials)
     choicesBlock2[i] = {
       image: testedObject, set: stimSet, target: targetSym, block: 'sort'}, + "\n";
-    // add to list for exposure (audio-button trials)
-    var exposureList2 = exposureList2.concat(stimSet);
+    // add to list for preview (audio-button trials)
+    var previewList2 = previewList2.concat(stimSet);
   };
 
 
-/* Timeline variable for exposure trials */
+/* Timeline variable for preview trials */
   // shuffle all images (targets + distractors)
-  var exposureList1 = jsPsych.randomization.shuffle(exposureList1);
-  var exposureSet1 = [];
-  var exposureBlock1 = [];
-  var exposureList2 = jsPsych.randomization.shuffle(exposureList2);
-  var exposureSet2 = [];
-  var exposureBlock2 = [];
+  var previewList1 = jsPsych.randomization.shuffle(previewList1);
+  var previewSet1 = [];
+  var previewBlock1 = [];
+  var previewList2 = jsPsych.randomization.shuffle(previewList2);
+  var previewSet2 = [];
+  var previewBlock2 = [];
 
   // shuffle audio
-  var palExposureAudio = jsPsych.randomization.shuffle(palExposureAudio);
+  var palPreviewAudio = jsPsych.randomization.shuffle(palPreviewAudio);
   // add a fourth audio
-  var palExposureAudio = palExposureAudio.concat(palExposureAudio[0]);
+  var palPreviewAudio = palPreviewAudio.concat(palPreviewAudio[0]);
 
   for (i = 0; i < 4; i++) {
-    exposureSet1 = [exposureList1[4*i], exposureList1[4*i+1], exposureList1[4*i+2], exposureList1[4*i+3]];
-    exposureBlock1[i] = {
-      set: exposureSet1,
-      audio: palExposureAudio[i]}, + "\n";
+    previewSet1 = [previewList1[4*i], previewList1[4*i+1], previewList1[4*i+2], previewList1[4*i+3]];
+    previewBlock1[i] = {
+      set: previewSet1,
+      audio: palpreviewAudio[i]}, + "\n";
     };
 
   for (i = 0; i < 4; i++) {
-    exposureSet2 = [exposureList2[4*i], exposureList2[4*i+1], exposureList2[4*i+2], exposureList2[4*i+3]];
-    exposureBlock2[i] = {
-      set: exposureSet2,
-      audio: palExposureAudio[i]}, + "\n";
+    previewSet2 = [previewList2[4*i], previewList2[4*i+1], previewList2[4*i+2], previewList2[4*i+3]];
+    previewBlock2[i] = {
+      set: previewSet2,
+      audio: palPreviewAudio[i]}, + "\n";
     };

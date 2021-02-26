@@ -22,7 +22,7 @@
 /* PAL Stimuli */
 
     var palAudio = ['audio/instructions_gotogether.mp3', 'audio/instructions_keepgoing.wav', 'audio/instructions_waitfull.mp3', 'audio/instructions_whichpictures.wav', 'audio/instructions_newgame.mp3', 'audio/done.mp3', `audio/instructions_justafewmore.mp3`, `audio/instructions_alsogotogether.mp3`, `audio/instructions_gotogethertoo.mp3`]
-    var palExposureAudio = ['audio/instructions_checktheseout.mp3', 'audio/instructions_lookatthese.mp3', 'audio/instructions_wowthesearecool.mp3']
+    var palPreviewAudio = ['audio/instructions_checktheseout.mp3', 'audio/instructions_lookatthese.mp3', 'audio/instructions_wowthesearecool.mp3']
 
   // CONDITION 1
 
@@ -41,5 +41,5 @@
 
   // PRELOADING
     var allImages = introImages.concat(introTargets, chooseDistractors, chooseTargets, cond1Objects, cond1Targets, cond1Random, cond1Distractors, cond2Objects, cond2Targets, cond2Distractors)
-    var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio, palExposureAudio)
+    var allAudio = introAudioPre.concat(introAudioPost, introAudioFeedback, chooseAudio, palAudio, palPreviewAudio)
     var allVideos = cond1Videos.concat(cond2Videos)
